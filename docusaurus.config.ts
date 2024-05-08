@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'zkVerify',
-  tagline: 'zkVerify - The Proof Verification Chain',
+  title: 'zkVerify Documentation',
+  tagline: 'The Proof Verification Chain',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -31,6 +31,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/HorizenLabs/zkverify-docs/',
+          routeBasePath: '/',
         },
         theme: {
           customCss: './src/css/custom.css',

@@ -6,13 +6,29 @@ title: JSON RPC
 
 
 ## Flags
-
+```
+--rpc-external
+```
 Listens to all RPC interfaces. By default, the node only listens to local RPC calls. If you set this command-line option, keep in mind that not all RPC methods are safe to be exposed publicly. 
+<br/>
 
+```
+--unsafe-rpc-external
+```
 Exactly the same as –rpc-external but suppresses the warning to understand risks of exposing unsafe methods.
+<br/>
 
+
+```
+--rpc-methods Safe 
+```
 Specifies the RPC methods to expose. Safe flag will only expose the safe methods.
+<br/>
 
+
+```
+--rpc-methods Unsafe 
+```
 Specifies the RPC methods to expose. Unsafe flag will only expose all the methods, including the unsafe ones.
 
 
@@ -32,7 +48,7 @@ Returns `true` if a private key could be found.
 
 `publicKey`  Bytes
 
-`keyType `Text
+`keyType` Text
 
 **Returns**
 
@@ -111,8 +127,6 @@ Generate new session keys and returns the corresponding public keys
 None
 
 **Returns**
-
-
 `
 Bytes 
 `

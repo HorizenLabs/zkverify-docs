@@ -1,3 +1,6 @@
+---
+slug: /
+---
 # What is zkVerify
 
 ## zkVerify Defined
