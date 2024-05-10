@@ -34,13 +34,13 @@ Miscellaneous requirements:
 cd cdk-validium-contracts && npm i
 ```
 
-- Create a .env file similar to the .env.template and fill the environment variables.
+- Create a `.env` file similar to the `.env.template` and fill the environment variables.
 
 ```
 cd deployment && cp deploy_parameters.json.example deploy_parameters.json
 ```
 
-- Fill the file deploy_parameters.json as follow.
+- Fill the file `deploy_parameters.json` as follow.
 
 ```
  {
@@ -73,8 +73,8 @@ cd deployment && cp deploy_parameters.json.example deploy_parameters.json
 }
 ```
 
-Feel free to leave the newHorizenContractAddress field empty for the first deployment, as a new instance will be automatically deployed for you.  If so desired, you may populate this field for subsequent deployments to avoid re-deploying that contract.
-Before each deployment, you must delete the folder .openzeppelin located in the project root and change the salt in the deploy_parameters.json file.
+Feel free to leave the `newHorizenContractAddress` field empty for the first deployment, as a new instance will be automatically deployed for you.  If so desired, you may populate this field for subsequent deployments to avoid re-deploying that contract.
+Before each deployment, you must delete the folder .openzeppelin located in the project root and change the salt in the `deploy_parameters.json` file.
 
 - Deploy the CDK deployer:
 
@@ -82,13 +82,13 @@ Before each deployment, you must delete the folder .openzeppelin located in the 
 npm run deploy:deployer:CDKValidium:sepolia
 ```
 
-- Deploy the CDK contracts and the New Horizen Smart Contract. This contract receives the Attestations created by the New Horizen Mainchain and It is used by the CDKValidium.sol contract to check if a batch proof is verified or not.
+- Deploy the CDK contracts and the New Horizen Smart Contract. This contract receives the Attestations created by the New Horizen Mainchain and It is used by the `CDKValidium.sol` contract to check if a batch proof is verified or not.
 
 ```
 npm run deploy:testnet:CDKValidium:sepolia
 ```
 
-- If the deployment is complete with success you will find a file under the deployment folder named test.genesis.confing.json. This file is the genesis file of your L2 network. We will use this file in the next step.
+- If the deployment is complete with success you will find a file under the deployment folder named `test.genesis.confing.json`. This file is the genesis file of your L2 network. We will use this file in the next step.
 
 ## CDK Node deployment
 
@@ -99,8 +99,8 @@ npm run deploy:testnet:CDKValidium:sepolia
 docker build -t zkevm-node:latest .
 ```
 
-- Go into the test folder and copy the file  test.genesis.confing.json generated in the above steps into the config folder.
-- Run the following script with the Aggregator private key and the Sequencer private key used in the smart contract deployment and store the result in the corresponding file aggregator.keystore and sequencer.keystore.
+- Go into the test folder and copy the file  `test.genesis.confing.json` generated in the above steps into the config folder.
+- Run the following script with the Aggregator private key and the Sequencer private key used in the smart contract deployment and store the result in the corresponding file `aggregator.keystore` and `sequencer.keystore`.
 
 ```
 const ethers = require("ethers");
@@ -118,8 +118,8 @@ main().catch((e) => {
 });
 ```
 
-- Fill the missing data in the config/test.node.config.toml.(_PLACEHOLDER_)
-- Copy the .env.template file in .env and fill the missing data.
+- Fill the missing data in the `config/test.node.config.toml`.(_PLACEHOLDER_)
+- Copy the `.env.template` file in `.env` and fill the missing data.
 - To run the node type:
 
 ```
@@ -154,16 +154,16 @@ cd zkevm-prover
 ./bootstrap.sh
 ```
 
-- Go into deploy folder and run prepare.sh script to compile and create the docker image (could take several minutes)
+- Go into deploy folder and run `prepare.sh` script to compile and create the docker image (could take several minutes)
 
 ```
 cd deploy
 ./prepare.sh
 ```
 
-- Edit config.json file and check:
-aggregatorClientHost should be the CDK aggregator reachable address
-databaseURL should be CDK Postgres URI
+- Edit `config.json` file and check:
+- - `aggregatorClientHost` should be the CDK aggregator reachable address
+- - `databaseURL` should be CDK Postgres URI
 - Start docker compose compose:
 
 ```
