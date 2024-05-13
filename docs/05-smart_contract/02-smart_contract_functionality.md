@@ -61,6 +61,6 @@ function verifyProofAttestation(
 - Computes `claimedAttestation = apply(_leaf, _merklePath, _index)`.
 - Returns `claimedAttestation ==  proofsAttestation[_attestationId]`.
 
-The verification of the Merkle path is carried out by employing the [Merkle.sol](https://github.com/HorizenLabs/CDK_contracts/blob/bp/nh_wip/contracts/lib/Merkle.sol) library contract provided by **EigenDA**. We preferred this choice over OpenZeppelin, as it is assuming that both leaves and internal nodes are ordered lexicographically, which is something not necessarily true for us.  Moreover, **EigenDA** implementation is more optimized.
+The verification of the Merkle path is carried out by employing the [Merkle.sol](https://github.com/HorizenLabs/cdk-validium-contracts/blob/0.1.1/contracts/lib/Merkle.sol) library contract provided by **EigenDA**. We preferred this choice over OpenZeppelin, as it is assuming that both leaves and internal nodes are ordered lexicographically, which is something not necessarily true for us.  Moreover, **EigenDA** implementation is more optimized.
 
 However, such implementation needs to be modified to accommodate the fact that Substrate uses a slightly optimized version of a Binary Merkle tree, while the contract assumes the Merkle tree to be always complete and balanced. Please refer to the Substrate [source code](https://github.com/paritytech/polkadot-sdk/blob/b0741d4f78ebc424c7544e1d2d5db7968132e577/substrate/utils/binary-merkle-tree/src/lib.rs#L237) for more info.
