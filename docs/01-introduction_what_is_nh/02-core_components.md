@@ -1,6 +1,6 @@
 # zkVerify Proof Verification Chain
 
-![alt_text](./img/nharch.png)
+![alt_text](./img/zkverifyarch.png)
 
 zkVerify is made of five core components that are defined below.
 
@@ -14,9 +14,9 @@ This is the interface (i.e. transactions and RPC calls) used by clients (zk roll
 The protocol that publishes the Merkle root of the proof tree onto the zkVerify smart contract on Ethereum once a given publication policy is met.
 
 ## zkVerify Smart Contract
-The core responsibility of this smart contract (NewHorizenProofVerifier.sol) is to store new attestations, validate them, and provide capabilities for NH users to verify that their proof is part of the attestation.
+The core responsibility of this smart contract (NewHorizenProofVerifier.sol) is to store new attestations, validate them, and provide capabilities for zkVerify users to verify that their proof is part of the attestation.
 
 ## Proof Submitters
-Users interested in verifying proofs on NH because:
+Users interested in verifying proofs on zkVerify because:
  - It is cheaper than doing it on a given settlement layer (e.g. Ethereum).
  - For notarization/timestamping purposes.
