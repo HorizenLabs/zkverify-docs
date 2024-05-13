@@ -42,7 +42,7 @@ cd deployment && cp deploy_parameters.json.example deploy_parameters.json
 
 - Fill the file `deploy_parameters.json` as follow.
 
-```
+```json
  {
   "realVerifier": true,
     "trustedSequencerURL": "http://zkevm-json-rpc:8123",
@@ -71,7 +71,7 @@ cd deployment && cp deploy_parameters.json.example deploy_parameters.json
     "newHorizenAttestationAddress": "<OPERATOR ADDRESS OF NH SMART CONTRACT>",
     "newHorizenContractAddress": "<ADDRESS OF NH SMART CONTRACT>"
 }
-```
+```json
 
 Feel free to leave the `newHorizenContractAddress` field empty for the first deployment, as a new instance will be automatically deployed for you.  If so desired, you may populate this field for subsequent deployments to avoid re-deploying that contract.
 Before each deployment, you must delete the folder .openzeppelin located in the project root and change the salt in the `deploy_parameters.json` file.
