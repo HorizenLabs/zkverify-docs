@@ -1,5 +1,5 @@
 ---
-title: Tutorial: How to submit a Polygon CDK proof
+title: How to submit a Polygon CDK proof
 ---
 
 # How to submit a Polygon CDK proof
