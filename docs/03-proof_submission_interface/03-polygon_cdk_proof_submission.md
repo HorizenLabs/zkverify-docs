@@ -6,7 +6,7 @@ title: How to submit a Polygon CDK proof
 In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the ZkVerify chain.
 
 ## Requirements
-- A Substrate compatible wallet with funds (nZEN) connected to the network
+- A Substrate compatible wallet with funds (ZETA) connected to the network
 - A Polygon CDK (Fork_ID 6) FFLONK proof
 
 ## Step 1
@@ -55,7 +55,7 @@ The final step is to concatenate the proof and the Public Input into a single st
 Send the proof to ZkVerify chain.
 In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics).
 
-- Select your account (you must have some tZEN)
+- Select your account (you must have some ZETA)
 - Choose the `settlementFFlonkPallet`
 - Inside the field `rawProof` paste the string obtained from the previous step
 - Click on `submitTransaction`
@@ -64,4 +64,4 @@ In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=w
 
 ## Step 4
 
-Check your transactino on the [ZkVerify Block Explorer](https://nh-explorer.horizenlabs.io/v0/extrinsic)!
+Check your transaction on the [ZkVerify Block Explorer](https://nh-explorer.horizenlabs.io/v0/extrinsic)!
