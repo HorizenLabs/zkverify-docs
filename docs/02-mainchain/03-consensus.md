@@ -4,17 +4,11 @@ title: zkVerify Mainchain Consensus
 
 # zkVerify Mainchain Consensus
 
+In zkVerify we use a delegated proof-of-stake consensus with deterministic finality, leveraging BABE for block authoring, and GRANDPA for block finalization.
+The top stakers on zkVerify are selected as authorities contributing to both block authoring and finalization.
+
 ## Block Authoring
-Currently we have implemented [AURA](https://docs.substrate.io/reference/glossary/#authority-round-aura) as the block authoring algorithm, while leveraging the Staking pallet.
-
-BABE (Blind Assignment for Blockchain Extension) will be implemented shortly.  It provides slot-based block authoring with a known set of validators and is typically used in proof-of-stake blockchains. Slot assignment is based on the evaluation of a Verifiable Random Function (VRF). Each validator is assigned a weight for an epoch. This epoch is broken up into slots and the validator evaluates its VRF at each slot. For each slot that the validator's VRF output is below its weight, it is allowed to author a block.
-
-
-| Parameter | Value | Description |
-| --- | --- | --- |
-| Slot Duration | 6 seconds (Default)  | Time period for which a block can be produced. |
-| Epoch | 600 slots | The number of slots in an epoch. An epoch is a period of time where the block producer set is the same. |
-
+We use [BABE](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe) (Blind Assignment for Blockchain Extension) as the block authoring algorithm. BABE provides slot-based block authoring with a known set of validators which produce at least one block per slot. Slot assignment is based on the evaluation of a Verifiable Random Function (VRF). Each validator is assigned a weight for an epoch. This epoch is broken up into slots and the validator evaluates its VRF at each slot. For each slot that the validator's VRF output is below its relative weight, it is allowed to author a block as a primary author. We also leverage secondary slots so that every slot will have at least one block produced resulting in a constant block time.
 
 ## Block Finalization
 [GRANDPA](https://paritytech.github.io/polkadot-sdk/master/sc_consensus_grandpa/index.html) (GHOST-based Recursive ANcestor Deriving Prefix Agreement) is a block finalization algorithm designed to work alongside block production mechanisms such as BABE.
@@ -39,7 +33,11 @@ On a high level, the GRANDPA algorithm follows these steps:
 
 - Finalization: Once more than 2/3 of validators have precommitted to a block (directly or for an ancestor of it), that block is considered finalized. This means that the block and all its ancestors are agreed upon to never be reverted.
 
+## Parameters
+We use the following configuration values to have a block time of 6 seconds, with epochs lasting 1 hour, and eras lasting 6 hours.
+
 | Parameter | Value | Description |
 | --- | --- | --- |
-| Session | 600 slots |A period that has a constant set of validators. Validators can only join or exit the validator set at a session change. |
-| Era | 6 sessions | At the end of any era, there is the election of the next validators and the payout of the rewards. |
+| Slot Duration | 6 seconds | Time period for which a block can be produced. Validators can only join or exit the validator set at a session change. |
+| Epoch Duration | 600 slots (1h) | The number of slots in an epoch. An epoch is a period of time where the block producer set is fixed. |
+| Era Duration | 6 epochs (6h) | The number of epochs in an era. At the end of any era, there is the election of the next validators and the payout of the rewards. |
