@@ -1,5 +1,5 @@
 ---
-title: zkVerify Mainchain Consensus
+title: Consensus
 ---
 
 # zkVerify Mainchain Consensus

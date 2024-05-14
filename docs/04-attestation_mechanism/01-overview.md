@@ -1,9 +1,7 @@
 ---
-title: Attestation Mechanism Overview
+title: Overview
 ---
 
 # Attestation Mechanism Overview
-
-## Overview
 
 ![alt_text](./img/attestation_overview.png)

@@ -1,8 +1,6 @@
 ---
-title: Smart Contract Overview
+title: Overview
 ---
-
-# Smart Contract Overview
 
 ## Smart Contract Architecture Diagram
 

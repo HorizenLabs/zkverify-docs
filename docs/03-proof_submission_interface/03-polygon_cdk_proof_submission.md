@@ -1,12 +1,12 @@
 ---
-title: How to submit a Polygon CDK proof
+title: Tutorial - Polygon CDK Proof Submission
 ---
 
-# How to submit a Polygon CDK proof
+# Tutorial - Polygon CDK Proof Submission
 In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the ZkVerify chain.
 
 ## Requirements
-- A Substrate compatible wallet with funds (ZETA) connected to the network
+- A Substrate compatible wallet with funds (ACME) connected to the network
 - A Polygon CDK (Fork_ID 6) FFLONK proof
 
 ## Step 1
@@ -33,7 +33,7 @@ From the bottom console copy the content of the field `proof` and remove all the
 
 ![alt_text](./img/tenderly3_720.png)
 
-In this example the value is: 
+In this example the value is:
 
 `0x0d6bd5ab3f7af7e3b85386ecfb0533ce522bde6df6a3e8e143bfea837bc21f471eb89036e28789c1a09edc62b4e44236c54d783c9129bc49d2b773f1c83efdaf23d6eb7b691ec227dafa2d0a7fa769a9f7f0f3b17de57c6b83802676382d063c070ba305cc41b3e2a88d2a0071735ac7135f59772a421d79ed020338b48c552b0f2a76d43e91aa3262c20facd688436c153aef69d0feda3c1403b397e79d8bd92317de13b55e263f95ab3f278ddcf2fe6d53abcd3d5e57e6ca4c68987e1e62cf1d728e773286a859f74b9345dc30499895e787cc3da627f8a057c2c4929311c414f63cc2d1b6eb121da00f918998278af23f79cc21bad9e24dbbd24a8653cc3617e00a72118a77e8d4cb4e4c158d245a910d0c22ac04c8aaeb9a44bc588b0593173be0930859f28322127eeb3b9c5de4a9716ae866863a7ccafe9cdd97714a2e21f7cf0ef31bb924d51b7f595f632727d67e9989ec953f57b82465f99ca5ed08093f3cf22104ce07e5a8bdfe22334084f43b5d3291145aa6dd27750daaf694182d5566f47ec8ee2113e860ae362cb77e7808dabb1edb92ce1ca265e43c20beeb15047ce9bc27421868d975c90940d018dfe1ada356540983562e7061ad4980e412f88e79bc1a5dbae07951c510171c805d75d7b2ebc3c00e689636d12f7494d310017058fa72e57a26d94c7605d2ce539074cb90d5f581c4b8c706d6da4d5c540b816a8e89da5f7c16834a6fa4514b5ab96ebbd6acdfdcd2934a8174c5e8769b164c202772156845c917234894f26f6b31a844731a53a599b3f3b4e4ffed07d519a3494cc30e8af29f668584e784d9c6ea6fed4bb685106108d3a75788de7aff1b34789a4491878d4bf23ba1f3758378db68fd532d62c0663e1f124c9f285ae8054226b2d327e55b0974157aec1ed96bc2f4817d07fdfdc3bfa64e4f3ad9e7f4110a01292dc334ca664e9bf2f19b071588808f8c906e731cc5883f4801943b142b0f7d2be8cf6c4b9ef57bc3d33c58526f09222e3dba8b620db08e47734e738322136d9e9b5db8bfbd83c7a8da74fb5bfac9ea069c3636966e6e61649f1e5ea7`
 
@@ -55,7 +55,7 @@ The final step is to concatenate the proof and the Public Input into a single st
 Send the proof to ZkVerify chain.
 In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics).
 
-- Select your account (you must have some ZETA)
+- Select your account (you must have some ACME)
 - Choose the `settlementFFlonkPallet`
 - Inside the field `rawProof` paste the string obtained from the previous step
 - Click on `submitTransaction`

@@ -1,8 +1,8 @@
 ---
-title: Attestation Mechanism Functionality
+title: Functionality
 ---
 
-# Attestation Mechanism Functionality
+# Functionality
 
 We start with a centralized approach where the attestation will be posted on the target settlement chain by an authorized relayer controlled by Horizen. The relayer:
 
