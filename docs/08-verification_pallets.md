@@ -37,7 +37,7 @@ proof.verify(pubs).unwrap()
 If the proof is correct a `Poe::NewElement(statement, attestation_id)` event is emitted where `statement`
 is computed by use `fflonk` as `verifier-id`.
 
-This call can fail both if be not possible deserialize the proof (`InvalidProofData`) or proof don't 
+This call can fail both if is not possible to deserialize the proof (`InvalidProofData`) or if the proof doesn't 
 verify (`VerifyError`)
 
 ## Zksync Verifier
