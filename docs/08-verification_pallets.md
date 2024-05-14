@@ -62,5 +62,5 @@ assert!(verify(&vk, &eth_proof).unwrap());
 If the proof is correct a `Poe::NewElement(statement, attestation_id)` event is emitted where `statement`
 is computed by using `zksync` as `verifier-id`.
 
-This call can fail both if be not possible deserialize the proof or public inputs (`InvalidProofData`, 
-`InvalidInput`) or proof don't verify (`VerifyError`).
+This call can fail both if it's not possible deserialize the proof or public inputs (`InvalidProofData`, 
+`InvalidInput`) or if the proof doesn't verify (`VerifyError`).
