@@ -21,7 +21,7 @@ where:
 
 ## Fflonk Verifier
 
-This verifier check if the given proof is a Polygon-CDK Fork-Id 6 valid proof. The input proof format
+This verifier checks if the given proof is a Polygon-CDK Fork-Id 6 valid proof. The input proof format
 is 800 bytes array where the last 32 bytes are the public inputs: the pallet use
 [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.3.0) to deserialize
 the proof and public inputs and then verify them. If we put error handling aside we can sketch the pallet duty
