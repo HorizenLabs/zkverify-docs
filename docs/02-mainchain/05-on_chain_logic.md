@@ -1,5 +1,5 @@
 ---
-title: zkVerify Mainchain On-chain Logic
+title: On-chain Logic
 ---
 
 # zkVerify Mainchain On-chain Logic

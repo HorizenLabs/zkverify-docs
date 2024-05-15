@@ -1,8 +1,8 @@
 ---
-title: Smart Contract Functionality
+title: Functionality
 ---
 
-# Smart Contract Functionality
+# Functionality
 
 ## Overview
 

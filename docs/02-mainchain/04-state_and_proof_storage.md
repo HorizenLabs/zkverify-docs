@@ -1,5 +1,5 @@
 ---
-title: zkVerify Mainchain State and Proof Storage
+title: State and Proof Storage
 ---
 
 # zkVerify Mainchain State and Proof Storage

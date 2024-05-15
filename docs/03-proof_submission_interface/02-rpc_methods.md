@@ -1,5 +1,5 @@
 ---
-title: Proof Submission Interface RPC
+title: Proof Submission RPC Methods
 ---
 
 # Proof Submission Interface Methods

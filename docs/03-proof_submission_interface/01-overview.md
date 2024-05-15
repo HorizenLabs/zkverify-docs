@@ -1,9 +1,5 @@
 ---
-title: Proof Submission Interface Overview
+title: Overview
 ---
-
-# Proof Submission Interface Overview
-
-## Overview
 
 ![alt_text](./img/proof_submission.png)

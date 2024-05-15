@@ -1,4 +1,4 @@
-# zkVerify Proof Verification Chain
+# Proof Verification Chain
 
 ![alt_text](./img/zkverifyarch.png)
 

@@ -1,7 +1,6 @@
 ---
-title: Attestation Mechanism Data Structure
+title: Data Structure
 ---
-# Attestation Mechanism Data Structure
 
 ## Data Structure
 

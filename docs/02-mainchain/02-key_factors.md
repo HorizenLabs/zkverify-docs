@@ -1,5 +1,5 @@
 ---
-title: zkVerify Mainchain Key Factors
+title: Key Considerations
 ---
 
 # Foundational Framework
