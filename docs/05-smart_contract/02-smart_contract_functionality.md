@@ -12,14 +12,15 @@ The zkVerify Smart Contract is deployed on Ethereum, where it receives an attest
 
 The zkVerify Smart Contract keeps the attestations as storage variables:
 
-```
+```solidity
 mapping(uint256 => bytes32) public proofsAttestations;
 ```
 
 ## Methods
 
 ### Submit Attestation Method
-```
+
+```solidity
 function submitAttestation(
    uint256 _attestationId,
    bytes32 _proofsAttestation
@@ -33,7 +34,7 @@ function submitAttestation(
 ### Submit Attestations Batch Method
 This method is used in the situation when multiple attestations have been published on zkVerify while the relayer is down but recovers later on.
 
-```
+```solidity
 function submitAttestationsBatch(
    uint256[] _attestationIds,
    bytes32[] _proofsAttestations
@@ -47,7 +48,7 @@ It’s a bit cheaper than calling submitAttestation externally multiple times, a
 ### Verify Proof Attestation Method
 This method is used by proof submitters’ contracts to verify that their proof has been attested by a published attestation.
 
-```
+```solidity
 function verifyProofAttestation(
       uint256 _attestationId,
       bytes32 _leaf,
