@@ -24,9 +24,9 @@ where `verifier` is one of `fflonk` and `zksync`.
 
 Some pallets have been developed to accommodate the requirements:
 
-- [**settlement-fflonk:**](../08-verification_pallets.md#fflonk-verifier-settlementfflonkpallet) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+- [**settlement-fflonk:**](../09-verification_pallets.md#fflonk-verifier-settlementfflonkpallet) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
-- [**settlement-zksync:**](../08-verification_pallets.md#fflonk-zksync-settlementzksyncpallet) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+- [**settlement-zksync:**](../09-verification_pallets.md#fflonk-zksync-settlementzksyncpallet) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
 - **proof_of_existence:** The attestation pallet that defines the logic to generate new attestations and the corresponding events once that the conditions of a given policy are met.
 
