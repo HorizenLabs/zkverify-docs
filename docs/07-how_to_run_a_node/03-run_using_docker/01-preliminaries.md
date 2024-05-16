@@ -4,8 +4,14 @@ title: Preliminaries
 
 ## Prerequisites
 
-Before you begin running your **zkVerify** node, ensure that you have Docker and Docker Compose (v2) installed on your machine.
-For checking, open a terminal and type:
+Before you begin running your **zkVerify** node, ensure that you have installed on your machine:
+
+- Docker,
+- Docker Compose (v2),
+- `jq` tool,
+- `gnu-sed` tool (macOS only).
+
+For checking Docker and Docker Compose availability, open a terminal and type:
 
 ```bash
 docker --version
@@ -17,9 +23,32 @@ then type:
 docker compose version
 ```
 
-if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/).
+if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). Hereon, a very basic understanding of Docker concepts and features is assumed; if you’re unfamiliar, proceed anyway and seek additional information online as needed.
 
-Hereon, a very basic understanding of Docker concepts and features is assumed; if you’re unfamiliar, proceed anyway and seek additional information online as needed.
+For checking `jq` tool availability, open a terminal and type:
+
+```bash
+jq --version
+```
+
+if the command is reporting an error you can install it with:
+
+- Linux: command `sudo apt-get install jq`,
+- macOS: command `brew install jq`,
+- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the exectuable as `jq.exe` and save it in a directory that’s part of your system’s `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
+
+For checking `gnu-sed` tool availability, open a terminal and type:
+
+```bash
+gsed --version
+```
+
+if the command is reporting an error you can install it with:
+
+```bash
+brew install gsed
+
+```
 
 Lastly, clone the repository [compose-zkverify-simplified](https://github.com/HorizenLabs/compose-zkverify-simplified) with the command:
 
@@ -34,6 +63,11 @@ This repository contains several resources helping you in the preparation of the
 ## Basic Items
 
 Inside repository `compose-zkverify-simplified` you can find the main tool you'll use for preparing your environment, the script `scripts/init.sh`. It acts as a step-by-step guide, collecting from you all the requirements and taking care of preparing all the files needed.
+
+**Windows user:** a couple of additional checks when running `scripts/init.sh` are required:
+
+- make sure Docker engine is running (e.g. verifying it from Docker Desktop),
+- make sure you can run `.sh` scripts on your machine; suggested option is to install [Git](https://git-scm.com/downloads), then you can just double click on `init.sh` or use Git Bash tool.
 
 Let's now have a brief overview of the basic items required to actually run the node:
 
