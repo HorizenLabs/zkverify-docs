@@ -4,7 +4,7 @@ title: Chosing the Node Type
 
 ## Node Types
 
-When setting up a **zkVerify** node, the first decision you’ll need to make is which type of node to run. While there are various options, three main types of node can be identified:
+When setting up a **zkVerify** node, the first decision you'll need to make is which type of node to run. While there are various options, three main types of node can be identified:
 
 - **RPC node:**
   - connects to the other nodes and interacts with them by sending and receiving blockchain data,
@@ -22,4 +22,4 @@ When setting up a **zkVerify** node, the first decision you’ll need to make is
   - should be run in a high-security and high-availability environment, due to its critical role,
   - suitable for users who are prepared to run a validator, supporting the chain and earning new tokens through staking.
 
-*Not sure which option to choose?* If you’re uncertain about which node type suits your needs, consider starting with an RPC node. It will allow you to explore the ecosystem and gain familiarity.
+*Not sure which option to choose?* If you're uncertain about which node type suits your needs, consider starting with an RPC node. It will allow you to explore the ecosystem and gain familiarity.

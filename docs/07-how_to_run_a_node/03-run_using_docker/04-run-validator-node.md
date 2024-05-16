@@ -86,27 +86,7 @@ Then you can connect to the RPC node using PolkadotJS (refer to [this section](.
 
 In order to use PolkadotJS with your validator account, you need to import it within the application.
 
-Navigate to section `Settings` then subsection `account options`, open drop-down list `in-browser account creation`, select option `Allow local in-browser account storage` and click on `Save` button:
-
-![alt_text](./img/polkadotjs_settings.png)
-
-Next, navigate to section `Accounts` then click on `+` button:
-
-![alt_text](./img/polkadotjs_accounts.png)
-
-fill in the secret phrase you provided to (or generated for you by) the script `init.sh` (ignore the one provided by the wizard), tick checkbox `i have saved my mnemonic seed safely` and click on `Next` button:
-
-![alt_text](./img/polkadotjs_accounts_s1.png)
-
-then provide input for fields `name`, `password`, `password (repeat)` and click on `Next` button:
-
-![alt_text](./img/polkadotjs_accounts_s2.png)
-
-finally review the summary and click on confirmation button `Save`:
-
-![alt_text](./img/polkadotjs_accounts_s3.png)
-
-From here on all the extrinsics you submit with PolkadotJS will use your validator account (even if you are submitting them with your rpc node, doesn't matter since you imported your validator account), hence transaction fees will be deducted from its balance.
+From here on you can choose any the extrinsic you submit with PolkadotJS to use your validator account (even if you are submitting them with your rpc node, doesn't matter since you imported your validator account), hence transaction fees will be deducted from its balance.
 
 Now you need to define the session public keys your validator node will use for participating in the consensus (i.e. authoring new blocks and selecting the best chain). This can be achieved by concatenating the three Babe, Grandpa and ImOnline public keys you can derive from your secret phrase. Inside a terminal type this command:
 
@@ -215,10 +195,12 @@ For submitting staking extrinsic navigate back to section `Developer` then subse
 
 ![alt_text](./img/polkadotjs_staking_bond.png)
 
-insert your account password and confirm by clicking on button `Sign and Submit`.
+insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission.
 
 Now that the blockchain knows you have staked your tokens it's time for the last step, namely declaring you are actually ready to act as a validator. Navigate one last time to section `Developer` then subsection `Extrinsics` and select `staking`, `validate` in the two dropdown panels; remember to select your validator account as `using the selected account`, then fill in the textboxes `commission: Compact<Perbill>` with the fraction of the commission you keep if other user delegate their tokens to you by nomination (parts per billion, if you don't know which value to set use `100000000`) and select `No` in the dropdown panel `blocked: bool`, finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_staking_validate.png)
+
+insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission.
 
 *And you are done!* You just need to wait for the completion of the current era and of the next one (since an era lasts for 6 hours, in the worst case this would be 12 hours), thereafter your node will start authoring new blocks. You can check this navigating to section `Network` then subsection `Explorer` for a summarized view of the list of recently authored blocks, or to section `Network` then subsection `Staking` for an advanced console specifically designed for staking.

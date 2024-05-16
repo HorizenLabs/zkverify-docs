@@ -23,7 +23,7 @@ then type:
 docker compose version
 ```
 
-if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). Hereon, a very basic understanding of Docker concepts and features is assumed; if you’re unfamiliar, proceed anyway and seek additional information online as needed.
+if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). Hereon, a very basic understanding of Docker concepts and features is assumed; if you're unfamiliar, proceed anyway and seek additional information online as needed.
 
 For checking `jq` tool availability, open a terminal and type:
 
@@ -35,7 +35,7 @@ if the command is reporting an error you can install it with:
 
 - Linux: command `sudo apt-get install jq`,
 - macOS: command `brew install jq`,
-- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the exectuable as `jq.exe` and save it in a directory that’s part of your system’s `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
+- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the exectuable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
 
 For checking `gnu-sed` tool availability, open a terminal and type:
 

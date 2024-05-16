@@ -63,7 +63,7 @@ If you want to explore and interact a bit with your node, you can proceed the wa
 
 ## Explore and Interact with the Node
 
-Let’s dive deeper and have a look at some more detailed logs, type:
+Let's dive deeper and have a look at some more detailed logs, type:
 
 ```bash
 docker logs rpc-node
@@ -80,13 +80,13 @@ some lines worth to comment on here are:
 - `Local node identity is: 12D3KooWPy5kBKVxRwwz8hjyTKVA4WouoLipBSQVnUSBEVtq8G4X`: the unique identifier for your node, automatically generated at startup,
 - `Highest known block at #0`: being this your very first run, you are missing any blockchain data, hence your copy of the blockchain is just the genesis block (height 0)
 
-Let’s proceed looking at how your node is syncing the actual blockchain data. Type again the command (assuming some seconds have passed since the startup):
+Let's proceed looking at how your node is syncing the actual blockchain data. Type again the command (assuming some seconds have passed since the startup):
 
 ```bash
 docker logs rpc-node
 ```
 
-and you’ll see the synchronization is taking place:
+and you'll see the synchronization is taking place:
 
 ![alt_text](./img/node_syncing.png)
 
@@ -95,13 +95,13 @@ focus on these lines:
 - `Starting new tree with id: XXX`: these are the trees associated to the proofs that are sent to the **zkVerify** mainchain (by a wallet, a dAPP, an L2, …); they are verified by **zkVerify** mainchain and a root publish event is then automatically submitted; those reported here are historical data, published weeks or months ago, contained in the blocks your node is downloading from the network,
 - `⚙⚙️  Syncing 1171.2 bps, target=#16085 (8 peers), best: #11823 (0xa652…b939), finalized #11776 (0x7564…3273), ⬇ 418.2kiB/s ⬆ 2.7kiB/s`: many useful information is provided here, like the current tip of your node (11823), the target tip of the overall chain (16085) and the number of peers your node is connected to (8 peers)
 
-The overall synchronization depends on the actual height of the overall chain, but nowaday it’s a quite fast process requiring less than ten minutes using a standard PC on a home network. At the end of the synchronization you should be able to see something similar to:
+The overall synchronization depends on the actual height of the overall chain, but nowaday it's a quite fast process requiring less than ten minutes using a standard PC on a home network. At the end of the synchronization you should be able to see something similar to:
 
 ![alt_text](./img/node_synced.png)
 
 here your node has completed the initial download of blockchain data (batched together) and is now periodically idling while listening to new incoming blocks (being received one by one, each six seconds).
 
-Just to show you data are persistent (thanks to usage of Docker volume) and you don’t need to download each time all the blocks, try shutting down and then up again your node using these two commands:
+Just to show you data are persistent (thanks to usage of Docker volume) and you don't need to download each time all the blocks, try shutting down and then up again your node using these two commands:
 
 ```bash
 docker compose -f nh-node-docker-compose.yaml down
@@ -114,7 +114,7 @@ then inspect recent logs with:
 docker logs nh-node-simple_node --tail 100
 ```
 
-and you’ll see there is no more that long sequence of logs reporting initial download of blockchain data (`Starting new tree with id: XXX`).
+and you'll see there is no more that long sequence of logs reporting initial download of blockchain data (`Starting new tree with id: XXX`).
 
 If for any reason you need to fully erase blockchain data you can do this by stopping the container and deleting the Docker volume:
 
@@ -123,7 +123,7 @@ docker compose -f nh-node-docker-compose.yaml down
 docker volume rm zkverify-rpc_node-data
 ```
 
-It’s now time to interact a bit with your node, and the best tool for achieving this is PolkadotJS. Open up your preferred browser and type in the search bar this URL [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Then make sure you are targeting the local node by checking through the dropdown panel in the top left corner:
+It's now time to interact a bit with your node, and the best tool for achieving this is PolkadotJS. Open up your preferred browser and type in the search bar this URL [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Then make sure you are targeting the local node by checking through the dropdown panel in the top left corner:
 
 ![alt_text](./img/polkadotjs_check_network.png)
 
@@ -142,3 +142,37 @@ Again, the node is responding to your request, this time providing the full body
 ![alt_text](./img/polkadotjs_query_block.png)
 
 Note that if during the execution of script `init.sh` you selected non-archival node you could incur in an error like `-32000: Client error: Api called for an unknown Block: State already discarded for 0xa048…ac51`, reporting too old data have been pruned.
+
+Another type of operation you can perform is sending some tokens from an account to another, clearly is essential you possess some tokens on one of yours. In Substrate accounts are associated to a pair of keys, one private and one public (very similar to Bitcoin addresses or Ethereum EOAs).
+
+In order to sumbit extrinsics (transactions, in Substrate terminology) with PolkadotJS from one of your account, you need to import it within the application.
+
+Navigate to section `Settings` then subsection `account options`, open drop-down list `in-browser account creation`, select option `Allow local in-browser account storage` and click on `Save` button:
+
+![alt_text](./img/polkadotjs_settings.png)
+
+Next, navigate to section `Accounts` then subsection `Accounts` and click on `Account` button:
+
+![alt_text](./img/polkadotjs_accounts.png)
+
+fill in the secret phrase or raw seed associated to your account (ignore the newly one generated by the wizard), tick checkbox `i have saved my mnemonic seed safely` and click on `Next` button:
+
+![alt_text](./img/polkadotjs_accounts_s1.png)
+
+then provide input for fields `name`, `password`, `password (repeat)` and click on `Next` button:
+
+![alt_text](./img/polkadotjs_accounts_s2.png)
+
+finally review the summary and click on confirmation button `Save`:
+
+![alt_text](./img/polkadotjs_accounts_s3.png)
+
+After importing your account, you can send funds from the same page by clicking on `send` button:
+
+![alt_text](./img/polkadotjs_send_tokens.png)
+
+selecting your account as source and typing in the address of the destination account and the amount of tokens to send, finally click on `Make Transfer`:
+
+![alt_text](./img/polkadotjs_send_tokens_s1.png)
+
+in few seconds you should receive a feedback by a popup message on the top-right corner confirming you the extrinsic has been succesfully submitted and funds transferred.
