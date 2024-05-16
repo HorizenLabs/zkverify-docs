@@ -55,7 +55,6 @@ Follow the instructions below to set up your wallet with these variables and sta
 
 ![](./img/talisman-add-network.png)
 
-
 ## Get $ACME zkVerify Testnet Tokens
 
 Head on over to our [Manual Test Token Faucet Request form](https://cztdlssdwco.typeform.com/to/GD6xdx2I?typeform-source=www.google.com), submit your email address and Wallet Address and you will receive $ACME within 24 hours.
@@ -65,6 +64,4 @@ After you receive your $ACME zkVerify testnet token, we have a few different use
 * Users can go through the process of submitting and verifying a Polygon CDK proof to the zkVerify testnet here: https://docs.zkverify.io/proof_submission_interface/polygon_cdk_proof_submission/
 * Users can deploy a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer: https://docs.zkverify.io/polygon_cdk_installation/
 
-Thank you for testing! If you have any questions or require support from the team, feel free to reach out to us on Discord. 
-
-Follow zkVerify on Twitter for the latest news and updates!
+Thank you for testing! If you have any questions or require support from the team, feel free to reach out to us on [Discord](https://discord.gg/zkverify).
