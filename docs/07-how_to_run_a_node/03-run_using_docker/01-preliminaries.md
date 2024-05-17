@@ -33,7 +33,7 @@ jq --version
 
 if the command is reporting an error you can install it with:
 
-- Linux: command `sudo apt-get install jq`,
+- Linux: command `sudo apt install jq`,
 - macOS: command `brew install jq`,
 - Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the executable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
 
