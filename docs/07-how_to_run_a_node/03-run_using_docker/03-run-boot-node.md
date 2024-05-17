@@ -29,7 +29,7 @@ At the end of the session the script would populate directory `deployments/boot-
 === Run the compose project with the following command: 
 
 ========================
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
 ========================
 ```
 
@@ -40,7 +40,7 @@ Before actually launching the node, you can further inspect and customize the ex
 *Time to start now!* Within the terminal type the command proposed by the script:
 
 ```bash
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
 ```
 
 *and you are done!* This allows you to start the node in background, for checking it is running properly you can type:

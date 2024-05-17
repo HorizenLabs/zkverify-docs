@@ -30,7 +30,7 @@ At the end of the session the script would populate directory `deployments/valid
 === Run the compose project with the following command: 
 
 ========================
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/validator-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/validator-node/testnet/docker-compose.yml up -d
 ========================
 ```
 
@@ -41,7 +41,7 @@ Before actually launching the node, you can further inspect and customize the ex
 *Time to start now!* Within the terminal type the command proposed by the script:
 
 ```bash
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/validator-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/validator-node/testnet/docker-compose.yml up -d
 ```
 
 *and you are done!* This allows you to start the node in background, for checking it is running properly you can type:
@@ -65,7 +65,7 @@ Up to here your validator node is running properly but, in order to make it elig
 
 In this section you can learn how to register a new validator on the blockchain. The operations described below must be performed just once and they consist in the submission of some extrinsics (transactions, in Substrate terminology) resulting eventually in your node being able to author new blocks and consequently earn new tokens through staking mechanism. Note that since you are going to submit extrinsics which changes the blockchain state, you need sufficient funds in the account (uniquely identified by your secret phrase) associated with your validator so that you can pay transaction fees; if that's not your case, it is mandatory you send some tokens to it.
 
-For security reasons your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to temporarily run an additional RPC node (refer to [this page](./02-run-rpc-node.md#Explore-and-Interact-with-the-Node)) which you can shutdown once you have completed everything.
+For security reasons your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to temporarily run an additional RPC node (refer to [this page](./02-run-rpc-node.md)) which you can shutdown once you have completed everything.
 
 Make sure both your validator node as well as your RPC node are running using command:
 

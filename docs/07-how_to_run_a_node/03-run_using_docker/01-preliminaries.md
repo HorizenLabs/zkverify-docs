@@ -23,7 +23,7 @@ then type:
 docker compose version
 ```
 
-if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). Hereon, a very basic understanding of Docker concepts and features is assumed; if you're unfamiliar, proceed anyway and seek additional information online as needed.
+if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). From here on out, a very basic understanding of Docker concepts and features is assumed; if you're unfamiliar, proceed anyway and seek additional information online as needed.
 
 For checking `jq` tool availability, open a terminal and type:
 

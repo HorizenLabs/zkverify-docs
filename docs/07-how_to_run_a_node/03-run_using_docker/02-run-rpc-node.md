@@ -30,7 +30,7 @@ At the end of the session the script would populate directory `deployments/rpc-n
 === Run the compose project with the following command: 
 
 ========================
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml up -d
 ========================
 ```
 
@@ -41,7 +41,7 @@ Before actually launching the node, you can further inspect and customize the ex
 *Time to start now!* Within the terminal type the command proposed by the script:
 
 ```bash
-docker compose -f /home/usr/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml up -d
 ```
 
 *and you are done!* This allows you to start the node in background, for checking it is running properly you can type:
@@ -92,7 +92,7 @@ and you'll see the synchronization is taking place:
 
 focus on these lines:
 
-- `Starting new tree with id: XXX`: these are the trees associated to the proofs that are sent to the **zkVerify** mainchain (by a wallet, a dAPP, an L2, …); they are verified by **zkVerify** mainchain and a root publish event is then automatically submitted; those reported here are historical data, published weeks or months ago, contained in the blocks your node is downloading from the network,
+- `Starting new tree with id: XXX`: these are the trees associated to the proofs that were sent to the **zkVerify** mainchain (by a wallet, a dAPP, an L2, …); they are verified by **zkVerify** mainchain and a root publish event is then automatically submitted; those reported here are historical data, published weeks or months ago, contained in the blocks your node is downloading from the network,
 - `⚙⚙️  Syncing 1171.2 bps, target=#16085 (8 peers), best: #11823 (0xa652…b939), finalized #11776 (0x7564…3273), ⬇ 418.2kiB/s ⬆ 2.7kiB/s`: many useful information is provided here, like the current tip of your node (11823), the target tip of the overall chain (16085) and the number of peers your node is connected to (8).
 
 The overall synchronization depends on the actual height of the overall chain, but nowadays it's a quite fast process requiring less than ten minutes using a standard PC on a home network. At the end of the synchronization you should be able to see something similar to:
