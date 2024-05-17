@@ -7,6 +7,7 @@ For running a boot node the specific command-line arguments you'd want to set ar
 | Name          | Description                                                                                                                                                                                                 | Value                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | --listen-addr | Listen on this multiaddress.<br/> By default: If `--validator` is passed: `/ip4/0.0.0.0/tcp/<port>` and `/ip6/[::]/tcp/<port>`. Otherwise: `/ip4/0.0.0.0/tcp/<port>/ws` and `/ip6/[::]/tcp/<port>/ws`.      | Multiaddress matching the p2p and p2p/ws ports your machine externally exposes. |
+| --node-key-file | File from which to read the node's secret key to use for p2p networking.<br/> The contents of the file are parsed according to the choice of `--node-key-type` as follows:<br/> - `ed25519`: the file must contain an unencoded 32 byte or hex encoded Ed25519 secret key.<br/> If the file does not exist, it is created with a newly generated secret key of the chosen type. | Absolute or relative path. |
 
 So for example you can launch it with:
 
@@ -16,4 +17,4 @@ target/release/nh-node --name MyZkVerifyBootNode --base-path /home/your_user/boo
 
 You can check from the logs printed out in the console that your boot node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, ...).
 
-Refer to [this section](../03-run_using_docker/03-run-boot-node.md#Next-Steps) for next steps you need to take care of after starting your boot node.
+Refer to [this section](../03-run_using_docker/03-run-boot-node.md#Next-Steps) for the next steps you need to take care of after starting your boot node.

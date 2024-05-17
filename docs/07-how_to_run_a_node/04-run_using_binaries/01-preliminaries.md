@@ -11,8 +11,8 @@ Here below is a list of prerequisites that need to be available on your machine 
 - Rustup tool for Rust programming language: can be installed with `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`,
 - Rust source code for Rust toolchain: can be added with `rustup component add rust-src`,
 - Wasm target for Rust toolchain: can be added with `rustup target add wasm32-unknown-unknown`,
-- `protoc` comnpiler: can be installed with `sudo apt install protobuf-compiler`,
-- `clang` comnpiler: can be installed with `sudo apt install clang`,
+- `protoc` compiler: can be installed with `sudo apt install protobuf-compiler`,
+- `clang` compiler: can be installed with `sudo apt install clang`,
 
 Lastly, clone the repository [NH-core](https://github.com/HorizenLabs/NH-core) with the command:
 
@@ -46,12 +46,24 @@ In case you need to clean your workspace, removing previous build output, you ca
 cargo clean
 ```
 
+## Node Command-Line Utilities
+
+Apart from the execution of the node itself, `nh-node` provides some command-based utility features. Those you'd want to know are:
+
+- command `key`:
+  - subcommands `generate`, `inspect`, `insert`: allow you to handle generation, parsing and insertion of account keys (those used for example by Babe and Grandpa algorithm); necessary when running a validator node,
+  - subcommands `generate-node-key`, `inspect-node-key`: allow you to handle generation and parsing of node keys (those used for signing peer-to-peer messages and for uniquely identifying the node within the network); necessary when running a boot node,
+  - use `target/release/nh-node key --help` for additional details,
+- command `build-spec`:
+  - allow you to create chain-spec file,
+  - `target/release/nh-node build-spec --help` for additional details.
+
 ## Node Common Configuration
 
 In the next pages you'll get instructed on how to run `nh-node` in different modes, setting the proper command-line arguments. Keep in mind that being **zkVerify** node based on the [Substrate node template](https://docs.substrate.io/reference/command-line-tools/node-template/), it supports the same set of command-line arguments as the template. For getting a detailed description for each of them you can type:
 
 ```bash
-target/release/nh-node --version
+target/release/nh-node --help
 ```
 
 The common command-line arguments you'd want to set regardless of the node type you picked are:
@@ -62,6 +74,3 @@ The common command-line arguments you'd want to set regardless of the node type 
 | --base-path     | Specify custom base path.                                                                                                                                                                                   | Absolute or relative path.                                                |
 | --chain         | Specify the chain specification.<br/> It can be one of the predefined ones (dev, local, or staging) or it can be a path to a file with the chainspec (such as one exported by the `build-spec` subcommand). | `test` for joining **zkVerify** testnet.                                  |
 | --port          | Specify p2p protocol TCP port                                                                                                                                                                               | Any number, but make sure the port is not already in use on your machine. |
-| --node-key-file | File from which to read the node's secret key to use for p2p networking.<br/> The contents of the file are parsed according to the choice of `--node-key-type` as follows:<br/> - `ed25519`: the file must contain an unencoded 32 byte or hex encoded Ed25519 secret key.<br/> If the file does not exist, it is created with a newly generated secret key of the chosen type. | Absolute or relative path. |
-
-## Node Command-Line Utilities

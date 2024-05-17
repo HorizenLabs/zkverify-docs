@@ -20,4 +20,4 @@ target/release/nh-node --name MyZkVerifyRpcNode --base-path /home/your_user/rpc_
 
 You can check from the logs printed out in the console that your RPC node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, ...).
 
-Refer to [this section](../03-run_using_docker/02-run-rpc-node.md#Explore-and-Interact-with-the-Node) if you want to explore and interact a bit with your RPC node.
+Refer to [this section](../03-run_using_docker/02-run-rpc-node.md#Explore-and-Interact-with-the-Node) for instructions on how to explore and interact a bit with your RPC node.
