@@ -75,10 +75,10 @@ and you should get something like:
 
 some lines worth to comment on here are:
 
-- `Launching nh-node with args --prometheus-port 9625 --rpc-external --base-path /data/node --name MyZkVerifyRpcNode --prometheus-external --rpc-port 9933 --chain test --port 30343 --rpc-methods safe --pruning archive --rpc-cors all`: how configurations inside `.env` file have been parsed and resulted in successful node launch
-- `Node name: MyZkVerifyRpcNode`: the configurations (`NH_CONF_NAME`) have been actually passed to the Substrate node
+- `Launching nh-node with args --rpc-external --name MyZkVerifyRpcNode --base-path /data/node --rpc-port 9944 --chain test --port 30555 --rpc-methods safe --pruning archive --rpc-cors all`: how configurations inside `.env` file have been parsed and resulted in successful node launch,
+- `Node name: MyZkVerifyRpcNode`: the configurations (`NH_CONF_NAME`) have been actually passed to the Substrate node,
 - `Local node identity is: 12D3KooWPy5kBKVxRwwz8hjyTKVA4WouoLipBSQVnUSBEVtq8G4X`: the unique identifier for your node, automatically generated at startup,
-- `Highest known block at #0`: being this your very first run, you are missing any blockchain data, hence your copy of the blockchain is just the genesis block (height 0)
+- `Highest known block at #0`: being this your very first run, you are missing any blockchain data, hence your copy of the blockchain is just the genesis block (height 0).
 
 Let's proceed looking at how your node is syncing the actual blockchain data. Type again the command (assuming some seconds have passed since the startup):
 
@@ -93,9 +93,9 @@ and you'll see the synchronization is taking place:
 focus on these lines:
 
 - `Starting new tree with id: XXX`: these are the trees associated to the proofs that are sent to the **zkVerify** mainchain (by a wallet, a dAPP, an L2, …); they are verified by **zkVerify** mainchain and a root publish event is then automatically submitted; those reported here are historical data, published weeks or months ago, contained in the blocks your node is downloading from the network,
-- `⚙⚙️  Syncing 1171.2 bps, target=#16085 (8 peers), best: #11823 (0xa652…b939), finalized #11776 (0x7564…3273), ⬇ 418.2kiB/s ⬆ 2.7kiB/s`: many useful information is provided here, like the current tip of your node (11823), the target tip of the overall chain (16085) and the number of peers your node is connected to (8 peers)
+- `⚙⚙️  Syncing 1171.2 bps, target=#16085 (8 peers), best: #11823 (0xa652…b939), finalized #11776 (0x7564…3273), ⬇ 418.2kiB/s ⬆ 2.7kiB/s`: many useful information is provided here, like the current tip of your node (11823), the target tip of the overall chain (16085) and the number of peers your node is connected to (8).
 
-The overall synchronization depends on the actual height of the overall chain, but nowaday it's a quite fast process requiring less than ten minutes using a standard PC on a home network. At the end of the synchronization you should be able to see something similar to:
+The overall synchronization depends on the actual height of the overall chain, but nowadays it's a quite fast process requiring less than ten minutes using a standard PC on a home network. At the end of the synchronization you should be able to see something similar to:
 
 ![alt_text](./img/node_synced.png)
 
@@ -123,7 +123,7 @@ docker compose -f nh-node-docker-compose.yaml down
 docker volume rm zkverify-rpc_node-data
 ```
 
-It's now time to interact a bit with your node, and the best tool for achieving this is PolkadotJS. Open up your preferred browser and type in the search bar this URL [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Then make sure you are targeting the local node by checking through the dropdown panel in the top left corner:
+It's now time to interact a bit with your node, and the best tool for achieving this is PolkadotJS. Open up your preferred browser and type in the search bar this [URL](https://polkadot.js.org/apps/#/explorer). Then make sure you are targeting the local node by checking through the dropdown panel in the top left corner:
 
 ![alt_text](./img/polkadotjs_check_network.png)
 

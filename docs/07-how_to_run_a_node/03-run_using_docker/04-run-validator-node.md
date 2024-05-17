@@ -142,7 +142,7 @@ in few seconds you should receive a feedback by a popup message on the top-right
 
 Now that the blockchain knows those public session keys are associated to your validator account, you can proceed staking some of the tokens you own in order to have a chance to be elected as a validator for the next sessions. To achieve this you have to submit another type of extrinsic.
 
-But before doing this, you'd want to know what is the current stake of other validators, in order to stake sufficient tokens to become an active validator; current **zkVerify** implementation requires to be at least in the **top 3 stakers** in order to be include in the active validators set. Navigate to section `Developer` then subsection `Chain state` and select `staking`, `erasStakersOverview` in the two dropdown panels, finally click on `+` button:
+But before doing this, you'd want to know what is the current stake of other validators, in order to stake sufficient tokens to become an active validator; current **zkVerify** implementation requires to be at least in the **top 10 stakers** in order to be included in the active validators set. Navigate to section `Developer` then subsection `Chain state` and select `staking`, `erasStakersOverview` in the two dropdown panels, finally click on `+` button:
 
 ![alt_text](./img/polkadotjs_stakers.png)
 
@@ -197,10 +197,16 @@ For submitting staking extrinsic navigate back to section `Developer` then subse
 
 insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission.
 
-Now that the blockchain knows you have staked your tokens it's time for the last step, namely declaring you are actually ready to act as a validator. Navigate one last time to section `Developer` then subsection `Extrinsics` and select `staking`, `validate` in the two dropdown panels; remember to select your validator account as `using the selected account`, then fill in the textboxes `commission: Compact<Perbill>` with the fraction of the commission you keep if other user delegate their tokens to you by nomination (parts per billion, if you don't know which value to set use `100000000`) and select `No` in the dropdown panel `blocked: bool`, finally click on `Submit Transaction` button:
+Now that the blockchain knows you have staked your tokens it's time for the last step, namely declaring you are actually ready to act as a validator. Navigate again to section `Developer` then subsection `Extrinsics` and select `staking`, `validate` in the two dropdown panels; remember to select your validator account as `using the selected account`, then fill in the textboxes `commission: Compact<Perbill>` with the fraction of the commission you keep if other user delegate their tokens to you by nomination (parts per billion, if you don't know which value to set use `100000000`) and select `No` in the dropdown panel `blocked: bool`, finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_staking_validate.png)
 
 insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission.
 
-*And you are done!* You just need to wait for the completion of the current era and of the next one (since an era lasts for 6 hours, in the worst case this would be 12 hours), thereafter your node will start authoring new blocks. You can check this navigating to section `Network` then subsection `Explorer` for a summarized view of the list of recently authored blocks, or to section `Network` then subsection `Staking` for an advanced console specifically designed for staking.
+*And you've completed it!* You just need to wait for the completion of the current era and of the next one (since an era lasts for 6 hours, in the worst case this would be 12 hours), thereafter your node will start authoring new blocks. You can check this navigating to section `Network` then subsection `Explorer` for a summarized view of the list of recently authored blocks, or to section `Network` then subsection `Staking` for an advanced console specifically designed for staking.
+
+If you are interested in how to claim the new tokens you deserve as an active validator, navigate to section `Developer` then subsection `Extrinsics` and select `staking`, `payoutStakers`; remember to select your validator account as `using the selected account`, then choose your validator account as `validatorStash: AccountId32` and insert target era in the textbox `era: u32 (EraIndex)`, finally click on `Submit Transaction` button:
+
+![alt_text](./img/polkadotjs_claim.png)
+
+Note that you'd want to periodically repeat this claim operation (even better to automate it in some way) as the blockchain progresses; keep in mind you can claim reward for previous era up to a **backward limit of 30 eras** (approximately one week).

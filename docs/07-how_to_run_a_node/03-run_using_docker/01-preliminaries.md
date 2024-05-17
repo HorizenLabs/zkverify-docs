@@ -35,9 +35,9 @@ if the command is reporting an error you can install it with:
 
 - Linux: command `sudo apt-get install jq`,
 - macOS: command `brew install jq`,
-- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the exectuable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
+- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the executable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
 
-For checking `gnu-sed` tool availability, open a terminal and type:
+For checking `gnu-sed` tool availability (macOS only), open a terminal and type:
 
 ```bash
 gsed --version
@@ -47,7 +47,6 @@ if the command is reporting an error you can install it with:
 
 ```bash
 brew install gsed
-
 ```
 
 Lastly, clone the repository [compose-zkverify-simplified](https://github.com/HorizenLabs/compose-zkverify-simplified) with the command:

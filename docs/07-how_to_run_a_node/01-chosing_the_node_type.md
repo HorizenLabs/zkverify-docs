@@ -4,12 +4,12 @@ title: Chosing the Node Type
 
 ## Node Types
 
-When setting up a **zkVerify** node, the first decision you'll need to make is which type of node to run. While there are various options, three main types of node can be identified:
+When setting up a **zkVerify** node, the first decision you need to make is which type of node to run. While there are various options, three main types of node can be identified:
 
 - **RPC node:**
   - connects to the other nodes and interacts with them by sending and receiving blockchain data,
   - can maintain either a full or partial copy of the blockchain, depending on your requirements,
-  - use cases for RPC node vary widely; for instance, they can serve as local entry point for user to interact with the blockchain.
+  - use cases for RPC node vary widely; for instance, they can serve as local entry point for the user to interact with the blockchain.
 - **Boot node (or seeder node):**
   - provides connectivity to existing nodes, making it easier for new nodes to join the network,
   - holds minimal blockchain data,
