@@ -2,6 +2,8 @@
 title: Run a Validator Node
 ---
 
+## Prepare and Run
+
 For running a validator node the specific command-line arguments you'd want to set are the following:
 
 | Name        | Description                                                                                                                                                                             | Value                      |

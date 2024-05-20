@@ -2,6 +2,8 @@
 title: Run a Boot Node
 ---
 
+## Prepare and Run
+
 For running a boot node the specific command-line arguments you'd want to set are the following:
 
 | Name          | Description                                                                                                                                                                                                 | Value                                                                           |

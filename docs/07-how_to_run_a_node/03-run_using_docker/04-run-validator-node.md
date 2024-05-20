@@ -63,30 +63,13 @@ Up to here your validator node is running properly but, in order to make it elig
 
 ## Next Steps
 
-In this section you can learn how to register a new validator on the blockchain. The operations described below must be performed just once and they consist in the submission of some extrinsics (transactions, in Substrate terminology) resulting eventually in your node being able to author new blocks and consequently earn new tokens through staking mechanism. Note that since you are going to submit extrinsics which changes the blockchain state, you need sufficient funds in the account (uniquely identified by your secret phrase) associated with your validator so that you can pay transaction fees; if that's not your case, it is mandatory you send some tokens to it.
+In this section you can learn how to register a new validator on the blockchain. The operations described below must be performed just once and they consist in the submission of some extrinsics (transactions, in Substrate terminology) resulting eventually in your node being able to author new blocks and consequently earn new tokens through staking mechanism. Note that since you are going to submit extrinsics which change the blockchain state, you need sufficient funds in the account (uniquely identified by your secret phrase) associated with your validator so that you can pay transaction fees; if that's not your case, it is mandatory you send some tokens to it.
 
-For security reasons your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to temporarily run an additional RPC node (refer to [this page](./02-run-rpc-node.md)) which you can shutdown once you have completed everything.
-
-Make sure both your validator node as well as your RPC node are running using command:
-
-```bash
-docker container ls
-```
-
-and you should get something similar to:
-
-```bash
-CONTAINER ID   IMAGE                         COMMAND                CREATED              STATUS              NAMES
-096d0c5d1117   horizenlabs/zkverify:latest   "/app/entrypoint.sh"   About a minute ago   Up About a minute   rpc-node
-b693d6143f0d   horizenlabs/zkverify:latest   "/app/entrypoint.sh"   10 minutes ago       Up 10 minute        validator-node
-
-```
-
-Then you can connect to the RPC node using PolkadotJS (refer to [this section](./02-run-rpc-node.md#explore-and-interact-with-the-node) for a brief walkthrough) and start submitting RPC commands and extrinsics.
+For security reasons your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to connect to the public RPC endpoint at this [link](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/explorer) with PolkadotJS (refer to [this section](./02-run-rpc-node.md#explore-and-interact-with-the-node) for a brief walkthrough).
 
 In order to use PolkadotJS with your validator account, you need to import it within the application.
 
-From here on you can choose any the extrinsic you submit with PolkadotJS to use your validator account (even if you are submitting them with your rpc node, doesn't matter since you imported your validator account), hence transaction fees will be deducted from its balance.
+From here on you can choose any extrinsic you submit with PolkadotJS to use your validator account (even if you are submitting them with your rpc node, doesn't matter since you imported your validator account), hence transaction fees will be deducted from its balance.
 
 Now you need to define the session public keys your validator node will use for participating in the consensus (i.e. authoring new blocks and selecting the best chain). This can be achieved by concatenating the three Babe, Grandpa and ImOnline public keys you can derive from your secret phrase. Inside a terminal type this command:
 
@@ -128,7 +111,7 @@ Secret phrase:       demise trumpet minor soup worth airport minor height sauce 
 
 the `Public key (hex)` representing the Grandpa key.
 
-Now you just need to concatenate the three keys respecting this order: Babe, Grandpa and ImOnline. In the example above this would result in: `0xc0c07abce7879c09231fcbd07165cfaabc4a634636850578a914b08b87cf99140dbccabf681188116e642c1dbc9332a2bbec7fbef1792196879a3cba6c52464bc0c07abce7879c09231fcbd07165cfaabc4a634636850578a914b08b87cf9914` (note hexadecimal prefix `0x` is written just once). This is the set of session public key of your validator.
+Now you just need to concatenate the three keys respecting this order: Babe, Grandpa and ImOnline. In the example above this would result in: `0xc0c07abce7879c09231fcbd07165cfaabc4a634636850578a914b08b87cf99140dbccabf681188116e642c1dbc9332a2bbec7fbef1792196879a3cba6c52464bc0c07abce7879c09231fcbd07165cfaabc4a634636850578a914b08b87cf9914` (note hexadecimal prefix `0x` is written just once). This is the set of session public keys of your validator.
 
 After generating the set of keys, you have to register them in the blockchain, so that they are available to all the nodes in network. You can achieve this submitting a specific extrinsic through PolkadotJS. Navigate to section `Developer` then subsection `Extrinsics` and select `session`, `setKeys` in the two dropdown panels; remember to select your validator account as `using the selected account`, then fill in the textboxes `keys: NhRuntimeSessionKeys` and `proof: Bytes` respectively with the set of session public keys you just prepared and with empty value `0x`, finally click on `Submit Transaction` button:
 
@@ -142,7 +125,7 @@ in few seconds you should receive a feedback by a popup message on the top-right
 
 Now that the blockchain knows those public session keys are associated to your validator account, you can proceed staking some of the tokens you own in order to have a chance to be elected as a validator for the next sessions. To achieve this you have to submit another type of extrinsic.
 
-But before doing this, you'd want to know what is the current stake of other validators, in order to stake sufficient tokens to become an active validator; current **zkVerify** implementation requires to be at least in the **top 10 stakers** in order to be included in the active validators set. Navigate to section `Developer` then subsection `Chain state` and select `staking`, `erasStakersOverview` in the two dropdown panels, finally click on `+` button:
+But before doing this, you'd want to know what is the current stake of other validators, in order to stake sufficient tokens to become an active validator; current **zkVerify** implementation requires to be at least in the **top 10 stakers** in order to be included in the active validators set. Navigate to section `Developer` then subsection `Chain state`, select `staking`, `erasStakersOverview` in the two dropdown panels and make sure to disable `include option` flag, finally click on `+` button:
 
 ![alt_text](./img/polkadotjs_stakers.png)
 

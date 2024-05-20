@@ -2,6 +2,8 @@
 title: Run an RPC Node
 ---
 
+## Prepare and Run
+
 For running an RPC node the specific command-line arguments you'd want to set are the following:
 
 | Name            | Description                                                                                                                                                                                                 | Value                                                                     |

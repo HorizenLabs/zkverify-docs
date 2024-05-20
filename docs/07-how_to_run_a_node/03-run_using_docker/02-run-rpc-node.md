@@ -145,7 +145,7 @@ Note that if during the execution of script `init.sh` you selected non-archival 
 
 Another type of operation you can perform is sending some tokens from an account to another, clearly is essential you possess some tokens on one of yours. In Substrate accounts are associated to a pair of keys, one private and one public (very similar to Bitcoin addresses or Ethereum EOAs).
 
-In order to sumbit extrinsics (transactions, in Substrate terminology) with PolkadotJS from one of your account, you need to import it within the application.
+In order to submit extrinsics (transactions, in Substrate terminology) with PolkadotJS from one of your account, you need to import it within the application.
 
 Navigate to section `Settings` then subsection `account options`, open drop-down list `in-browser account creation`, select option `Allow local in-browser account storage` and click on `Save` button:
 
