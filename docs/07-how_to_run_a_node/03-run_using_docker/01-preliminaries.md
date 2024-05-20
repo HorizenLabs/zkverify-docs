@@ -66,7 +66,7 @@ Inside repository `compose-zkverify-simplified` you can find the main tool you'l
 **Windows user:** a couple of additional checks when running `scripts/init.sh` are required:
 
 - make sure Docker engine is running (e.g. verifying it from Docker Desktop),
-- make sure you can run `.sh` scripts on your machine; suggested option is to install [Git](https://git-scm.com/downloads), then you can just double click on `init.sh` or use Git Bash tool.
+- make sure you can run `.sh` scripts on your machine; the suggested option is to install [Git](https://git-scm.com/downloads), then you can just double click on `init.sh` or use Git Bash tool.
 
 Let's now have a brief overview of the basic items required to actually run the node:
 

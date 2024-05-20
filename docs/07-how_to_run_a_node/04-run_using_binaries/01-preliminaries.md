@@ -27,7 +27,7 @@ This repository contains the implementation of a **zkVerify** mainchain node. It
 For building the source code open a terminal at repository root and type:
 
 ```bash
-cargo build --release
+cargo build --profile production
 ```
 
 or:
@@ -38,7 +38,7 @@ cargo build
 
 for a debug build.
 
-The build process downloads all the dependencies and can take several minutes on the first run; when finished you can find the build output in directory `target/release` (or `target/debug`) and in particular the node executable `nh-node`.
+The build process downloads all the dependencies and can take several minutes on the first run; when finished you can find the build output in directory `target/production` (or `target/debug`) and in particular the node executable `nh-node`.
 
 In case you need to clean your workspace, removing previous build output, you can achieve this with:
 
@@ -53,17 +53,17 @@ Apart from the execution of the node itself, `nh-node` provides some command-bas
 - command `key`:
   - subcommands `generate`, `inspect`, `insert`: allow you to handle generation, parsing and insertion of account keys (those used for example by Babe and Grandpa algorithm); necessary when running a validator node,
   - subcommands `generate-node-key`, `inspect-node-key`: allow you to handle generation and parsing of node keys (those used for signing peer-to-peer messages and for uniquely identifying the node within the network); necessary when running a boot node,
-  - use `target/release/nh-node key --help` for additional details,
+  - use `target/production/nh-node key --help` for additional details,
 - command `build-spec`:
   - allow you to create chain-spec file,
-  - `target/release/nh-node build-spec --help` for additional details.
+  - `target/production/nh-node build-spec --help` for additional details.
 
 ## Node Common Configuration
 
 In the next pages you'll get instructed on how to run `nh-node` in different modes, setting the proper command-line arguments. Keep in mind that being **zkVerify** node based on the [Substrate node template](https://docs.substrate.io/reference/command-line-tools/node-template/), it supports the same set of command-line arguments as the template. For getting a detailed description for each of them you can type:
 
 ```bash
-target/release/nh-node --help
+target/production/nh-node --help
 ```
 
 The common command-line arguments you'd want to set regardless of the node type you picked are:

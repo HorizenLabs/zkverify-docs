@@ -8,12 +8,28 @@ For running a validator node the specific command-line arguments you'd want to s
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | --validator | Enable validator mode.<br/> The node will be started with the authority role and actively participate in any consensus task that it can (e.g. depending on availability of local keys). | No value must be provided. |
 
-So for example you can launch it with:
+Since a validator node needs proper keys for block authoring and chain selection, you can generate them using `nh-node` command `key` (refer to [this section](./01-preliminaries.md#node-command-line-utilities) for further details). In the first place generate a secret phrase with:
 
 ```bash
-target/release/nh-node --name MyZkVerifyValidatorNode --base-path /home/your_user/validator_node_data --chain test --port 30353 --validator
+target/production/nh-node key generate
+```
+
+then take note of the `Secret phrase:` contained in the response and proceed with keys insertion:
+
+```bash
+target/production/nh-node key insert --key-type babe --chain test --base-path /home/your_user/validator_node_data --scheme sr25519
+target/production/nh-node key insert --key-type gran --chain test --base-path /home/your_user/validator_node_data --scheme ed25519
+target/production/nh-node key insert --key-type imon --chain test --base-path /home/your_user/validator_node_data --scheme sr25519
+```
+
+providing the secret phrase as input when prompted for (`URI:`).
+
+You can then start with (note to adapt the values of the args based on your needs):
+
+```bash
+target/production/nh-node --name MyZkVerifyValidatorNode --base-path /home/your_user/validator_node_data --chain test --port 30353 --validator
 ```
 
 You can check from the logs printed out in the console that your validator node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, it authors new blocks, ...).
 
-Refer to [this section](../03-run_using_docker/04-run-validator-node.md#Next-Steps) for the next steps you need to take care of after starting your validator node.
+Refer to [this section](../03-run_using_docker/04-run-validator-node.md#next-steps) for the next steps you need to take care of after starting your validator node.

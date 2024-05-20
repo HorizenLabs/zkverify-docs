@@ -82,7 +82,7 @@ b693d6143f0d   horizenlabs/zkverify:latest   "/app/entrypoint.sh"   10 minutes a
 
 ```
 
-Then you can connect to the RPC node using PolkadotJS (refer to [this section](./02-run-rpc-node.md#Explore-and-Interact-with-the-Node) for a brief walkthrough) and start submitting RPC commands and extrinsics.
+Then you can connect to the RPC node using PolkadotJS (refer to [this section](./02-run-rpc-node.md#explore-and-interact-with-the-node) for a brief walkthrough) and start submitting RPC commands and extrinsics.
 
 In order to use PolkadotJS with your validator account, you need to import it within the application.
 

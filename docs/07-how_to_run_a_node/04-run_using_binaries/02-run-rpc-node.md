@@ -12,12 +12,12 @@ For running an RPC node the specific command-line arguments you'd want to set ar
 | --rpc-methods   | RPC methods to expose. <br/> [default: `auto`]<br/> Possible values:<br/> - `auto`: Expose every RPC method only when RPC is listening on `localhost`, otherwise serve only safe RPC methods<br/> - `safe`: Allow only a safe subset of RPC methods<br/> - `unsafe`: Expose every RPC method (even potentially unsafe ones) | `safe` if your machine externally exposes RPC port, otherwise `unsafe`. |
 | --pruning       | Specifies the maximum number of block states to keep or archive to keep all block states. If the node is running as a validator, the default is to keep all block states. If the node does not run as a validator, only state for the last 256 blocks is kept. | `archive` if you want to maintain a full copy of the blockchain, any number if you want to keep only a specific number of recent blocks. |
 
-So for example you can launch it with:
+You can then start with (note to adapt the values of the args based on your needs):
 
 ```bash
-target/release/nh-node --name MyZkVerifyRpcNode --base-path /home/your_user/rpc_node_data --chain test --port 30555 --rpc-port 9944 --rpc-external --rpc-cors all --rpc-methods safe --pruning archive
+target/production/nh-node --name MyZkVerifyRpcNode --base-path /home/your_user/rpc_node_data --chain test --port 30555 --rpc-port 9944 --rpc-external --rpc-cors all --rpc-methods safe --pruning archive
 ```
 
 You can check from the logs printed out in the console that your RPC node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, ...).
 
-Refer to [this section](../03-run_using_docker/02-run-rpc-node.md#Explore-and-Interact-with-the-Node) for instructions on how to explore and interact a bit with your RPC node.
+Refer to [this section](../03-run_using_docker/02-run-rpc-node.md#explore-and-interact-with-the-node) for instructions on how to explore and interact a bit with your RPC node.
