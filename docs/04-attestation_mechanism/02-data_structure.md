@@ -29,4 +29,4 @@ In order to decouple the Mainchain from Ethereum (the chain on which the attesta
 
 - zkVerify will provide different chains on which to send the attestation, and the users, when submitting a proof, will need to specify the destination chain. Note that:
     * We might envision different attestation publication policies for each destination chain, depending on different characteristics. Ideally, we would like this policy to change dynamically depending on how the destination chain changes (e.g. we might employ an oracle) and/or how many users are interested in bridging on that chain, instead of it being fixed since genesis and thus hardly changeable.
-    * Users submitting proofs to NH will pay the fee required to perform basic operations plus the fee required to remunerate the relayer in order to post the proof on the destination chain (different for each chain).
+    * Users submitting proofs to zkVerify will pay the fee required to perform basic operations plus the fee required to remunerate the relayer in order to post the proof on the destination chain (different for each chain).
