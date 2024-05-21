@@ -4,7 +4,7 @@ title: Polygon CDK installation guide
 
 ## Introduction
 
-This tutorial takes you through the process of deploying a full CDK zkRollup, EVM-compatible network on Sepolia that uses New Horizen Mainchain as Proof Verification layer.
+This tutorial takes you through the process of deploying a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify Mainchain as Proof Verification layer.
 
 It relies on specific component versions so we have hidden most of the configuration complexity in scripts to make the process straightforward.
 
@@ -22,7 +22,7 @@ Prover tested requirements:
 
 Miscellaneous requirements:
 - Infura API key
-- At least 10 nZEN on NH Mainchain
+- At least 10 ACME on zkVerify Mainchain
 - At least 5 ETH on Sepolia (faucet [here](https://www.alchemy.com/faucets/ethereum-sepolia) or you can buy [here](https://www.sepoliaeth.com/buy-sepolia-eth))
 
 ## CDK Smart Contracts deployment
@@ -68,8 +68,8 @@ cd deployment && cp deploy_parameters.json.example deploy_parameters.json
     "multiplierGas": "",
     "setupEmptyCommittee": true,
     "committeeTimelock": false,
-    "newHorizenAttestationAddress": "<OPERATOR ADDRESS OF NH SMART CONTRACT>",
-    "newHorizenContractAddress": "<ADDRESS OF NH SMART CONTRACT>"
+    "newHorizenAttestationAddress": "<OPERATOR ADDRESS OF ZKVERIFY SMART CONTRACT>",
+    "newHorizenContractAddress": "<ADDRESS OF ZKVERIFY SMART CONTRACT>"
 }
 ```
 
@@ -82,7 +82,7 @@ Before each deployment, you must delete the folder .openzeppelin located in the 
 npm run deploy:deployer:CDKValidium:sepolia
 ```
 
-- Deploy the CDK contracts and the New Horizen Smart Contract. This contract receives the Attestations created by the New Horizen Mainchain and It is used by the `CDKValidium.sol` contract to check if a batch proof is verified or not.
+- Deploy the CDK contracts and the zkVerify Smart Contract. This contract receives the Attestations created by the zkVerify Mainchain and It is used by the `CDKValidium.sol` contract to check if a batch proof is verified or not.
 
 ```
 npm run deploy:testnet:CDKValidium:sepolia
