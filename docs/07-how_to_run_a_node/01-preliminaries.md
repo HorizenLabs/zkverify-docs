@@ -48,6 +48,6 @@ In terms of setup type, you have two options to choose between:
   - simplifies deployment and ensures compatibility across different platforms,
   - highly recommended for ease of use and maintenance.
 - **Using binaries built from source:**
-  - if you prefer more control over the installation process, you can build the binaries directly from the source code, available at [NH-core](https://github.com/HorizenLabs/NH-core),
+  - if you prefer more control over the installation process, you can build the binaries directly from the source code, available at [zkVerify](https://github.com/HorizenLabs/zkVerify),
   - requires manual compilation and configuration,
   - suitable for advanced users who want to customize their setup.

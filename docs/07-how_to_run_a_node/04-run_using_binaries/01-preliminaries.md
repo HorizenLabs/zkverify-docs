@@ -14,10 +14,10 @@ Here below is a list of prerequisites that need to be available on your machine 
 - `protoc` compiler: can be installed with `sudo apt install protobuf-compiler`,
 - `clang` compiler: can be installed with `sudo apt install clang`,
 
-Lastly, clone the repository [NH-core](https://github.com/HorizenLabs/NH-core) with the command:
+Lastly, clone the repository [zkVerify](https://github.com/HorizenLabs/zkVerify) with the command:
 
 ```bash
-git clone https://github.com/HorizenLabs/NH-core.git
+git clone https://github.com/HorizenLabs/zkVerify.git
 ```
 
 This repository contains the implementation of a **zkVerify** mainchain node. It is based on the [Substrate](https://substrate.io/) framework.
