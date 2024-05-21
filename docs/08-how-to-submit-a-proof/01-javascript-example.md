@@ -112,7 +112,7 @@ if (!proofs[proofType]) {
       console.log(`Submitting ${proofType} proof...`);
       await submitProof.signAndSend(account, ({ status, dispatchError }) => {
          if (status.isInBlock) {
-            console.log(`Transaction included at blockHash ${status.asInBlock}`);
+            console.log(`Transaction included at blockHash: https://testnet-explorer.zkverify.io/block/${status.asInBlock}`);
          }
          if (status.isFinalized) {
             if (dispatchError) {
