@@ -52,7 +52,7 @@ Now you are ready to follow the instructions below to submit a proof.
 4. Create a `.env` file:
 
     ```shell
-    echo -e "WEBSOCKET=wss://testnet-rpc.zkverify.io\nPRIVATE_KEY=your_private_key" > .env
+    echo -e "WEBSOCKET=wss://testnet-rpc.zkverify.io\nPRIVATE_KEY=\"below giant big little small royal three two one yes test tag\"" > .env
     ```
 5. Update the `.env` file values:
 
