@@ -4,7 +4,7 @@ title: Run an RPC Node
 
 ## Prepare the Environment
 
-For running an RPC node open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+For running an RPC node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
@@ -18,7 +18,7 @@ scripts/init.sh
 
 The interactive session run by the script asks you for providing input related to:
 
-- node type: you need to select RPC node (refer to [this page](../01-chosing_the_node_type.md) for node types),
+- node type: you need to select RPC node,
 - network: currently only testnet is available,
 - node name: just a human readable identifier,
 - category of methods to expose: allows you to specify if you want to expose only safe methods (in case your machine is externally reachable) or every methods,

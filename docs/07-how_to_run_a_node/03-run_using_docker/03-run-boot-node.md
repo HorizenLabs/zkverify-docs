@@ -4,7 +4,7 @@ title: Run a Boot Node
 
 ## Prepare the Environment
 
-For running a boot node open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+For running a boot node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
@@ -18,7 +18,7 @@ scripts/init.sh
 
 The interactive session run by the script asks you for providing input related to:
 
-- node type: you need to select boot node (refer to [this page](../01-chosing_the_node_type.md) for node types),
+- node type: you need to select boot node,
 - network: currently only testnet is available,
 - node name: just a human readable identifier,
 - node key (`node_key.dat` file): you can import an already existing key or let the script to randomly generate one for you (refer to [this page](./01-preliminaries.md) for node keys).

@@ -1,5 +1,5 @@
 ---
-title: Chosing the Node Type
+title: Preliminaries
 ---
 
 ## Node Types
@@ -23,3 +23,31 @@ When setting up a **zkVerify** node, the first decision you need to make is whic
   - suitable for users who are prepared to run a validator, supporting the chain and earning new tokens through staking.
 
 *Not sure which option to choose?* If you're uncertain about which node type suits your needs, consider starting with an RPC node. It will allow you to explore the ecosystem and gain familiarity.
+
+## HW Requirements
+
+The hardware requirements are listed in the table below:
+
+| Requirement        | RPC node           | Boot node          | Validator node     |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| Core               | 1                  | 1                  | 1                  |
+| Threads per core   | 2                  | 2                  | 2                  |
+| Clock speed (GHz)  | 2.2                | 2.2                | 2.2                |
+| Memory (GiB)       | 2                  | 4                  | 2                  |
+| Bandwidth (Gigabit)| Up to 5            | Up to 5            | Up to 5            |
+| Storage (GB)       | 50<br/>5 with pruning| 5                | 150                |
+
+Consider those reported above as recommendations, even if it's possible that machines with lower requirements are still able to run a node properly.
+
+## Setup Types
+
+In terms of setup type, you have two options to choose between:
+
+- **Using Docker (recommended):**
+  - Docker provides a convenient and consistent environment for running your node,
+  - simplifies deployment and ensures compatibility across different platforms,
+  - highly recommended for ease of use and maintenance.
+- **Using binaries built from source:**
+  - if you prefer more control over the installation process, you can build the binaries directly from the source code, available at [NH-core](https://github.com/HorizenLabs/NH-core),
+  - requires manual compilation and configuration,
+  - suitable for advanced users who want to customize their setup.

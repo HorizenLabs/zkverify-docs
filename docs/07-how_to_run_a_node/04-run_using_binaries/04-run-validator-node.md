@@ -4,7 +4,7 @@ title: Run a Validator Node
 
 ## Prepare and Run
 
-For running a validator node the specific command-line arguments you'd want to set are the following:
+For running a validator node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) the specific command-line arguments you'd want to set are the following:
 
 | Name        | Description                                                                                                                                                                             | Value                      |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
