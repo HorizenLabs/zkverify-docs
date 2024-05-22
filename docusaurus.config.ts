@@ -54,7 +54,27 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Overview',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutSidebar',
+          position: 'left',
+          label: 'Tutorials',
+        },
+        {
+          type: 'doc',
+          position: 'left',
+          to: 'docs/roadmap.md',
+          docId: 'roadmap',
+          label: 'Roadmap',
+        },
+        {
+          type: 'doc',
+          docId: 'relevant_links',
+          to: 'docs/relevant_links.md',
+          position: 'left',
+          label: 'zkVerify Hub',
         },
         {
           href: 'https://github.com/HorizenLabs/zkverify-docs',

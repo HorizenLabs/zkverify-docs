@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Polygon CDK Proof Submission
+title: Polygon CDK Proof Submission
 ---
 
-# Tutorial - Polygon CDK Proof Submission
+# Polygon CDK Proof Submission
 In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the ZkVerify chain.
 
 ## Requirements
