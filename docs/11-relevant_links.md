@@ -23,5 +23,6 @@ title: zkVerify Hub
 
 | Wallet | Link |
 | --- | --- |
-| Subwallet | https://www.subwallet.app/ |
 | Talisman | https://www.talisman.xyz/ |
+| Subwallet | https://www.subwallet.app/ |
+
