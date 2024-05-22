@@ -23,7 +23,7 @@ title: zkVerify Roadmap
 - **zkVerify**: additions to zkVerify including:
    - A change of consensus from AURA to BABE
    - Implementation of a new proof verification pallet which verifies zkSync Era proofs
-- **Network** changes to allow for external parties to run a node
+- **Network** changes to allow for external parties to run a validator/boot/rpc/simple node
 - **Documentation** updates
 :::
 
