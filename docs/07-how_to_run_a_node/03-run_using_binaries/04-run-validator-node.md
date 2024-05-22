@@ -34,4 +34,4 @@ target/production/nh-node --name MyZkVerifyValidatorNode --base-path /home/your_
 
 You can check from the logs printed out in the console that your validator node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, it authors new blocks, ...).
 
-Refer to [this section](../03-run_using_docker/04-run-validator-node.md#next-steps) for the next steps you need to take care of after starting your validator node.
+Refer to [this section](../02-run_using_docker/04-run-validator-node.md#next-steps) for the next steps you need to take care of after starting your validator node.
