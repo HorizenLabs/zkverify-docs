@@ -27,9 +27,9 @@ The flow will be the following:
 
 Some pallets have been developed to accommodate the requirements:
 
-- [**settlement-fflonk:**](../06-verification_pallets/02-fflonk.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+- [**settlement-fflonk:**](../06-verification_pallets/01-fflonk.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
-- [**settlement-zksync:**](../06-verification_pallets/03-zksync_era.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+- [**settlement-zksync:**](../06-verification_pallets/02-zksync_era.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
 - **proof_of_existence:** The attestation pallet that defines the logic to generate new attestations and the corresponding events once that the conditions of a given policy are met.
 
