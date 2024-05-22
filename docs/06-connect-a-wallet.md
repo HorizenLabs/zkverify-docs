@@ -6,6 +6,12 @@ title: Connect a Wallet
 
 ## Recommended Wallets
 
+### Talisman
+
+Talisman provides a secure and user-friendly platform for managing assets, interacting with dApps, and exploring both the Polkadot and Ethereum ecosystems. With support for a variety of networks, NFT management, and hardware wallets, Talisman presents itself as a holistic wallet solution.
+
+https://www.talisman.xyz/
+
 ### SubWallet
 
 A comprehensive Polkadot, Substrate and Ethereum wallet. 
@@ -13,34 +19,16 @@ SubWallet is a versatile option for managing assets across over 150 networks. Wi
 
 https://www.subwallet.app/
 
-### Talisman
-
-Talisman provides a secure and user-friendly platform for managing assets, interacting with dApps, and exploring both the Polkadot and Ethereum ecosystems. With support for a variety of networks, NFT management, and hardware wallets, Talisman presents itself as a holistic wallet solution.
-
-https://www.talisman.xyz/
-
 ## Connecting to zkVerify Testnet
 
 Below are the zkVerify Testnet RPC URL and zkVerify Testnet Explorer URL that will be used to configure the wallet connection, allowing you to interact with the testnet blockchain the recommended browser wallets:
 
 | <!-- -->                  | <!-- -->                                |
 |---------------------------|-----------------------------------------|
-| zkVerify Testnet RPC URL  | wss://nh-rpc.horizenlabs.io             |
+| zkVerify Testnet RPC URL  | wss://testnet-rpc.zkverify.io           |
 | zkVerify Testnet Explorer | https://testnet-explorer.zkverify.io/v0 |
 
 Follow the instructions below to set up your wallet with these variables and start exploring the zkVerify Testnet blockchain.
-
-
-### Using SubWallet
-
-1. Go to Settings (top left icon).
-2. Choose Manage Networks.
-3. Click the “+” in the top right corner.
-4. Insert the RPC URL provided above.
-5. Add the zkVerify Testnet Block Explorer link from above.
-6. Hit Save.
-
-![](./img/subwallet-add-network.png)
 
 ### Using Talisman
 
@@ -54,6 +42,17 @@ Follow the instructions below to set up your wallet with these variables and sta
 8. Click on Add Network.
 
 ![](./img/talisman-add-network.png)
+
+### Using SubWallet
+
+1. Go to Settings (top left icon).
+2. Choose Manage Networks.
+3. Click the “+” in the top right corner.
+4. Insert the RPC URL provided above.
+5. Add the zkVerify Testnet Block Explorer link from above.
+6. Hit Save.
+
+![](./img/subwallet-add-network.png)
 
 ## Get $ACME zkVerify Testnet Tokens
 
