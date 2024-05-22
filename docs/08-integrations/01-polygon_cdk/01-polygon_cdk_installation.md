@@ -1,5 +1,5 @@
 ---
-title: Polygon CDK installation guide
+title: Installation guide
 ---
 
 ## Introduction

@@ -1,5 +1,5 @@
 ---
-title: zkSync-era installation guide
+title: Installation guide
 ---
 
 ## Introduction
@@ -117,6 +117,3 @@ watch --color --interval 1 zk status prover
 ```
 
 For any additional resources/info please refer to [this](https://github.com/HorizenLabs/zksync-era/blob/main-hl/prover/prover_fri/README.md).
-
-
-

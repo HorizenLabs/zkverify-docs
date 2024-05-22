@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Polygon CDK Proof Submission
+title: Proof Submission
 ---
 
 # Tutorial - Polygon CDK Proof Submission
