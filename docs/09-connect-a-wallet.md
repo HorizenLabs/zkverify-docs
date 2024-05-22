@@ -60,7 +60,8 @@ Head on over to our [Manual Test Token Faucet Request form](https://cztdlssdwco.
 
 After you receive your $ACME zkVerify testnet token, we have a few different user activities you can try out! 
 
-* Users can go through the process of submitting and verifying a Polygon CDK proof to the zkVerify testnet here: https://docs.zkverify.io/proof_submission_interface/polygon_cdk_proof_submission/
-* Users can deploy a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer: https://docs.zkverify.io/polygon_cdk_installation/
+* [Users can go through the process of submitting and verifying a Polygon CDK proof to the zkVerify testnet](./03-proof_submission_interface/03-tenderly_polygon_cdk_proof_submission.md)
+* [Users can deploy a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./08-integrations/01-polygon_cdk/01-polygon_cdk_installation.md)
+* [Users can deploy a full zkSync Era zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./08-integrations/02-zksync-era/01-zksync_installation.md)
 
 Thank you for testing! If you have any questions or require support from the team, feel free to reach out to us on [Discord](https://discord.gg/zkverify).
