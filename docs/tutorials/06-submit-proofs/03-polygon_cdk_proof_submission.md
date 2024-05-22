@@ -1,8 +1,8 @@
 ---
-title: Polygon CDK Proof Submission
+title: Proof Submission with Tenderly
 ---
 
-# Polygon CDK Proof Submission
+# Proof Submission with Tenderly
 In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the ZkVerify chain.
 
 ## Requirements

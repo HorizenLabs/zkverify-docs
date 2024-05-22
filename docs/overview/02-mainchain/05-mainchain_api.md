@@ -165,7 +165,7 @@ If no proof is currently available, the attestation is empty but still published
 
 ### settlementFFlonkPallet
 
-#### [submitProof](#submitproof)
+#### [submitProof](#submitprooffflonk)
 
 Creates an extrinsic for the submission of an FFLONK proof to be verified and eventually included in the next attestation (if valid).
 The extrinsic fails in case of invalid proof and it's not included in the attestation.
@@ -176,7 +176,7 @@ The extrinsic fails in case of invalid proof and it's not included in the attest
 
 ### settlementZksyncPallet
 
-#### [submitProof](#submitproof)
+#### [submitProof](#submitproofzksync)
 
 Creates an extrinsic for the submission of a ZK Sync proof to be verified and eventually included in the next attestation (if valid).
 The extrinsic fails in case of invalid proof and it's not included in the attestation.
