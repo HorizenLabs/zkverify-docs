@@ -1,5 +1,5 @@
 ---
-title: zkSync Era installation guide
+title: zkSync Era
 ---
 
 ## Introduction

@@ -1,5 +1,5 @@
 ---
-title: Polygon CDK installation guide
+title: Polygon CDK
 ---
 
 ## Introduction
@@ -169,6 +169,3 @@ cd deploy
 ```
 docker compose up -d
 ```
-
-
-
