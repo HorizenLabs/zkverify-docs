@@ -1,17 +1,17 @@
 ---
-title: Preliminaries
+title: Getting started - Docker
 ---
 
 ## Prerequisites
 
-Before you begin running your **zkVerify** node, ensure that you have installed on your machine:
+Before you begin running your **zkVerify** node, ensure that you have the following installed on your machine:
 
 - Docker,
 - Docker Compose (v2),
 - `jq` tool,
 - `gnu-sed` tool (macOS only).
 
-For checking Docker and Docker Compose availability, open a terminal and type:
+In order to check Docker and Docker Compose availability, open a terminal and type:
 
 ```bash
 docker --version
@@ -23,65 +23,71 @@ then type:
 docker compose version
 ```
 
-if any of the commands is reporting an error you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/). From here on out, a very basic understanding of Docker concepts and features is assumed; if you're unfamiliar, proceed anyway and seek additional information online as needed.
+If any of the commands result in an error, you can follow the instructions from the official [Docker guide](https://docs.docker.com/engine/install/) and [Docker Compose guide](https://docs.docker.com/compose/install/).
 
-For checking `jq` tool availability, open a terminal and type:
+:::note
+From here throughout the rest of the guide, a very basic understanding of Docker concepts and features is assumed. If you're unfamiliar, proceed anyway and seek additional information online as needed.
+:::
+
+To check your machine for `jq` tool availability, open a terminal and type:
 
 ```bash
 jq --version
 ```
 
-if the command is reporting an error you can install it with:
+If the command results in an error, you can install `jq` with:
 
 - Linux: command `sudo apt install jq`,
 - macOS: command `brew install jq`,
 - Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the executable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
 
-For checking `gnu-sed` tool availability (macOS only), open a terminal and type:
+To check your machine for `gnu-sed` tool availability (macOS only), open a terminal and type:
 
 ```bash
 gsed --version
 ```
 
-if the command is reporting an error you can install it with:
+If the command results in an error, you can install `gnu-sed` with:
 
 ```bash
 brew install gsed
 ```
 
-Lastly, clone the repository [compose-zkverify-simplified](https://github.com/HorizenLabs/compose-zkverify-simplified) with the command:
+Finally, clone the repository [compose-zkverify-simplified](https://github.com/HorizenLabs/compose-zkverify-simplified) with the command:
 
 ```bash
 git clone https://github.com/HorizenLabs/compose-zkverify-simplified.git
 ```
 
-or directly download the [archive](https://github.com/HorizenLabs/compose-zkverify-simplified/archive/refs/heads/main.zip) and unzip it.
+Or directly download the [archive](https://github.com/HorizenLabs/compose-zkverify-simplified/archive/refs/heads/main.zip) and unzip it.
 
-This repository contains several resources helping you in the preparation of the environment for running your node.
+This repository contains several resources to help you in the preparation of the environment for running your node.
 
 ## Basic Items
 
-Inside repository `compose-zkverify-simplified` you can find the main tool you'll use for preparing your environment, the script `scripts/init.sh`. It acts as a step-by-step guide, collecting from you all the requirements and taking care of preparing all the files needed.
+Inside the repository `compose-zkverify-simplified` you can find the main tool you'll use for preparing your environment, the script `scripts/init.sh`. It acts as a step-by-step guide, collecting from you all the requirements and taking care of preparing all the files needed.
 
-**Windows user:** a couple of additional checks when running `scripts/init.sh` are required:
+:::tip[**For Windows users**]
+A couple of additional checks when running `scripts/init.sh` are required:
+- Make sure Docker engine is running (e.g. verifying it from Docker Desktop),
+- Make sure you can run `.sh` scripts on your machine
+   - The suggested option is to install [Git](https://git-scm.com/downloads)
+   - Then you can just double click on `init.sh` or use Git Bash tool.
+:::
 
-- make sure Docker engine is running (e.g. verifying it from Docker Desktop),
-- make sure you can run `.sh` scripts on your machine; the suggested option is to install [Git](https://git-scm.com/downloads), then you can just double click on `init.sh` or use Git Bash tool.
-
-Let's now have a brief overview of the basic items required to actually run the node:
-
-- Docker image `horizenlabs/zkverify`:
-  - this is the **zkVerify** software packaged up in a Docker image, allowing you to run the node consistently on every platform (Linux, Windows, macOS, ...),
-  - the recommended tag is `latest`, otherwise you can pick one of your choice from DockerHub,
-  - unless already available on your machine, it will be automatically downloaded from DockerHub by Docker Compose file (see below),
-  - you can also build this image using the Docker file [`hl-node.Dockerfile`](https://github.com/HorizenLabs/zkVerify/blob/main/docker/dockerfiles/hl-node.Dockerfile).
+Following is a brief overview of the basic items required to actually run the node:
+- The Docker image `horizenlabs/zkverify`:
+  - This is the **zkVerify** software packaged up in a Docker image.  It allows you to run the node consistently on every platform (Linux, Windows, macOS, ...).
+  - The recommended tag is `latest`, otherwise you can choose another one from DockerHub.
+  - Unless already available on your machine, it will be automatically downloaded from DockerHub by Docker Compose file (see below).
+  - You can also choose to build this image using the Docker file [`hl-node.Dockerfile`](https://github.com/HorizenLabs/zkVerify/blob/main/docker/dockerfiles/hl-node.Dockerfile).
 - Docker Compose file:
-  - a common Docker template used to launch the node,
-  - automatically generated by `init.sh`.
+  - A common Docker template used to launch the node.
+  - This is automatically generated by `init.sh`.
 - `.env` file:
-  - configuration file for your node,
-  - automatically generated by `init.sh`.
+  - This is the configuration file for your node.
+  - It is automatically generated by `init.sh`.
 - Secret files:
-  - `secret_phrase.dat` file: contains a secret phrase composed of 12 random words selected among a specific dictionary; it is used for generating private and public keys required for authoring and finalizing blocks (needed only for validator nodes),
-  - `node_key.dat` file: contains a random 256-bits number; it is the private key required for signing peer-to-peer (p2p) messages and uniquely identifying the node within the network (peer-id),
-  - automatically generated by `init.sh`.
+  - `secret_phrase.dat` file: contains a secret phrase composed of 12 random words selected among a specific dictionary. It is used for generating private and public keys required for authoring and finalizing blocks (needed only for validator nodes).
+  - `node_key.dat` file: contains a random 256-bits number. It is the private key required for signing peer-to-peer (p2p) messages and uniquely identifying the node within the network (peer-id).
+  - These are automatically generated by `init.sh`.

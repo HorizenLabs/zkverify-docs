@@ -4,7 +4,7 @@ title: Run a Boot Node
 
 ## Prepare and Run
 
-For running a boot node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) the specific command-line arguments you'd want to set are the following:
+To run a boot node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
 
 | Name          | Description                                                                                                                                                                                                 | Value                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -13,12 +13,16 @@ For running a boot node (refer to [this page](../01-preliminaries.md#node-types.
 
 The node-key file can be generated and inspected with `nh-node` command `key`, subcommands `generate-node-key` and `inspect-node-key` (refer to [this section](./preliminaries#node-command-line-utilities) for further details).
 
-You can then start with (note to adapt the values of the args based on your needs):
+You can then start with:
 
 ```bash
 target/production/nh-node --name MyZkVerifyBootNode --base-path /home/your_user/boot_node_data --chain test --port 30333 --listen-addr /ip4/0.0.0.0/tcp/30333 --listen-addr /ip4/0.0.0.0/tcp/30334/ws
 ```
 
-You can check from the logs printed out in the console that your boot node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, ...).
+:::note
+You can change the values of the above args based on your needs.
+:::
 
-Refer to [this section](../run_using_docker/run-boot-node#next-steps) for the next steps you need to take care of after starting your boot node.
+You can check from the logs printed out in the console that your boot node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, etc.).
+
+Refer to [this section](../run_using_docker/run-boot-node#next-steps) for the next steps you need to take after starting your boot node.
