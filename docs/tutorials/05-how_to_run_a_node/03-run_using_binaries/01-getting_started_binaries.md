@@ -1,5 +1,5 @@
 ---
-title: Getting started - binaries
+title: Getting Started - Binaries
 ---
 
 ## Prerequisites

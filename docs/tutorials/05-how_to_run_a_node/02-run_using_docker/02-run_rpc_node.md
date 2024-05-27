@@ -4,7 +4,7 @@ title: Run an RPC Node
 
 ## Prepare the Environment
 
-To run an RPC node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+To run an RPC node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open a terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified

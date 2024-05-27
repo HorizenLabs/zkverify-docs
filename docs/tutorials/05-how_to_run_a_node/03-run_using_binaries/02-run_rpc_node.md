@@ -4,7 +4,7 @@ title: Run an RPC Node
 
 ## Prepare and Run
 
-To run an RPC node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
+To run an RPC node (refer to [this page](../01-getting_started.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
 
 | Name            | Description                                                                                                                                                                                                 | Value                                                                     |
 | -------------   | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -26,4 +26,4 @@ You can change the values of the above args based on your needs.
 
 You can check from the logs printed out in the console that your RPC node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, etc.).
 
-Refer to [this section](../run_using_docker/run-rpc-node#explore-and-interact-with-the-node) for instructions on how to explore and interact with your RPC node.
+Refer to [this section](../run_using_docker/run_rpc_node#explore-and-interact-with-the-node) for instructions on how to explore and interact with your RPC node.
