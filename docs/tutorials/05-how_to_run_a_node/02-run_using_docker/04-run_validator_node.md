@@ -129,7 +129,7 @@ The hexadecimal prefix `0x` is written just once.
 
 This is the set of session public keys of your validator.
 
-After generating the set of keys, you have to register them in the blockchain, so that they are available to all the nodes in network. You can achieve this by submitting a specific extrinsic through PolkadotJS. Navigate to the section `Developer` then the subsection `Extrinsics` and select `session`, `setKeys` in the two dropdown panels. Remember to select your validator account as `using the selected account`.   Then fill in the textboxes `keys: NhRuntimeSessionKeys` and `proof: Bytes` respectively with the set of session public keys you just prepared and with empty value `0x`, finally click on `Submit Transaction` button:
+After generating the set of keys, you have to register them in the blockchain, so that they are available to all the nodes in network. You can achieve this by submitting a specific extrinsic through PolkadotJS. Navigate to the section `Developer` then to the subsection `Extrinsics` and select `session`, `setKeys` in the two dropdown panels. Remember to select your validator account as `using the selected account`.   Then fill in the textboxes `keys: NhRuntimeSessionKeys` and `proof: Bytes` respectively with the set of session public keys you just prepared and with empty value `0x`, finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_setkeys.png)
 
@@ -137,7 +137,7 @@ Insert your account password and confirm by clicking on button `Sign and Submit`
 
 ![alt_text](./img/polkadotjs_setkeys_s1.png)
 
-In few seconds you should receive a popup message on the top-right corner confirming the extrinsic has been succesfully submitted.
+In few seconds you should receive a pop-up message on the top-right corner confirming the extrinsic has been succesfully submitted.
 
 Now that the blockchain knows those public session keys are associated with your validator account, you can proceed by staking some of the tokens you own in order to have a chance to be elected as a validator for the next sessions. To achieve this you have to submit another type of extrinsic.
 
@@ -200,7 +200,7 @@ To submit the staking extrinsic, navigate back to the section `Developer` then t
 
 ![alt_text](./img/polkadotjs_staking_bond.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission. As an additional double check you can navigate to section `Network` then subsection `Staking`, click on `Waiting` tab and verify that your validator is within the list:
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Waiting` tab and verify that your validator is within the list:
 
 ![alt_text](./img/polkadotjs_staking.png)
 
@@ -210,7 +210,7 @@ Now that the blockchain knows you have staked your tokens it's time for the last
 
 ![alt_text](./img/polkadotjs_staking_validate.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for popup message confirming successful submission. As an additional double check you can navigate to section `Network` then subsection `Staking`, click on `Active` tab and verify that your validator is within the list.
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Active` tab and verify that your validator is within the list.
 
 ## Conclusion
 
@@ -224,7 +224,7 @@ If you are interested in how to claim the new tokens you deserve as an active va
 
 ![alt_text](./img/polkadotjs_claim.png)
 
-the era index being retrievable from section `Developer` then subsection `Chain state`, state `staking`, `erasRewardPoints`, then filtering with respect to your validator account.
+the era index being retrievable from section `Developer` then to the subsection `Chain state`, state `staking`, `erasRewardPoints`, then filtering with respect to your validator account.
 
 :::warning
 You will want to periodically repeat this claim operation (even better to automate it in some way) as the blockchain progresses.  You can only claim rewards for the **previous 30 eras** (approximately one week).
