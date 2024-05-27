@@ -43,13 +43,13 @@ Ensure that you fully understand the implications of customizing the execution m
 
 **Now we'll start running the node.**
 
-Within the terminal type the command below which runs a script:
+Within the terminal type the command below which runs the Docker container:
 
 ```bash
 docker compose -f /home/your_user/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
 ```
 
-Once this script is complete, your node will begin running in the background.  To ensure that it is running properly, type:
+Once this command is complete, your node will begin running in the background.  To ensure that it is running properly, type:
 
 ```bash
 docker container ls
