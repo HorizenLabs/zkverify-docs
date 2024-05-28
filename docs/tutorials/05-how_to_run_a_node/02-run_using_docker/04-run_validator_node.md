@@ -4,7 +4,7 @@ title: Run a Validator Node
 
 ## Prepare the Environment
 
-To run a validator node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+To run a validator node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
@@ -17,11 +17,12 @@ scripts/init.sh
 ```
 
 The interactive session run by the script asks you to provide the following inputs:
+
 - Node type: you need to select validator node,
 - Network: currently only testnet is available,
 - Node name: just a human readable identifier,
-- Node key (`node_key.dat` file): you can import an already existing key or let the script to randomly generate one for you (refer to [this page](./01-preliminaries.md) for node keys),
-- Secret phrase (`secret_phrase.dat` file): you can import an already existing secret phrase or let the script to randomly generate one for you (refer to [this page](./01-preliminaries.md) for secret phrases).
+- Node key (`node_key.dat` file): you can import an already existing key or let the script to randomly generate one for you (refer to [this page](./01-getting_started_docker.md) for node keys),
+- Secret phrase (`secret_phrase.dat` file): you can import an already existing secret phrase or let the script to randomly generate one for you (refer to [this page](./01-getting_started_docker.md) for secret phrases).
 
 At the end of the session the script will populate directory `deployments/validator-node/`*`network`* with the proper files and you will get the following message:
 
@@ -43,13 +44,13 @@ Ensure that you fully understand the implications of customizing the execution m
 
 **Now we'll start running the node.**
 
-Within the terminal type the command below which runs a script:
+Within the terminal type the command below which runs the Docker container:
 
 ```bash
 docker compose -f /home/your_user/compose-zkverify-simplified/deployments/validator-node/testnet/docker-compose.yml up -d
 ```
 
-Once this script is complete, your node will begin running in the background.  To ensure that it is running properly, type:
+Once this command is complete, your node will begin running in the background.  To ensure that it is running properly, type:
 
 ```bash
 docker container ls
@@ -74,7 +75,7 @@ In this section you can learn how to register a new validator on the blockchain.
 Since you are going to submit extrinsics which change the blockchain state, you need sufficient funds in the account (uniquely identified by your secret phrase) associated with your validator so that you can pay transaction fees.  
 :::
 
-For security reasons, your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to connect to the public RPC endpoint at this [link to Polkadotjs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/explorer).  Refer to [this section](./02-run-rpc-node.md#explore-and-interact-with-the-node) for a brief walkthrough.
+For security reasons, your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to connect to the public RPC endpoint at this [link to Polkadotjs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/explorer).  Refer to [this section](./02-run_rpc_node.md#explore-and-interact-with-the-node) for a brief walkthrough.
 
 In order to use PolkadotJS with your validator account, you need to import it within the application.
 
@@ -128,7 +129,7 @@ The hexadecimal prefix `0x` is written just once.
 
 This is the set of session public keys of your validator.
 
-After generating the set of keys, you have to register them in the blockchain, so that they are available to all the nodes in network. You can achieve this by submitting a specific extrinsic through PolkadotJS. Navigate to the section `Developer` then the subsection `Extrinsics` and select `session`, `setKeys` in the two dropdown panels. Remember to select your validator account as `using the selected account`.   Then fill in the textboxes `keys: NhRuntimeSessionKeys` and `proof: Bytes` respectively with the set of session public keys you just prepared and with empty value `0x`, finally click on `Submit Transaction` button:
+After generating the set of keys, you have to register them in the blockchain, so that they are available to all the nodes in network. You can achieve this by submitting a specific extrinsic through PolkadotJS. Navigate to the section `Developer` then to the subsection `Extrinsics` and select `session`, `setKeys` in the two dropdown panels. Remember to select your validator account as `using the selected account`.   Then fill in the textboxes `keys: NhRuntimeSessionKeys` and `proof: Bytes` respectively with the set of session public keys you just prepared and with empty value `0x`, finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_setkeys.png)
 
@@ -136,7 +137,7 @@ Insert your account password and confirm by clicking on button `Sign and Submit`
 
 ![alt_text](./img/polkadotjs_setkeys_s1.png)
 
-In few seconds you should receive a popup message on the top-right corner confirming the extrinsic has been succesfully submitted.
+In few seconds you should receive a pop-up message on the top-right corner confirming the extrinsic has been succesfully submitted.
 
 Now that the blockchain knows those public session keys are associated with your validator account, you can proceed by staking some of the tokens you own in order to have a chance to be elected as a validator for the next sessions. To achieve this you have to submit another type of extrinsic.
 
@@ -144,7 +145,7 @@ Now that the blockchain knows those public session keys are associated with your
 Before doing this, you may want to know what is the current stake of other validators so you can stake a sufficient number of tokens to become an active validator.  The current **zkVerify** implementation requires to be in the **top 10 stakers** in order to be included in the active validators set.
 :::
 
-Navigate to the section `Developer` then to the subsection `Chain state`, select `staking`, `erasStakersOverview` in the two dropdown panels and make sure to disable `include option` flag.  Finally click on `+` button:
+Navigate to the section `Developer` then to the subsection `Chain state`, select `staking`, `erasStakersOverview` in the two dropdown panels, insert current era number (can be obtained querying `currentEra` in the same page) and make sure to disable `include option` flag.  Finally click on `+` button:
 
 ![alt_text](./img/polkadotjs_stakers.png)
 
@@ -191,28 +192,39 @@ The response you get should have a payload similar to this:
 ]
 ```
 
-In the example above, the third active validator (sorting them from highest to lowest stake) has staked `139,999,999,999,999,999,971,572,664 ACME` so you are required to stake at least that amount for participating actively.
+In the example above, the third active validator (sorting them from highest to lowest stake) has staked `139,999,999,999,999,999,971,572,664` (unit of measure is `ACME*10^18`) so you are required to stake at least that amount for participating actively.
 
 ### Staking
-To submit the staking extrinsic, navigate back to the section `Developer` then to the subsection `Extrinsics` and select `staking`, `bond` in the two dropdown panels.  Remember to select your validator account as `using the selected account`, then fill in the textboxes `value: Compact<u128> (BalanceOf)` and `payee: PalletStakingRewardDestination` respectively with the amount of tokens you want to stake and the value `Account` followed by selection of your validator account.  Finally, click on `Submit Transaction` button:
+
+To submit the staking extrinsic, navigate back to the section `Developer` then to the subsection `Extrinsics` and select `staking`, `bond` in the two dropdown panels.  Remember to select your validator account as `using the selected account`, then fill in the textboxes `value: Compact<u128> (BalanceOf)` and `payee: PalletStakingRewardDestination` respectively with the amount of tokens you want to stake (note here unit of measure is `ACME`, not `ACME*10^18`) and the value `Account` followed by selection of your validator account.  Finally, click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_staking_bond.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for a popup message confirming successful submission.
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Waiting` tab and verify that your validator is within the list:
+
+![alt_text](./img/polkadotjs_staking.png)
 
 ### Becoming a validator
+
 Now that the blockchain knows you have staked your tokens it's time for the last step.  This involves declaring that you are ready to act as a validator. Navigate again to the section `Developer` then to the subsection `Extrinsics` and select `staking`, `validate` in the two dropdown panels. Remember to select your validator account as `using the selected account`, then fill in the textbox `commission: Compact<Perbill>` with the fraction of the commission you keep if other users delegate their tokens to you by nomination (parts per billion, if you don't know which value to set use `100000000`).  Select `No` in the dropdown panel `blocked: bool` and finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_staking_validate.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for a popup message confirming successful submission.
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Active` tab and verify that your validator is within the list.
 
 ## Conclusion
-That's it! You just need to wait for the completion of the current era and  the next one (since an era lasts for 6 hours, in the worst case this would be 12 hours).  After that your node will start authoring new blocks. You can check this by navigating to the section `Network` then to the subsection `Explorer` for a summarized view of the list of recently authored blocks, or to the section `Network` then to the subsection `Staking` for an advanced console specifically designed for staking.
+
+That's it! You just need to wait for the completion of the current era and the next one (since an era lasts for 6 hours, in the worst case this would be 12 hours).  After that your node will start authoring new blocks. You can check this by navigating to the section `Network` then to the subsection `Explorer` for a summarized view of the list of recently authored blocks, or to the section `Network` then to the subsection `Staking` for an advanced console specifically designed for staking. On the Docker side you can check the logs and expect messages like the following one:
+
+![alt_text](./img/node_authoring.png)
+
+reporting your validator node is not only syncing the blockchain but also contributing by authoring new blocks (`Starting consensus session...` and `Pre-sealed block for proposal...`).
 
 If you are interested in how to claim the new tokens you deserve as an active validator, navigate to the section `Developer` then to the subsection `Extrinsics` and select `staking`, `payoutStakers`.  Remember to select your validator account as `using the selected account`, then choose your validator account as `validatorStash: AccountId32` and insert target era in the textbox `era: u32 (EraIndex)`.  Finally click on `Submit Transaction` button:
 
 ![alt_text](./img/polkadotjs_claim.png)
+
+the era index being retrievable from section `Developer` then to the subsection `Chain state`, state `staking`, `erasRewardPoints`, then filtering with respect to your validator account.
 
 :::warning
 You will want to periodically repeat this claim operation (even better to automate it in some way) as the blockchain progresses.  You can only claim rewards for the **previous 30 eras** (approximately one week).

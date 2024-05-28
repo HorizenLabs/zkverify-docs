@@ -1,5 +1,5 @@
 ---
-title: Getting started - Docker
+title: Getting Started - Docker
 ---
 
 ## Prerequisites
@@ -39,7 +39,7 @@ If the command results in an error, you can install `jq` with:
 
 - Linux: command `sudo apt install jq`,
 - macOS: command `brew install jq`,
-- Windows: download it from the [official GitHub release page](https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe), rename the executable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
+- Windows: download it from the [official GitHub release page](https://github.com/jqlang/jq/releases/), rename the executable as `jq.exe` and save it in a directory that's part of your system's `PATH` (e.g. `C:\Windows\System32` or `C:\Windows`).
 
 To check your machine for `gnu-sed` tool availability (macOS only), open a terminal and type:
 
@@ -69,13 +69,16 @@ Inside the repository `compose-zkverify-simplified` you can find the main tool y
 
 :::tip[**For Windows users**]
 A couple of additional checks when running `scripts/init.sh` are required:
+
 - Make sure Docker engine is running (e.g. verifying it from Docker Desktop),
 - Make sure you can run `.sh` scripts on your machine
-   - The suggested option is to install [Git](https://git-scm.com/downloads)
-   - Then you can just double click on `init.sh` or use Git Bash tool.
+  - The suggested option is to install [Git](https://git-scm.com/downloads/win)
+  - Then you can just double click on `init.sh` or use Git Bash tool.
+
 :::
 
 Following is a brief overview of the basic items required to actually run the node:
+
 - The Docker image `horizenlabs/zkverify`:
   - This is the **zkVerify** software packaged up in a Docker image.  It allows you to run the node consistently on every platform (Linux, Windows, macOS, ...).
   - The recommended tag is `latest`, otherwise you can choose another one from DockerHub.

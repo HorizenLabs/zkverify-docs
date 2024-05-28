@@ -4,7 +4,7 @@ title: Run a Boot Node
 
 ## Prepare the Environment
 
-To run a boot node (refer to [this page](../01-preliminaries.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+To run a boot node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
@@ -21,7 +21,7 @@ The interactive session run by the script asks you to provide the following inpu
 - Node type: you need to select boot node.
 - Network: currently only testnet is available.
 - Node name: just a human readable identifier.
-- Node key (`node_key.dat` file): you can import an already existing key or let the script to randomly generate one for you (refer to [this page](./01-preliminaries.md) for node keys).
+- Node key (`node_key.dat` file): you can import an already existing key or let the script to randomly generate one for you (refer to [this page](./01-getting_started_docker.md) for node keys).
 
 At the end of the session the script will populate the directory `deployments/boot-node/`*`network`* with the proper files and you will get the following message:
 
@@ -43,13 +43,13 @@ Ensure that you fully understand the implications of customizing the execution m
 
 **Now we'll start running the node.**
 
-Within the terminal type the command below which runs a script:
+Within the terminal type the command below which runs the Docker container:
 
 ```bash
 docker compose -f /home/your_user/compose-zkverify-simplified/deployments/boot-node/testnet/docker-compose.yml up -d
 ```
 
-Once this script is complete, your node will begin running in the background.  To ensure that it is running properly, type:
+Once this command is complete, your node will begin running in the background.  To ensure that it is running properly, type:
 
 ```bash
 docker container ls
@@ -72,6 +72,7 @@ It's now time to make sure that the machine your node is running on is properly 
 - The proper ports are externally exposed.  Check the values for configuration `NODE_NET_P2P_PORT` and `NODE_NET_P2P_PORT_WS` inside the `.env` file.
 
 Lastly, you should notify other node operators about the existence of your bootnode.  In particular you need to provide:
+
 - The IP address (or the DNS).
 - The open ports.
 - The public part of your node key (peer id).  This is printed at the startup of your node with the log `Local node identity is: ...` or is retrievable with command `docker run -v`*`path_to_your_file`*`/node_key.dat:/data/node_key.dat --rm --entrypoint nh-node horizenlabs/zkverify:latest key inspect-node-key --file /data/node_key.dat`.
