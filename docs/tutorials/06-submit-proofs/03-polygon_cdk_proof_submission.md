@@ -64,4 +64,4 @@ In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=w
 
 ## Step 4
 
-Check your transaction on the [ZkVerify Block Explorer](https://nh-explorer.horizenlabs.io/v0/extrinsic)!
+Check your transaction on the [ZkVerify Block Explorer](https://testnet-explorer.zkverify.io/v0)!
