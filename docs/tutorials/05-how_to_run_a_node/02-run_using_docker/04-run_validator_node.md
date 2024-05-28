@@ -218,7 +218,7 @@ That's it! You just need to wait for the completion of the current era and the n
 
 ![alt_text](./img/node_authoring.png)
 
-reporting your validator node is nomore just syncing the blockchain but actually contributing by authoring new blocks (`Starting consensus session...` and `Pre-sealed block for proposal...`).
+reporting your validator node is not only syncing the blockchain but also contributing by authoring new blocks (`Starting consensus session...` and `Pre-sealed block for proposal...`).
 
 If you are interested in how to claim the new tokens you deserve as an active validator, navigate to the section `Developer` then to the subsection `Extrinsics` and select `staking`, `payoutStakers`.  Remember to select your validator account as `using the selected account`, then choose your validator account as `validatorStash: AccountId32` and insert target era in the textbox `era: u32 (EraIndex)`.  Finally click on `Submit Transaction` button:
 
