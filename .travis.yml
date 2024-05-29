@@ -1,0 +1,11 @@
+os: linux
+dist: jammy
+language: node_js
+node_js:
+  - "18"
+
+install:
+  - npm install
+
+script:
+  - npm run build
