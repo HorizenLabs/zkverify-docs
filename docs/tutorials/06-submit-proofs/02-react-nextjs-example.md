@@ -88,7 +88,7 @@ Secondly, update the `src/app/globals.css` to the following:
 @tailwind utilities;
 ```
 
-### Setting Up NexUI
+### Setting Up NextUI
 
 We'll want to leverage NextUI for our UI components, such as Buttons, Tabs, Links, etc.
 
@@ -253,7 +253,7 @@ export default function ZKVProvider({
   }, [setup]);
 
   const handleConnectWallet = useCallback(async () => {
-    const extensions = await web3Enable("Factorization App");
+    const extensions = await web3Enable("zk-verify-nextjs-example");
 
     if (!extensions) {
       throw new Error("No extension found");
