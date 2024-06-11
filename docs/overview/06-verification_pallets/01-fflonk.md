@@ -4,8 +4,8 @@ title: Fflonk Verifier
 
 ## [`settlementFflonkPallet`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk)
 
-The [`submitProof`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk/src/lib.rs#L108)
-extrinsic of the checks if the given proof is a Polygon-CDK Fork-Id 6 valid proof. The input proof format
+The [`submitProof`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk/src/lib.rs#L131)
+extrinsic checks if the given proof is a Polygon-CDK Fork-Id 6 valid proof. The input proof format
 is 800 bytes array where the last 32 bytes are the public inputs: the pallet use
 [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.3.0) to deserialize
 the proof and public inputs and then verify them. If we put error handling aside we can sketch the pallet duty
