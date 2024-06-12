@@ -8,13 +8,13 @@ The flow will be the following:
 
 1. A proof submitter (rollup / zkApp) submits the proof via the [`submitProof`](../02-mainchain/05-mainchain_api.md#submitprooffflonk) extrinsic of the appropriate verification pallet.
 
-    Currently we use just two types of verifier (fflonk and zksync era verifier) with predetermined verification keys. The proof leaf `value` will be:
+    Currently we use just three types of verifier (fflonk, zksync era and risc0 verifier) with predetermined verification keys. The proof leaf `value` will be:
 
     ```
     keccak256(“<verifier>-”, public_inputs)
     ```
 
-    where `verifier` is one of `fflonk` and `zksync`.
+    where `verifier` is one of `fflonk`, `zksync` or `risc0`.
 
 2. If the proof is valid, it is relayed by the consensus and eventually included in a Mainchain block; otherwise the transaction reverts with an error.
 3. The failing transaction will be included in the block anyway, and the user will pay fees for it. This is to prevent DoS attacks.
@@ -30,6 +30,8 @@ Some pallets have been developed to accommodate the requirements:
 - [**settlement-fflonk:**](../06-verification_pallets/01-fflonk.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
 - [**settlement-zksync:**](../06-verification_pallets/02-zksync_era.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+
+- [**settlement-risc0:**](../06-verification_pallets/03-risc0.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
 - **proof_of_existence:** The attestation pallet that defines the logic to generate new attestations and the corresponding events once that the conditions of a given policy are met.
 
