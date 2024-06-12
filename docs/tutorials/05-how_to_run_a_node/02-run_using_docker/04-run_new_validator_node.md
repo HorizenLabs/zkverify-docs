@@ -1,10 +1,10 @@
 ---
-title: Run a Validator Node
+title: Run a New Validator Node
 ---
 
 ## Prepare the Environment
 
-To run a validator node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+To run a new validator node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
@@ -75,7 +75,7 @@ In this section you can learn how to register a new validator on the blockchain.
 Since you are going to submit extrinsics which change the blockchain state, you need sufficient funds in the account (uniquely identified by your secret phrase) associated with your validator so that you can pay transaction fees.  
 :::
 
-For security reasons, your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to connect to the public RPC endpoint at this [link to Polkadotjs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/explorer).  Refer to [this section](./02-run_rpc_node.md#explore-and-interact-with-the-node) for a brief walkthrough.
+For security reasons, your validator node does not expose an RPC interface but you need a user friendly way for submitting the extrinsics, so the first thing to do is to connect to the public RPC endpoint at this [link to Polkadotjs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/explorer).  Refer to [this section](./02-run_new_rpc_node.md#explore-and-interact-with-the-node) for a brief walkthrough.
 
 In order to use PolkadotJS with your validator account, you need to import it within the application.
 

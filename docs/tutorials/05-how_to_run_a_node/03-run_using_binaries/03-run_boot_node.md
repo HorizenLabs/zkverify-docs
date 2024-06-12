@@ -1,10 +1,10 @@
 ---
-title: Run a Boot Node
+title: Run a New Boot Node
 ---
 
 ## Prepare and Run
 
-To run a boot node (refer to [this page](../01-getting_started.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
+To run a new boot node (refer to [this page](../01-getting_started.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
 
 | Name          | Description                                                                                                                                                                                                 | Value                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -25,4 +25,4 @@ You can change the values of the above args based on your needs.
 
 You can check from the logs printed out in the console that your boot node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, etc.).
 
-Refer to [this section](../run_using_docker/run_boot_node#next-steps) for the next steps you need to take after starting your boot node.
+Refer to [this section](../run_using_docker/run_new_boot_node#next-steps) for the next steps you need to take after starting your boot node.
