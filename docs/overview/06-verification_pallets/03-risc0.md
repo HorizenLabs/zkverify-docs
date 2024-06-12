@@ -11,7 +11,7 @@ extrinsic can be used to verify risc0 proofs.  These are zk-STARKs which prove t
 - Proof: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `InnerReceipt`.
 - Public inputs: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `Journal`.
 
-The pallet uses [`risc0-verifier` crate](https://github.com/HorizenLabs/risc0-verifier/tree/v0.1.0) to deserialize the proof and public inputs and then verify them. The pallet's duties are summarized in the following code snippet
+The pallet uses [`risc0-verifier` crate](https://github.com/HorizenLabs/risc0-verifier/tree/v0.1.0) to deserialize the proof and public inputs and then verify them. The pallet's duties are summarized in the following code snippet:
 
 ```rust
 let vk = vk_data.into();
@@ -24,5 +24,5 @@ assert!(verify(vk, &proof, &pubs).is_ok());
 If the proof is correct a `Poe::NewElement(statement, attestation_id)` event is emitted where `statement`
 is computed by using `risc0` as `verifier-id`.
 
-This call can fail both if it's not possible deserialize the proof or public inputs (`InvalidProof`,
+This call can fail both if it's not possible to deserialize the proof or public inputs (`InvalidProof`,
 `InvalidPublicInputs`), if the size of the proof or public inputs is excessive (`InvalidProofSize`, `InvalidPublicInputsSize`) or if the proof doesn't verify (`VerifyError`).
