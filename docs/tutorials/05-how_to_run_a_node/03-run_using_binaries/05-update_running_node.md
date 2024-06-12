@@ -12,7 +12,7 @@ git checkout 0.3.0
 ```
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended to use the latest tag in order to run fresh and updated software; check from the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) which is the latest tag and if neeeded update accordingly the command provided above (here tag `0.3.0` is used).
+It is recommended to use the latest tag in order to run the latest, most updated software. Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.3.0` is used).
 :::
 
 After checking out the new source code version, build it with:
@@ -21,6 +21,6 @@ After checking out the new source code version, build it with:
 cargo build --profile production
 ```
 
-After the building process has finished, then stop your currently running node by pressing `ctrl+c` in the associated terminal and finally restart it with `target/production/nh-node` using the same command-line arguments used by your previously running node.
+After the building process has finished, stop your currently running node by pressing `ctrl+c` in the associated terminal and restart it with `target/production/nh-node` using the same command-line arguments you previously used to start your node.
 
-Check the new source code version is used by inspecting log starting with `✌️  version` (is located in the very first log lines).
+Check the new source code version is used by inspecting the log starting with `✌️  version` (it is located in the very first log lines).
