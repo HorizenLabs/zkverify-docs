@@ -4,7 +4,7 @@ title: Update a Running Node
 
 ## Procedure
 
-To update an already running node (wheter it is an RPC node, boot node or validator node) open a terminal, navigate to the root directory of project `compose-zkverify-simplified` and check out latest tag:
+To update an already running node (wheter it is an RPC node, boot node or validator node) open a terminal, navigate to the root directory of project `compose-zkverify-simplified` and check out the latest tag:
 
 ```bash
 cd compose-zkverify-simplified
@@ -12,7 +12,7 @@ git checkout 0.3.0
 ```
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended to use the latest tag in order to run fresh and updated software; check from the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) which is the latest tag and if neeeded update accordingly the command provided above (here tag `0.3.0` is used).
+It is recommended to use the latest tag in order to run the latest, most updated software.  Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.3.0` is used).
 :::
 
 Then launch the update script by typing:
@@ -43,6 +43,6 @@ Before launching the node, you can further inspect and customize the execution b
 Ensure that you fully understand the implications of customizing the execution manually if you choose to do so.
 :::
 
-Within the terminal type the command suggested by the script in order to complete the update process. Note that no shut-down operation is required because the entire restart procedure is taken in charge by Docker.
+Within the terminal type the command suggested by the script in order to complete the update process. Note that the no shut-down operation is required because the entire restart procedure is handled by Docker.
 
-Check the new image version is used typing `docker container ls`.
+Check the new image version is being used by typing `docker container ls`.
