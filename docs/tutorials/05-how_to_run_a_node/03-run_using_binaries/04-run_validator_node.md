@@ -1,10 +1,10 @@
 ---
-title: Run a Validator Node
+title: Run a New Validator Node
 ---
 
 ## Prepare and Run
 
-To run a validator node (refer to [this page](../01-getting_started.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
+To run a new validator node (refer to [this page](../01-getting_started.md#node-types.md) for node types) the specific command-line arguments you should set are the following:
 
 | Name        | Description                                                                                                                                                                             | Value                      |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
@@ -40,4 +40,4 @@ You can change the values of the above args based on your needs.
 
 You can check from the logs printed out in the console that your validator node is up and running (e.g. it keeps updating the chain tip, it is connected to other peers, it authors new blocks, etc.).
 
-Refer to [this section](../run_using_docker/run_validator_node#next-steps) for the next steps you need to take after starting your validator node.
+Refer to [this section](../run_using_docker/run_new_validator_node#next-steps) for the next steps you need to take after starting your validator node.

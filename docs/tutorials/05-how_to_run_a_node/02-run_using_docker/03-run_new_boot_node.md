@@ -1,10 +1,10 @@
 ---
-title: Run a Boot Node
+title: Run a New Boot Node
 ---
 
 ## Prepare the Environment
 
-To run a boot node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
+To run a new boot node (refer to [this page](../01-getting_started.md#node-types.md) for node types) open the terminal and navigate to the root directory of project `compose-zkverify-simplified`:
 
 ```bash
 cd compose-zkverify-simplified
