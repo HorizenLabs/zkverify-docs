@@ -180,6 +180,31 @@ The extrinsic fails in case of invalid proof and it's not included in the attest
 
 `rawProof: [u8;800]` The byte array representing the proof to be submitted including the public inputs (last 32 bytes).
 
+`vkOrHash: Optional<VkOrHash>` if it's present you should indicate the verification key or the hash o a preregistered one, otherwise it use the Polygon CDK forkid 6 one.
+
+#### [registerVk](#registerVkfflonk)
+
+Register a verification key and emit a `RegisteredVk` event with the verification key hash. 
+
+**Parameters**
+
+`vk: Vk` the fflonk verification key.
+ 
+```rust
+pub struct Vk {
+    power: u8,
+    k1: Fr,
+    k2: Fr,
+    w: Fr,
+    w3: Fr,
+    w4: Fr,
+    w8: Fr,
+    wr: Fr,
+    x2: G2,
+    c0: G1, 
+}
+```
+
 ### settlementZksyncPallet
 
 #### [submitProof](#submitproofzksync)
