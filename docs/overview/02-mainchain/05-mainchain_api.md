@@ -211,7 +211,7 @@ The extrinsic fails in case of invalid proof and it's not included in the attest
 #### [submitProof](#submitproofgroth16)
 
 Creates an extrinsic for the submission of a Groth16 proof to be verified and eventually included in the next attestation (if valid).
-The extrinsic fails in case of invalid proof and it's not included in the attestation.
+The extrinsic fails if the proof is invalid which will result in the proof not being included in the attestation.
 Support is provided for both the *BN254* curve used in Ethereum, and the *BLS12-381* curve.
 
 **Parameters**
