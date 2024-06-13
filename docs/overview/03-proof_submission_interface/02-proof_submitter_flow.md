@@ -8,7 +8,7 @@ The flow will be the following:
 
 1. A proof submitter (rollup / zkApp) submits the proof via the [`submitProof`](../02-mainchain/05-mainchain_api.md#submitprooffflonk) extrinsic of the appropriate verification pallet.
 
-    Currently we use four types of verifier (fflonk, zksync-era, risc0, and Groth16 verifier). The proof leaf `value` will be:
+    Currently we have implemented four verifiers (fflonk, zksync-era, risc0, and Groth16 verifier). The proof leaf `value` will be:
     - fflonk:
         ```
         keccak256(“fflonk-”, keccak256(ScaleEncode(vk)), "-", public_inputs)
