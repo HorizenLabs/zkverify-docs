@@ -26,7 +26,7 @@ The flow will be the following:
         keccak256(keccak256("groth16"), keccak256(ScaleEncode(vk)), keccak256(ScaleEncode(public_inputs)))
         ```
 
-    As it can be seen, at the moment the verifiers use different conventions for defining the proof leaf value, but work is currently ongoing to harmonize them.
+    At the moment, the verifiers use different conventions for defining the proof leaf value, but work is currently ongoing to unify them.
 
 2. If the proof is valid, it is relayed by the consensus and eventually included in a Mainchain block; otherwise the transaction reverts with an error.
 3. The failing transaction will be included in the block anyway, and the user will pay fees for it. This is to prevent DoS attacks.
