@@ -11,17 +11,17 @@ extrinsic checks if the given proof is valid proof fflonk proof. The extrinsic a
 - An optional `VkOrHash` variant where you can provide either a Verification key or its hash to retrieve it from storage. If it's absent the
 verifier will use the Polygon-CDK Fork-Id verification key
 
-This extrinsic use [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.4.0) to deserialize
+This extrinsic uses [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.4.0) to deserialize
 the proof and public inputs and then verify them against the given verification key.
 
 ### Register Verification Key
 
-If you would to use the hash of verification key instead of the key itself you need to register it before by use
+If you choose to use the hash of verification key instead of the key itself, you need to register it before by use
 [`registerVk`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk/src/lib.rs#L158). This
-extrinsic save the verification key in the storage and emit a `SettlementFFlonkPallet::VkRegistered(hash)` event
+extrinsic saves the verification key in storage and emits a `SettlementFFlonkPallet::VkRegistered(hash)` event
 with the hash that can be used in `submitProof`.
 
-The fflonk verification key have the follow structure:
+The fflonk verification key has the following structure:
 
 ```rust
 pub struct Vk {
@@ -38,8 +38,7 @@ pub struct Vk {
 }
 ```
 
-You can fill all the fields with both hex or decimal string: an example from _Polkadot.js_ interface is
-the follow.
+You can fill all the fields with both hex or decimal string: an example from _Polkadot.js_ interface follows:
 
 ![Fflonk registerVk](../img/fflonk_register_vk.png)
 

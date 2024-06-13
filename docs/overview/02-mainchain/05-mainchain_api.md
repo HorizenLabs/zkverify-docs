@@ -180,7 +180,7 @@ The extrinsic fails in case of invalid proof and it's not included in the attest
 
 `rawProof: [u8;800]` The byte array representing the proof to be submitted including the public inputs (last 32 bytes).
 
-`vkOrHash: Optional<VkOrHash>` if it's present you should indicate the verification key or the hash o a preregistered one, otherwise it use the Polygon CDK forkid 6 one.
+`vkOrHash: Optional<VkOrHash>` indicate the verification key or the hash of a preregistered one, otherwise it will use the verification key of Polygon CDK forkid 6.
 
 #### [registerVk](#registerVkfflonk)
 
