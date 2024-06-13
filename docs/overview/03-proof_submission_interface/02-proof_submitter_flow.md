@@ -41,7 +41,7 @@ Some pallets have been developed to accommodate the requirements:
 
 - [**settlement-fflonk:**](../06-verification_pallets/01-fflonk.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
-- [**settlement-zksync:**](../06-verification_pallets/02-zksync_era.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
+- [**settlement-zksync:**](../06-verification_pallets/02-zksync_era.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. In this case the verification key is not applicable. Once a proof is verified, it’s forwarded to the attestation pallet.
 
 - [**settlement-risc0:**](../06-verification_pallets/03-risc0.md) Contains the definition of the `submitProof` transaction and the logic to parse public inputs and verify the proof. Once a proof is verified, it’s forwarded to attestation pallet.
 
