@@ -231,6 +231,17 @@ The extrinsic fails in case of invalid proof and it's not included in the attest
 
 `pubs: Vec<u8>` The byte vector representing the public inputs (also known as journal in Risc0 terminology).
 
+### settlementGroth16Pallet
+
+#### [submitProof](#submitproofgroth16)
+
+Creates an extrinsic for the submission of a Groth16 proof to be verified and eventually included in the next attestation (if valid).
+The extrinsic fails if the proof is invalid which will result in the proof not being included in the attestation.
+Support is provided for both the *BN254* curve used in Ethereum, and the *BLS12-381* curve.
+
+**Parameters**
+The details about how G1/G2 elliptic curve points and scalars are actually encoded can be found in the [Groth16 pallet documentation](../06-verification_pallets/04-groth16.md#encodings)
+
 ## [Events](#events)
 
 The Mainchain leverages the standard Events provided by Substrate (see the [official documentation](https://polkadot.js.org/docs/substrate/events)).
@@ -272,7 +283,7 @@ Error thrown when a validator submits a block containing an attestation with too
 
 Note: the "sudo" account can override this behavior and submit an attestation whose size is lower than the minimum threshold.
 
-### settlementFFlonkPallet and settlementZkSyncPallet and settlementRisc0Pallet
+### settlement pallets
 
 #### [InvalidInput or InvalidPublicInputs](#invalidinput-or-invalidpublicinputs)
 
@@ -286,10 +297,18 @@ Error thrown when the submitted proof is invalid (i.e. it was not possible to de
 
 Error thrown when the submitted proof is processed but the verification fails.
 
-#### [InvalidPublicInputsSize](#invalidpublicinputssize)
+#### [InvalidPublicInputsSize or TooManyInputs](#invalidpublicinputssize)
 
-Error thrown when the submitted public inputs are too big ()`settlementRisc0Pallet` only).
+Error thrown when the submitted public inputs are too big (`settlementRisc0Pallet` only).
 
 #### [InvalidProofSize](#invalidproofsize)
 
 Error thrown when the submitted proof is too big (`settlementRisc0Pallet` only).
+
+#### [InvalidVerificationKey](#invalidverificationkey)
+
+Error thrown when the submitted verification key is invalid.
+
+#### [VkAndInputsMismatch](#vkandinputsmismatch)
+
+Error thrown when the number of public inputs provided does not match the structure of the verification key.
