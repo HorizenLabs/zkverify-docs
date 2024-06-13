@@ -29,12 +29,15 @@ title: zkVerify Roadmap
 
 ### Adding proof verifiers
 
-:::note[Milestone 2.1 - June 2024]
-**Coming soon!**  This milestone will feature:
+:::note[Milestone 2.1 - June 13 2024]
 - **Two new proof verifiers** aimed at expanding accessibility and increasing use cases that zkVerify can accommodate.
-- **Proof submission interface** generalization.
+   - Risc0 proof verifier
+   - Groth 16 proof verifier
+- **fflonk verifier** enhancements.
+- **Proof submission interface** generalization part one.
+- **Stabilization** of the finality gadget
 :::
 
 :::note[Milestone 2.2 - June 2024]
-**Coming soon!** This milestone will feature more proof verifiers.
+**Coming soon!** This milestone will feature more proof verifiers and new networks for attestation.
 :::
