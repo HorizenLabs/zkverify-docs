@@ -31,7 +31,7 @@ The `submitProof` extrinsic can be used to verify Groth16 proofs.
     input: Vec<Vec<u8>>             // Scalars
     ```
 
-The pallet leverages arkworks [`ark-groth16`](https://github.com/arkworks-rs/groth16/tree/v0.4.0) library for proof verification.
+The pallet leverages the arkworks [`ark-groth16`](https://github.com/arkworks-rs/groth16/tree/v0.4.0) library for proof verification.
 The notation and serialization of the fields which make up the proof and verification keys also closely mirror the ones of that library.
 Therefore, if your proofs and verification keys are generated using `ark-groth16`, integrating with this pallet should be straightforward.
 Instead, if your proofs and verification keys are generated using `snarkJS`, the [`snarkjs2zkv`](https://github.com/HorizenLabs/snarkjs2zkv) cli utility is available for performing the conversion.
