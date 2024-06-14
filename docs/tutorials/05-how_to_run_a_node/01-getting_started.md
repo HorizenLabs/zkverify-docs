@@ -46,7 +46,7 @@ These requirements are likely to change over time, and it's possible that nodes 
 There are two options to set up your node.  You can:
 
 - **Use Docker (recommended):** which provides a convenient and consistent environment for running your node.  In addition:
-  - It simplifies deployment and ensures compatibility across different platforms,
+  - It simplifies deployment and ensures compatibility across different platforms.
   - It is highly recommended for ease of use and maintenance.
 - **Use binaries built from source:** which allows for more control over the installation process. You can build the binaries directly from the source code, available at [zkVerify](https://github.com/HorizenLabs/zkVerify).  In addition:
   - It requires manual compilation and configuration.
