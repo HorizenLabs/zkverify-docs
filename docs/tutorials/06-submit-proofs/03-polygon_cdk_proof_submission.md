@@ -3,7 +3,7 @@ title: Proof Submission with Tenderly
 ---
 
 # Proof Submission with Tenderly
-In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the ZkVerify chain.
+In this tutorial we'll go through the process of submitting and verifying a Polygon CDK proof to the zkVerify chain.
 
 ## Requirements
 - A Substrate compatible wallet with funds (ACME) connected to the network
@@ -52,11 +52,11 @@ The final step is to concatenate the proof and the Public Input into a single st
 
 ## Step 3
 
-Send the proof to ZkVerify chain.
+Send the proof to zkVerify chain.
 In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics).
 
 - Select your account (you must have some ACME)
-- Choose the `settlementFFlonkPallet`
+- Choose the `settlementFFlonkPallet` and the call `submitProof`
 - Inside the field `rawProof` paste the string obtained from the previous step
 - Click on `submitTransaction`
 
@@ -64,4 +64,4 @@ In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=w
 
 ## Step 4
 
-Check your transaction on the [ZkVerify Block Explorer](https://testnet-explorer.zkverify.io/v0)!
+Check your transaction on the [zkVerify Block Explorer](https://testnet-explorer.zkverify.io/v0)!
