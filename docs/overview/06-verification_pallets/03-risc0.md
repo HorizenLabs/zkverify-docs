@@ -7,7 +7,7 @@ title: risc0 Verifier
 The [`submitProof`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-risc0/src/lib.rs#L107)
 extrinsic can be used to verify risc0 proofs.  These are zk-STARKs which prove that some code has executed correctly and generate the associated computation output. The code is attested through an image id (named verification key in the verification process) and runs inside the risc0-zkVM that provides the proof of execution through a receipt which contains the raw proof and the public inputs for the verification process. The format for those components is:
 
-- Verification key: a bytes array of length 32; the conversion from a risc0 `image_id` (an integer array of length 8) must be little-endian.
+- Verification key: a bytes array of length 32; the conversion from a risc0 `image_id` (an integer array of length 8) must be big-endian.
 - Proof: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `InnerReceipt`.
 - Public inputs: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `Journal`.
 
