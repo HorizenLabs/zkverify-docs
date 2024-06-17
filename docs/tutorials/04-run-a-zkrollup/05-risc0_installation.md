@@ -91,7 +91,7 @@ In order to build the application, go through the following steps:
     for &value in &HASHER_GUEST_ID {
         image_id_hex.push_str(&format!("{:08x}", value.to_be()));
     }
-    println!("Serialized bytes array (hex) IMAGE_ID: {:?}", image_id_hex);
+    println!("Serialized bytes array (hex) IMAGE_ID: {:?}\n", image_id_hex);
     let output: String = receipt.journal.decode().unwrap();
     println!("Output is: {}", output);
     ```
@@ -99,7 +99,7 @@ In order to build the application, go through the following steps:
   In this way you have prepared the host to easily receive command-line argument and to print out to the terminal the proof (`receipt_inner_bytes_array`), the outputs (`receipt_journal_bytes_array`) and the image id (`image_id_hex`); these will be useful in a later step when you need to submit them on the zkVerify Mainchain.
 
 - Modify the guest program (just consider it as the code whose execution you want to prove and you want other to verify):
-  - Open the file `hasher/host/Cargo.toml` with a text editor and add at the bottom the following line:
+  - Open the file `hasher/methods/guest/Cargo.toml` with a text editor and add at the bottom the following line:
 
     ```rust
     sha2 = "0.9"
