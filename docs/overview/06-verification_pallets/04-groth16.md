@@ -40,11 +40,12 @@ If your proofs and verification keys are generated with other tools, the followi
 ## [Encodings](#encodings)
 
 The *zk-proof*, *verification key*, and *public inputs* are composed of cryptographic primitives, namely *elliptic curve points* (belonging to either *G1* or *G2*) and *scalars*.
-- Elliptic curve points are represented in an uncompressed form, as the concatenation of the little-endian encoding of the *x* and *y* affine coordinates.
+- Elliptic curve points are represented in an uncompressed form, as the concatenation of the encoding of the *x* and *y* affine coordinates.
   * An element of the base field of the BN254 curve can be represented with 32 bytes, therefore the affine representation of a BN254 G1 point requires 2 * 32 = 64 bytes.
     Instead, since G2 is an extension field of degree 2, the affine representation of a BN254 G2 point requires double the space, namely 128 bytes.
   * An element of the base field of the BLS12-381 curve can be represented with 48 bytes. Therefore, the encoding of a BLS12-381 G1 point requires 2 * 48 = 96 bytes,
     and the encoding of a BLS12-381 G2 point requires 2 * 96 = 192 bytes.
+  The x and y coordinates of the G1 and G2 points are encoded in little-endian format for BN254 curve, and in big-endian format for BLS12-381 curve. This is coherent with arkworks implementation.
 - Scalars are little-endian encoded. The scalar field of both the BN254 and BLS12-381 curves can be represented with 32 bytes.
 
 The following table summarizes the size of the encodings:
