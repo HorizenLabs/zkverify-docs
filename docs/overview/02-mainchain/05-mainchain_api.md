@@ -169,27 +169,86 @@ In addition to them, the following custom extrinsics are available:
 Creates an extrinsic to trigger the finalization of an attestation containing the proofs submitted in the current window.
 If no proof is currently available, the attestation is empty but still published.
 
-### settlementFFlonkPallet
+### Verifier Pallets
 
-#### [submitProof](#submitprooffflonk)
+All verifier pallets share the follow interface and define its types for: verification key, proof and public inputs. Anyway the
+available exstrinsics are:
 
-Creates an extrinsic for the submission of an FFLONK proof to be verified and eventually included in the next attestation (if valid).
-The extrinsic fails in case of invalid proof and it's not included in the attestation.
+#### [submitProof](#submitproof)
 
-**Parameters**
-
-`rawProof: [u8;800]` The byte array representing the proof to be submitted including the public inputs (last 32 bytes).
-
-`vkOrHash: Optional<VkOrHash>` indicate the verification key or the hash of a preregistered one, otherwise it will use the verification key of Polygon CDK forkid 6.
-
-#### [registerVk](#registerVkfflonk)
-
-Register a verification key and emit a `RegisteredVk` event with the verification key hash. 
+Submit a `Proof` and verify it against the verification key `Vk` and public inputs `Pubs`. If the proof is valid it'll be included
+in the next attestation. The extrinsic fails in the case of an invalid proof.
 
 **Parameters**
 
-`vk: Vk` the fflonk verification key.
- 
+`vkOrHash: VkOrHash` indicate the verification key (the pallet's `Vk`) or the hash (`H256`) of a preregistered one.
+
+`proof: Proof` the proof to be verified.
+
+`Pubs: [u8;32]` The byte array representing the public inputs.
+
+#### [registerVk](#registervk)
+
+Register a verification key that can be used later in submit proof calls and emit a `RegisteredVk` event with the verification key hash.
+
+**Parameters**
+
+`vk: Vk` the verification key that should be registered.
+
+#### [Available Verifier Pallets](#available-verifier-pallets)
+
+- [settlementGroth16Pallet](#settlementgroth16pallet-types)
+- [settlementRisc0Pallet](#settlementrisc0pallet-types)
+- [settlementFFlonkPallet](#settlementfflonkpallet-types)
+- [settlementZksyncPallet](#settlementzksyncpallet-types)
+
+##### settlementGroth16Pallet Types
+
+Support is provided for both the *BN254* curve used in Ethereum, and the *BLS12-381* curve. The details about how `G1`/`G2` elliptic
+curve points and scalars are actually encoded can be found in the 
+[Groth16 pallet documentation](../06-verification_pallets/04-groth16.md#encodings)
+
+```rust
+pub enum Curve {
+    Bn254,
+    Bls12_381,
+}
+
+pub struct G1(pub Vec<u8>); // 64 bytes for Bn256 and 96 for Bls12381
+pub struct G2(pub Vec<u8>); // 128 bytes for Bn256 and 192 for Bls12381
+pub struct Scalar(pub Vec<u8>); // 32 bytes
+
+pub struct ProofInner {
+    pub a: G1,
+    pub b: G2,
+    pub c: G1,
+}
+
+pub struct Vk {
+    pub curve: Curve,
+    pub alpha_g1: G1,
+    pub beta_g2: G2,
+    pub gamma_g2: G2,
+    pub delta_g2: G2,
+    pub gamma_abc_g1: Vec<G1>,
+}
+pub struct Proof {
+    pub curve: Curve,
+    pub proof: ProofInner,
+}
+pub type Pubs = Vec<Scalar>;
+```
+
+##### settlementRisc0Pallet Types
+
+```rust
+pub type Proof = Vec<u8>; // Limited on a configurable max size
+pub type Pubs = Vec<u8>;  // Limited on a configurable max size
+pub type Vk = H256;
+```
+
+##### settlementFFlonkPallet Types
+
 ```rust
 pub struct Vk {
     power: u8,
@@ -203,44 +262,17 @@ pub struct Vk {
     x2: G2,
     c0: G1, 
 }
+pub type Proof = [768; u8]
+pub type Pubs = [32; u8]
 ```
 
-### settlementZksyncPallet
+##### settlementzksyncPallet Types
 
-#### [submitProof](#submitproofzksync)
-
-Creates an extrinsic for the submission of a ZK Sync proof to be verified and eventually included in the next attestation (if valid).
-The extrinsic fails in case of invalid proof and it's not included in the attestation.
-
-**Parameters**
-
-`rawProof: [u8;1440]` The byte array representing the proof to be submitted including the public inputs (last 32 bytes).
-
-### settlementRisc0Pallet
-
-#### [submitProof](#submitproofrisc0)
-
-Creates an extrinsic for the submission of a Risc0 proof to be verified and eventually included in the next attestation (if valid).
-The extrinsic fails in case of invalid proof and it's not included in the attestation.
-
-**Parameters**
-
-`vk: [u8; 32]` The byte array representing the verification key (also known as image id in Risc0 terminology),
-
-`proof: Vec<u8>` The byte vector representing the proof to be submitted (also known as inner receipt in Risc0 terminology),
-
-`pubs: Vec<u8>` The byte vector representing the public inputs (also known as journal in Risc0 terminology).
-
-### settlementGroth16Pallet
-
-#### [submitProof](#submitproofgroth16)
-
-Creates an extrinsic for the submission of a Groth16 proof to be verified and eventually included in the next attestation (if valid).
-The extrinsic fails if the proof is invalid which will result in the proof not being included in the attestation.
-Support is provided for both the *BN254* curve used in Ethereum, and the *BLS12-381* curve.
-
-**Parameters**
-The details about how G1/G2 elliptic curve points and scalars are actually encoded can be found in the [Groth16 pallet documentation](../06-verification_pallets/04-groth16.md#encodings)
+```rust
+pub type Vk = (); // zksync verifier doesn't have any verification key
+pub type Proof = [1408; u8]
+pub type Pubs = [32; u8]
+```
 
 ## [Events](#events)
 
@@ -253,21 +285,29 @@ In addition to them, the following custom events are available:
 
 Emitted when a new ZK proof is submitted, successfully verified, and included in the Merkle tree for the currently pending attestation.
 
-**Returns**
+##### Fields
 
-`value: H256` The hash of the proof that has been included in the Merkle tree (i.e. the value of the leaf of the tree)
-
-`attestationId: u64` The ID of the attestation in which the proof has been included
+- `value: H256` The hash of the proof that has been included in the Merkle tree (i.e. the value of the leaf of the tree)
+- `attestationId: u64` The ID of the attestation in which the proof has been included
 
 #### [NewAttestation](#newattestation)
 
 Emitted when a new attestation is finalized and published. It may contain 0 or more proofs.
 
-**Returns**
+##### Fields
 
-`id: u64`  The ID of the attestation that has been finalized
+- `id: u64` The ID of the attestation that has been finalized
+- `attestation: H256` The root of the Merkle tree of the attestation
 
-`attestation: H256`  The root of the Merkle tree of the attestation
+### Verifier Pallets
+
+#### [VkRegistered](#vkregistered)
+
+##### Fields
+
+- `hash: H256` The hash of the registered verification key that can be used later in the `submitProof`
+exstrinsic calls of the same verifier pallet
+
 
 ## [Errors](#errors)
 
@@ -283,13 +323,13 @@ Error thrown when a validator submits a block containing an attestation with too
 
 Note: the "sudo" account can override this behavior and submit an attestation whose size is lower than the minimum threshold.
 
-### settlement pallets
+### Verifier Pallets
 
-#### [InvalidInput or InvalidPublicInputs](#invalidinput-or-invalidpublicinputs)
+#### [InvalidInput](#invalidinput)
 
 Error thrown when the submitted public inputs are invalid (i.e. it was not possible to deserialize the raw bytes).
 
-#### [InvalidProofData or InvalidProof](#invalidproofdata-or-invalidproof)
+#### [InvalidProofData](#invalidproofdata)
 
 Error thrown when the submitted proof is invalid (i.e. it was not possible to deserialize the raw bytes).
 
@@ -297,18 +337,10 @@ Error thrown when the submitted proof is invalid (i.e. it was not possible to de
 
 Error thrown when the submitted proof is processed but the verification fails.
 
-#### [InvalidPublicInputsSize or TooManyInputs](#invalidpublicinputssize)
-
-Error thrown when the submitted public inputs are too big (`settlementRisc0Pallet` only).
-
-#### [InvalidProofSize](#invalidproofsize)
-
-Error thrown when the submitted proof is too big (`settlementRisc0Pallet` only).
-
 #### [InvalidVerificationKey](#invalidverificationkey)
 
 Error thrown when the submitted verification key is invalid.
 
-#### [VkAndInputsMismatch](#vkandinputsmismatch)
+#### [VerificationKeyNotFound](#verificationkeynotfound)
 
-Error thrown when the number of public inputs provided does not match the structure of the verification key.
+Error thrown when a hash that not related to any registered verification key.

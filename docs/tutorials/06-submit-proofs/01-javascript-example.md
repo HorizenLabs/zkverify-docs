@@ -23,10 +23,12 @@ Before you begin, ensure you have Node.js installed on your machine. You can dow
 3. **Verify Installation**:
     - Open a terminal or command prompt.
     - Run the following commands to verify that Node.js and npm are installed correctly:
+
       ```shell
       node -v
       npm -v
       ```
+
     - You should see the version numbers of Node.js and npm.
 
 Now you are ready to follow the instructions below to submit a proof.
@@ -39,21 +41,25 @@ Now you are ready to follow the instructions below to submit a proof.
     mkdir my-zkverify-project
     cd my-zkverify-project
     ```
+
 2. Initialize a new npm project:
 
     ```shell
     npm init -y
     ```
+
 3. Install the required packages:
 
     ```shell
     npm install @polkadot/api @polkadot/keyring dotenv
     ```
+
 4. Create a `.env` file:
 
     ```shell
     echo -e "WEBSOCKET=wss://testnet-rpc.zkverify.io\nPRIVATE_KEY=your_private_key" > .env
     ```
+
 5. Update the `.env` file values:
 
     - WEBSOCKET: The zkVerify Websocket url
