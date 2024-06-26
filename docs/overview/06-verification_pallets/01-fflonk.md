@@ -41,7 +41,7 @@ the proof and public inputs and then verify them against the given verification 
 
 - hash context data is `b"fflonk"`
 - the pubs bytes are the input ones
-- `validate_vk` check the fields value and curve points.
+- `validate_vk` checks the fields value and curve points.
 
 You can fill all the fields with both hex or decimal string: an example from _Polkadot.js_ interface follows:
 
@@ -49,7 +49,7 @@ You can fill all the fields with both hex or decimal string: an example from _Po
 
 ### Result
 
-The pallet's verify duties are summarized in the following code snippet:
+The pallet's verification duties are summarized in the following code snippet:
 
 ```rust
 let proof = Proof::try_from(&proof_data).unwrap();

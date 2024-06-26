@@ -7,10 +7,12 @@ title: Proof Submitter Flow
 The flow will be the following:
 
 1. A proof submitter (rollup / zkApp) submits the proof via the [`submitProof`](../02-mainchain/05-mainchain_api.md#submitproof) extrinsic of the appropriate verification pallet. The proof leaf `value` will be:
+
+    ```rust
+        leaf_digest = keccak256(keccak256(verifier_ctx), hash(vk), keccak256(public_inputs_bytes))
     ```
-        keccak256(keccak256(verifier-ctx), hash(vk), keccak256(public-inputs-bytes))
-    ```
-    Every verifier should define its `verifier-ctx` (a unique byte sequence), how to hash verification key and how to extract a byte sequence from public inputs.
+
+    Every verifier should define its `verifier_ctx` (a unique byte sequence), how to hash the verification key and how to extract a byte sequence from public inputs. Then, to produce the `leaf_digest`, we apply the previous formula.
 
 2. If the proof is valid, it is relayed by the consensus and eventually included in a Mainchain block; otherwise the transaction reverts with an error.
 3. The failing transaction will be included in the block anyway, and the user will pay fees for it. This is to prevent DoS attacks.

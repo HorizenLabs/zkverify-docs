@@ -12,8 +12,8 @@ title: risc0 Verifier
 
 ### `Verifier` implementation
 
-That's a zk-STARK proof verifier where the proof proves that some code has executed correctly and generate the associated computation output.
-The code is attested through an image id (named verification key in the verification process) and runs inside the risc0-zkVM that provides
+That's a zk-STARK proof verifier where the proof proves that some code has executed correctly and generates the associated computation output.
+The code is attested through an image_id (named verification key in the verification process) and runs inside the risc0-zkVM that provides
 the proof of execution through a receipt which contains the raw proof and the public inputs (journal in risc0 lingo) for the verification process.
 
 - `verify_proof()` uses [`risc0-verifier` crate](https://github.com/HorizenLabs/risc0-verifier/tree/v0.1.0) to deserialize
@@ -26,7 +26,7 @@ the proof and public inputs and then verify them against the given verification 
     pub type Vk = H256;
     ```
 
-    The format for those components are:
+    The format for these components is:
       - `Proof`: The risc0's `InnerProof` serialized by `bincode::serialize`.
       - `Pubs` Public inputs: The risc0's `Journal` serialized by `bincode::serialize`.
       - `Vk` Verification key: a bytes array of length 32; the conversion from a risc0 `image_id` (an integer array of length 8) must be big-endian.

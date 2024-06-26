@@ -171,7 +171,7 @@ If no proof is currently available, the attestation is empty but still published
 
 ### Verifier Pallets
 
-All verifier pallets share the follow interface and define its types for: verification key, proof and public inputs. Anyway the
+All verifier pallets share the following interface and define its types for: verification key, proof and public inputs. Anyway the
 available exstrinsics are:
 
 #### [submitProof](#submitproof)
@@ -181,7 +181,7 @@ in the next attestation. The extrinsic fails in the case of an invalid proof.
 
 **Parameters**
 
-`vkOrHash: VkOrHash` indicate the verification key (the pallet's `Vk`) or the hash (`H256`) of a preregistered one.
+`vkOrHash: VkOrHash` indicates the verification key (the pallet's `Vk`) or the hash (`H256`) of a preregistered one.
 
 `proof: Proof` the proof to be verified.
 
@@ -343,4 +343,4 @@ Error thrown when the submitted verification key is invalid.
 
 #### [VerificationKeyNotFound](#verificationkeynotfound)
 
-Error thrown when a hash that not related to any registered verification key.
+Error thrown when submitting a vk hash that is not related to any registered verification key.

@@ -32,9 +32,7 @@ the proof and then verify them against the given public inputs.
 
 #### Note
 
-In this pallet doesn't have any sense register the verification key before
-to use it in `submitProof` exstrinsic because the only valid one is `()`:
-the void key.
+In this pallet it doesn't make sense to register any verification key, because the only valid one is `()`: the void key.
 
 ### Result
 
