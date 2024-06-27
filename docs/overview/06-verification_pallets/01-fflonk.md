@@ -2,41 +2,46 @@
 title: Fflonk Verifier
 ---
 
-## [`settlementFflonkPallet`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk)
+## [`settlementFflonkPallet`](https://github.com/HorizenLabs/NH-core/tree/main/verifiers/fflonk)
 
-The [`submitProof`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk/src/lib.rs#L131)
-extrinsic checks if the given proof is valid proof fflonk proof. The extrinsic arguments are:
+### Statement hash components
 
-- The proof data composed by 800 bytes array where public inputs are in the last 32 bytes
-- An optional `VkOrHash` variant where you can provide either a Verification key or its hash to retrieve it from storage. If it's absent the
-verifier will use the Polygon-CDK Fork-Id verification key
+- context: `keccak256(b"fflonk")`
+- vk: `keccak256(vk.encode())`
+- pubs: `keccak256(pubs)`
 
-This extrinsic uses [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.4.0) to deserialize
+### `Verifier` implementation
+
+- `verify_proof()` uses [`fflonk_verifier` crate](https://github.com/HorizenLabs/fflonk_verifier/tree/v0.4.0) to deserialize
 the proof and public inputs and then verify them against the given verification key.
+- Define the following types:
 
-### Register Verification Key
+    ```rust
+    pub type Pubs = [u8; 32];
+    pub type Proof = [u8; 768];
+    pub struct Vk {
+        power: u8,
+        k1: Fr,
+        k2: Fr,
+        w: Fr,
+        w3: Fr,
+        w4: Fr,
+        w8: Fr,
+        wr: Fr,
+        x2: G2,
+        c0: G1, 
+    }
+    
+    pub struct Fr(U256)
+    pub struct Fq(U256)
+    pub struct Fq2(Fq, Fq)
+    pub struct G1(Fq, Fq, Fq)
+    pub struct G2(Fq2, Fq2, Fq2)
+    ```
 
-If you choose to use the hash of verification key instead of the key itself, you need to register it before by use
-[`registerVk`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-fflonk/src/lib.rs#L158). This
-extrinsic saves the verification key in storage and emits a `SettlementFFlonkPallet::VkRegistered(hash)` event
-with the hash that can be used in `submitProof`.
-
-The fflonk verification key has the following structure:
-
-```rust
-pub struct Vk {
-    power: u8,
-    k1: Fr,
-    k2: Fr,
-    w: Fr,
-    w3: Fr,
-    w4: Fr,
-    w8: Fr,
-    wr: Fr,
-    x2: G2,
-    c0: G1, 
-}
-```
+- hash context data is `b"fflonk"`
+- the pubs bytes are the input ones
+- `validate_vk` checks the fields value and curve points.
 
 You can fill all the fields with both hex or decimal string: an example from _Polkadot.js_ interface follows:
 
@@ -44,7 +49,7 @@ You can fill all the fields with both hex or decimal string: an example from _Po
 
 ### Result
 
-The pallet's duties are summarized in the following code snippet:
+The pallet's verification duties are summarized in the following code snippet:
 
 ```rust
 let proof = Proof::try_from(&proof_data).unwrap();
@@ -54,8 +59,5 @@ let vk = vk.into();
 fflonk_verifier::verify(vk, &proof, &pubs)
 ```
 
-If the proof is correct a `Poe::NewElement(statement, attestation_id)` event is emitted where `statement`
-is computed by using `fflonk` as `verifier-id`.
-
-This call can fail both if it's not possible to deserialize the proof (`InvalidProofData`) or if the proof doesn't
-verify (`VerifyError`)
+The `submitProof` exstrinsic can fail both if it's not possible to deserialize the proof (`InvalidProofData`) or if the proof doesn't
+verify (`VerifyError`).

@@ -2,27 +2,50 @@
 title: risc0 Verifier
 ---
 
-## [`settlementRisc0Pallet`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-risc0)
+## [`settlementRisc0Pallet`](https://github.com/HorizenLabs/NH-core/tree/main/verifiers/risc0)
 
-The [`submitProof`](https://github.com/HorizenLabs/NH-core/tree/main/pallets/settlement-risc0/src/lib.rs#L107)
-extrinsic can be used to verify risc0 proofs.  These are zk-STARKs which prove that some code has executed correctly and generate the associated computation output. The code is attested through an image id (named verification key in the verification process) and runs inside the risc0-zkVM that provides the proof of execution through a receipt which contains the raw proof and the public inputs for the verification process. The format for those components is:
+### Statement hash components
 
-- Verification key: a bytes array of length 32; the conversion from a risc0 `image_id` (an integer array of length 8) must be big-endian.
-- Proof: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `InnerReceipt`.
-- Public inputs: a bytes vector; this is the result of `bincode::serialize` applied to a risc0 `Journal`.
+- context: `keccak256(b"risc0")`
+- vk: `vk`
+- pubs: `keccak256(pubs)`
+
+### `Verifier` implementation
+
+That's a zk-STARK proof verifier where the proof proves that some code has executed correctly and generates the associated computation output.
+The code is attested through an image_id (named verification key in the verification process) and runs inside the risc0-zkVM that provides
+the proof of execution through a receipt which contains the raw proof and the public inputs (journal in risc0 lingo) for the verification process.
+
+- `verify_proof()` uses [`risc0-verifier` crate](https://github.com/HorizenLabs/risc0-verifier/tree/v0.1.0) to deserialize
+the proof and public inputs and then verify them against the given verification key.
+- Define the following types:
+
+    ```rust
+    pub type Proof = Vec<u8>;
+    pub type Pubs = Vec<u8>;
+    pub type Vk = H256;
+    ```
+
+    The format for these components is:
+      - `Proof`: The risc0's `InnerProof` serialized by `bincode::serialize`.
+      - `Pubs` Public inputs: The risc0's `Journal` serialized by `bincode::serialize`.
+      - `Vk` Verification key: a bytes array of length 32; the conversion from a risc0 `image_id` (an integer array of length 8) must be big-endian.
+- hash context data is `b"risc0"`
+- the pubs bytes are the input ones
+- `vk_hash()` just forward the given verification key and `vk_bytes()` should never be called: in this case we cannot know the verification key preimage.
+
+#### Note
+
+In this pallet it doesn't make sense to register any verification key, because the verification key hash function 
+`vk_hash()` is the identity.
+
+### Result
 
 The pallet uses [`risc0-verifier` crate](https://github.com/HorizenLabs/risc0-verifier/tree/v0.1.0) to deserialize the proof and public inputs and then verify them. The pallet's duties are summarized in the following code snippet:
 
 ```rust
-let vk = vk_data.into();
-let proof = <Vec<u8>>::try_from(hex::decode(proof).unwrap()).unwrap();
-let pubs = <Vec<u8>>::try_from(hex::decode(pubs).unwrap()).unwrap();
-
-assert!(verify(vk, &proof, &pubs).is_ok());
+assert!(risc0_verifier::verify(vk, &proof, &pubs).is_ok());
 ```
 
-If the proof is correct a `Poe::NewElement(statement, attestation_id)` event is emitted where `statement`
-is computed by using `risc0` as `verifier-id`.
-
-This call can fail both if it's not possible to deserialize the proof or public inputs (`InvalidProof`,
-`InvalidPublicInputs`), if the size of the proof or public inputs is excessive (`InvalidProofSize`, `InvalidPublicInputsSize`) or if the proof doesn't verify (`VerifyError`).
+The `submitProof` exstrinsic can fail both if it's not possible to deserialize the proof or public inputs (`InvalidProofData`,
+`InvalidInput`) or if the proof doesn't verify (`VerifyError`).
