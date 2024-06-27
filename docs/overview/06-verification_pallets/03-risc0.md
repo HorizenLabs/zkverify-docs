@@ -36,8 +36,8 @@ the proof and public inputs and then verify them against the given verification 
 
 #### Note
 
-In this pallet doesn't have any sense register the verification key before
-to use it in `submitProof` exstrinsic because the hash and the key are the same.
+In this pallet it doesn't make sense to register any verification key, because the verification key hash function 
+`vk_hash()` is the identity.
 
 ### Result
 
