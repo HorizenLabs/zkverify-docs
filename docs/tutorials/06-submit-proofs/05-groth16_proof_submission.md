@@ -67,7 +67,7 @@ At the end of this step you should have the three files `proof_zkv.json`, `verif
 
 ## Step 3: Sending the proof to zkVerify for verification
 
-1. Head to [polkadot.js.org frontend](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics)
+1. Head to [polkadot.js.org frontend](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/extrinsics)
 2. Select your account (you must have some ACME).
 3. Choose the `settlementGroth16Pallet`, and the `submitProof` extrinsic.
 4. Inside the field `vkOrHash` select `Vk`
