@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import 'dotenv/config';
 
 const config: Config = {
   title: 'zkVerify Documentation',
@@ -96,6 +97,11 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['solidity'],
     },
+    algolia: {
+      appId: process.env.ALGOLIA_APP_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
+    }
   } satisfies Preset.ThemeConfig,
 };
 
