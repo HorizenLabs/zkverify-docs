@@ -8,11 +8,11 @@ To update an already running node (wheter it is an RPC node, boot node or valida
 
 ```bash
 cd zkVerify
-git checkout 0.3.0
+git checkout 0.4.0
 ```
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended to use the latest tag in order to run the latest, most updated software. Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.3.0` is used).
+It is recommended to use the latest tag in order to run the latest, most updated software. Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.4.0` is used).
 :::
 
 After checking out the new source code version, build it with:
