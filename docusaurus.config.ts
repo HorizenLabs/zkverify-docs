@@ -32,6 +32,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/HorizenLabs/zkverify-docs/tree/main',
           routeBasePath: '/',
+          includeCurrentVersion: false
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -86,6 +87,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        // UNCOMMENT TO ADD VERSIONING
+        // {
+        //   type: 'docsVersionDropdown',
+        //   position: 'right'
+        // }
       ],
     },
     footer: {
