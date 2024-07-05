@@ -6,7 +6,7 @@ title: Functionality
 
 ## Overview
 
-The zkVerify Smart Contract is deployed on Ethereum, where it receives an attestation from the zkVerify authorized relayer.
+The zkVerify Smart Contract is deployed on [different chains](../introduction_what_is_zkverify/core_components#attestation-mechanism), where it receives an attestation from the zkVerify authorized relayer.
 
 ## Storage Variables
 
@@ -32,6 +32,7 @@ function submitAttestation(
 - Emits a new AttestationPosted(attestationId, attestation) event.
 
 ### Submit Attestations Batch Method
+
 This method is used in the situation when multiple attestations have been published on zkVerify while the relayer is down but recovers later on.
 
 ```solidity
@@ -40,12 +41,14 @@ function submitAttestationsBatch(
    bytes32[] _proofsAttestations
 )external onlyRole(ADMIN);
 ```
+
 - Checks that `_attestationIds.len() == _proofsAttestations.len()`.
 - Invokes the `submitAttestation` method multiple times.
 
 It’s a bit cheaper than calling submitAttestation externally multiple times, as you’ll pay the initial gas fee only one time.   Additionally, it avoids edge cases related to Ethereum nonce management.
 
 ### Verify Proof Attestation Method
+
 This method is used by proof submitters’ contracts to verify that their proof has been attested by a published attestation.
 
 ```solidity
