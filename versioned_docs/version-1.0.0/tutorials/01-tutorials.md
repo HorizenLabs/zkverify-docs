@@ -14,5 +14,5 @@ To get started:
 2. Then users should [request](get_testnet_tokens) some $ACME testnet tokens.
 3. From there it's possible to proceed in a few different ways.  For those who want to:  
    - Deploy a zkRollup follow the tutorial here for [zkSync](run-a-zkrollup/zksync_installation) or here for [Polygon CDK](run-a-zkrollup/polygon_cdk_installation).
-   - Simply submit proofs via [Tenderly](submit-proofs/polygon_cdk_proof_submission) or a Javascript [script](submit-proofs/javascript-example).
+   - Simply submit proofs via [Tenderly](submit-proofs/polygon_cdk_proof_submission) or using the [TypeScript Example](submit-proofs/typescript-example).
    - [Run a node](how_to_run_a_node/getting_started) and participate in the zkVerify network.
