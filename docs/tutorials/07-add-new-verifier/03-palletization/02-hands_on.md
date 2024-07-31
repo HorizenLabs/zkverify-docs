@@ -4,14 +4,14 @@ title: Hands On
 
 ## The Step-By-Step Guide
 
-### Initializing the Pallet
+### Initializing the Pallet (WASM)
 
 Here you are just preparing the files and directories for your pallet.
 
 The steps to follow are:
 
 - From repository root, navigate to verifiers directory (`cd verifiers`) and create your new pallet with the command `cargo new foo --lib`; this will perform a scaffolding of default files and directories,
-- Open file `verifiers/foo/Cargo.toml` and adapt sections `package`, `dependencies` and `feature` so that it looks similar to the snippet below:
+- Open the file `verifiers/foo/Cargo.toml` and adapt sections `package`, `dependencies` and `feature` so that it looks similar to the snippet below:
 
   ```
   [package]
@@ -115,7 +115,77 @@ Make sure not to make confusion between the library crate (`foo-verifier` here) 
   It contains just dummy weights for allowing the project to build, later benchmarks will be run for generating proper values.
 - Create inside `verifiers/foo/src` directory two empty files named `benchmarking.rs` and `verifier_should.rs`, respectively for running the benchmarks and for running the tests; you will fill in those files later.
 
-### Implementing the Base Pallet
+### Initializing the Pallet (NATIVE)
+
+In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptation:
+
+- The file `verifiers/foo/Cargo.toml` should look similar to the snippet below:
+
+  ```
+  [package]
+  name = "pallet-foo-verifier"
+  version = "0.1.0"
+  description = "A foo verifier pallet"
+  homepage.workspace = true
+  edition.workspace = true
+  authors.workspace = true
+  repository.workspace = true
+  license = "TBD"
+  
+  [package.metadata.docs.rs]
+  targets = ["x86_64-unknown-linux-gnu"]
+  
+  [dependencies]
+  log = "0.4.21"
+  hex-literal = { version = "0.4.1", optional = true }
+  codec = { workspace = true }
+  scale-info = { workspace = true }
+
+  hp-verifiers = { workspace = true }
+  pallet-verifiers = { workspace = true }
+  native = { workspace = true }
+  
+  frame-support = { workspace = true }
+  frame-system = { workspace = true }
+  frame-benchmarking = { workspace = true, optional = true }
+  sp-core = { workspace = true }
+
+  [dev-dependencies]
+  hex-literal = { version = "0.4.1" }
+
+  [features]
+  default = ["std"]
+  std = [
+      "codec/std",
+      "scale-info/std",
+      "sp-core/std",
+      "frame-support/std",
+      "frame-system/std",
+      "hp-verifiers/std",
+      "pallet-verifiers/std",
+      "native/std",
+  ]
+  runtime-benchmarks = [
+      "frame-benchmarking/runtime-benchmarks",
+      "frame-system/runtime-benchmarks",
+      "frame-benchmarking",
+      "frame-support/runtime-benchmarks",
+      "pallet-verifiers/runtime-benchmarks",
+      "dep:hex-literal",
+      "dep:sp-runtime",
+      "dep:sp-io",
+  ]
+  ```
+
+- Modify the file `native/Cargo.toml` appending the following line after all the other `*-verifier` entries:
+
+  ```
+  foo-verifier = { git = "https://github.com/HorizenLabs/foo-verifier.git", default-features = false, tag = "v0.1.0" }
+  ```
+
+Here the difference is that your verifier library is not included as a dependency of the pallet, but rather as a dependency of the already available `native` library which you are going to modify in the next step.
+
+### Implementing the Base Pallet (WASM)
 
 Here you are actually embedding your verifier library into the associated pallet. Before starting to touch the code, let's list down what you need to do from a high level perspective:
 
@@ -128,7 +198,7 @@ Here you are actually embedding your verifier library into the associated pallet
 
 The steps to follow are:
 
-- Erase the content of `verifiers/foo/lib.rs` file.
+- Erase the content of the `verifiers/foo/lib.rs` file.
 
 - Add these lines on top of it:
 
@@ -230,7 +300,7 @@ The steps to follow are:
 
   In the code above the `verify_proof` function is trivial, you should replace it with proper logic using the verify function of your library.
 
-- For defining your weight structure you can use this code, still in `verifiers/foo/lib.rs` file:
+- For defining your weight structure you can use this code, still in the `verifiers/foo/lib.rs` file:
 
   ```rust
   pub struct FooWeight<W: weight::WeightInfo>(PhantomData<W>);
@@ -264,6 +334,62 @@ The steps to follow are:
 
 At this point you should be able to build the project without errors; double check this by submitting command `cargo build` in a terminal. In case you encounter any error, fix it before proceeding to the next paragraph.
 
+### Implementing the Base Pallet (NATIVE)
+
+In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptations:
+
+- Provide a wrapper around your verifier library by modifying the existing file `native/lib.rs` so that a new module is defined:
+
+  ```rust
+  mod foo;
+
+  pub use foo::foo_verify;
+  #[cfg(feature = "std")]
+  pub use foo::foo_verify::HostFunctions as FooVerifierHostFunctions;
+  ```
+
+  And then append to `pub type HLNativeHostFunctions = (` the new definition `FooVerifierHostFunctions`.
+
+  Finally, create a new file `native/src/foo.rs` containing this code:
+
+  ```rust
+  use crate::VerifyError;
+  use sp_runtime_interface::runtime_interface;
+  
+  #[cfg(feature = "std")]
+  impl From<foo_verifier::VerifyError> for VerifyError {
+      fn from(value: foo_verifier::VerifyError) -> Self {
+          match value {
+              foo_verifier::VerifyError::Failure => VerifyError::VerifyError,
+          }
+      }
+  }
+  
+  #[runtime_interface]
+  pub trait FooVerify {
+      fn verify(vk: [u8; 32], proof: &[u8; 512], pubs: &[u8; 32]) -> Result<(), VerifyError> {
+          foo_verifier::verify(vk.into(), *proof, *pubs)
+              .inspect_err(|_| log::debug!("Cannot verify foo proof"))
+              .map_err(Into::into)
+              .map(|_| log::trace!("verified"))
+      }
+  }
+  ```
+
+- Modify the file `verifiers/foo/src/lib.rs` so that inside function `verify_proof` the native implementation is used; replace:
+
+  ```rust
+  foo_verifier::verify((*vk).into(), *proof, *pubs)
+      .map_err(|_| log::debug!("Cannot verify foo proof"))
+      .map_err(|_| hp_verifiers::VerifyError::VerifyError)
+  ```
+
+  With:
+
+  ```rust
+  native::foo_verify::verify((*vk).into(), proof, pubs).map_err(Into::into)
+  ```
+
 ### Writing Tests
 
 This paragraph is dedicated to writing tests so to ensure your code behaves properly. Before starting to touch the code, let's list down what you need to do from a high level perspective:
@@ -285,7 +411,7 @@ The steps to follow are:
   
   Clearly you have to replace the dummy values above with values suitable for your verifier.
 
-- The actual tests can be written in file `verifiers/foo/src/verifier_should.rs`:
+- The actual tests can be written in the file `verifiers/foo/src/verifier_should.rs`:
 
   ```rust
   #![cfg(test)]

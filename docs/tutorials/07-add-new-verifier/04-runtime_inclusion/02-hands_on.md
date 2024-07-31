@@ -75,7 +75,7 @@ The steps to follow are:
   }
   ```
 
-- Modify file `runtime/src/weights.rs` adding the line below:
+- Modify the file `runtime/src/weights.rs` adding the line below:
 
   ```rust
   pub mod pallet_foo_verifier;
