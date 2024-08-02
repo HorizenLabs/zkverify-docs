@@ -4,7 +4,7 @@ title: Conclusion
 
 ## Local Testing
 
-Before considering your integration completed, you'd want to make sure everything works as expected.
+Before considering your integration completed, you'd want to make sure everything works as expected from a user's perspective.
 
 In order to achieve this you need to start a local devnet on your machine; this network is totally isolated from the outer world and is not persistent, its only purpose is to provide developers with a quick and clean environment where they can play and test using dummy tokens.
 

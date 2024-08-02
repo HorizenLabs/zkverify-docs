@@ -23,10 +23,11 @@ Due to the easier upgrade on the live chain, it is highly recommended to go for 
 
 In Substrate, all the business logic of the chain resides in a library called [runtime](https://docs.substrate.io/learn/architecture/#runtime); the building blocks of the runtime are in turn other smaller libraries, so called [pallets](https://docs.substrate.io/tutorials/build-application-logic/add-a-pallet/).
 
-The integration of your verifier library can be split in two main parts:
+The integration of your verifier library can be split in three main parts:
 
 - The "palletization" of the library, facilitated by pre-defined templates: this part allows your library to be wrapped by a layer of functions specifically written so that it can be used in the runtime of a Substrate chain,
-- The inclusion of the pallet into the runtime, so that it is actually available on the zkVerify chain.
+- The inclusion of the pallet into the runtime, so that it is actually available on the zkVerify chain,
+- The adaptation of the end-to-end tests.
 
 Before proceeding, make sure you have the [zkVerify](https://github.com/HorizenLabs/zkVerify) repository available on your machine.
 
