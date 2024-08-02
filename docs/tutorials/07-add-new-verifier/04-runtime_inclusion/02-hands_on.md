@@ -8,7 +8,7 @@ title: Hands On
 
 The very first thing to do is to add your verifier pallet as a dependency of the runtime.
 
-The steps to follow are:
+Follow the steps below:
 
 - In the workspace `Cargo.toml` file (the one located at repository root) modify the `[workspace.dependencies]` section appending the following line just after all the other `pallet-*-verifier` entries:
 
@@ -34,11 +34,11 @@ The steps to follow are:
 
 ### Adding Dummy Weights
 
-In a similar way to what you did for the pallet, you need to provide weights for the runtime; again, these are just dummy weights for allowing the project to build, later benchmarks will be run for generating proper values.
+In a similar way to what you did for the pallet, you need to provide weights for the runtime.  Again, these are just dummy weights for allowing the project to build.  Later, benchmarks will be run for generating proper values.
 
-The steps to follow are:
+Proceed by following the steps below:
 
-- Create inside `runtime/src/weights` directory a file named `pallet_foo_verifier.rs` and copy-paste into the following code:
+- Create a file inside the `runtime/src/weights` named `pallet_foo_verifier.rs` and copy-paste the following code into it:
 
   ```rust
   # ![cfg_attr(rustfmt, rustfmt_skip)]
@@ -75,7 +75,7 @@ The steps to follow are:
   }
   ```
 
-- Modify the file `runtime/src/weights.rs` adding the line below:
+- Modify the file `runtime/src/weights.rs` by adding the line below:
 
   ```rust
   pub mod pallet_foo_verifier;
@@ -83,14 +83,14 @@ The steps to follow are:
 
 ### Configuring the Pallet Within the Runtime
 
-Here you are actually embedding your verifier pallet into the zkVerify runtime. Before starting to touch the code, let's list down what you need to do from a high level perspective:
+Here you are actually embedding your verifier pallet into the zkVerify runtime. Before starting, let's list what you need to do from a high level perspective:
 
-- Implement the specific configuration trait of your verifier (if it requires configuration, otherwise skip it),
-- Implement the general configuration trait of the template `pallets/verifiers/src/lib.rs` (this is always required),
-- Modify the construction of the runtime so that it includes your pallet,
-- Include your pallet to the runtime benchmarks.
+- Implement the specific configuration trait of your verifier (if it requires configuration, otherwise skip it).
+- Implement the general configuration trait of the template `pallets/verifiers/src/lib.rs` (this is always required).
+- Modify the construction of the runtime so that it includes your pallet.
+- Include your pallet into the runtime benchmarks.
 
-The steps to follow are:
+Proceed by following the steps below:
 
 - For implementing the specific and general configuration, modify the file `runtime/src/lib.rs` adding the snippet below just after the analogous code for the other verifiers:
 
@@ -111,7 +111,7 @@ The steps to follow are:
   }
   ```
 
-  If your pallet does not require specific configuration, then consider only the last piece of the above code modifying it to `impl pallet_verifiers::Config<pallet_foo_verifier::Foo> for Runtime {`.
+  If your pallet does not require specific configuration, then you only need to modify the last piece of the above: `impl pallet_verifiers::Config<pallet_foo_verifier::Foo> for Runtime {`.
 - To allow your pallet being included during the runtime construction, add this line at the end of the `construct_runtime!` macro:
 
   ```rust
@@ -119,8 +119,8 @@ The steps to follow are:
   ```
 
   :::note
-  Even if a one-liner, this step is the most important one; if missing, you would be able to build the project but in the end your pallet would remain unused.
+  Even if a one-liner, this step is the most important one.  If missing, you would be able to build the project but in the end your pallet would remain unused.
   :::
-- For including your pallet in the runtime benchmarks you need to add the definition `[pallet_foo_verifier, FooVerifierBench::<Runtime>]` at the end of the macro `define_benchmarks!` within module `benches`, then add the renaming `use pallet_foo_verifier::benchmarking::Pallet as FooVerifierBench;` to both `benchmark_metadata` and `dispatch_benchmark` functions.
+- To include your pallet in the runtime benchmarks you need to add the definition `[pallet_foo_verifier, FooVerifierBench::<Runtime>]` at the end of the macro `define_benchmarks!` within module `benches`, then rename `use pallet_foo_verifier::benchmarking::Pallet as FooVerifierBench;` to both `benchmark_metadata` and `dispatch_benchmark` functions.
 
-At this point you should be able to build the source code, tests and benchmarks without errors; double check this in a single step by submitting command `cargo test --features=runtime-benchmarks` in a terminal. In case you encounter any error, fix it before proceeding to the next paragraph.
+At this point you should be able to build the source code, and run tests and benchmarks without errors.  Double check this in a single step by submitting command `cargo test --features=runtime-benchmarks` in a terminal. If you encounter any error(s), fix them before proceeding.
