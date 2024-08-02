@@ -263,16 +263,16 @@ pub struct Vk {
     x2: G2,
     c0: G1, 
 }
-pub type Proof = [768; u8]
-pub type Pubs = [32; u8]
+pub type Proof = [u8; 768]
+pub type Pubs = [u8; 32]
 ```
 
 ##### settlementzksyncPallet Types
 
 ```rust
 pub type Vk = (); // zksync verifier doesn't have any verification key
-pub type Proof = [1408; u8]
-pub type Pubs = [32; u8]
+pub type Proof = [u8; 1408]
+pub type Pubs = [u8; 32]
 ```
 
 #### settlementUltraplonkPallet Types
