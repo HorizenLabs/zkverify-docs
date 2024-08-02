@@ -6,11 +6,11 @@ title: End-to-End Tests
 
 ### Expanding End-to-End Tests Suite
 
-The end-to-end (e2e) tests suite is a tool that the zkVerify CI/CD pipeline leverages to externally test the node features. Expanding it so to accomodate your new pallet is important for stability and reliability reasons.
+The end-to-end (E2E) tests suite is a tool that the zkVerify CI/CD pipeline leverages to externally test the node features. Expanding it to accomodate your new pallet is important for stability and reliability reasons.
 
-The steps to follow are:
+Proceed by following the steps below:
 
-- Create a new file `e2e-tests/js_scripts/foo_data.js` and define inside the tests data in a similar way to what you did for `verifiers/foo/src/resources.rs`:
+- Create a new file `e2e-tests/js_scripts/foo_data.js` and inside it, define the test data in a similar way to what you did for `verifiers/foo/src/resources.rs`:
 
   ```javascript
   const PROOF = "0x00...02"
@@ -28,7 +28,7 @@ The steps to follow are:
   const { PROOF: FOO_PROOF, PUBS: FOO_PUBS, VK: FOO_VK } = require('./foo_data.js');
   ```
 
-  And finally adapt also the file `e2e-tests/js_scripts/0005-proofPath_rpc.js` adding the code below:
+  And finally adapt the file `e2e-tests/js_scripts/0005-proofPath_rpc.js` by adding the code below:
 
   ```javascript
   ,
