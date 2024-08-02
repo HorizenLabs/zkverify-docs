@@ -10,7 +10,7 @@ Here you are just preparing the files and directories for your pallet.
 
 The steps to follow are:
 
-- From repository root, navigate to verifiers directory (`cd verifiers`) and create your new pallet with the command `cargo new foo --lib`; this will perform a scaffolding of default files and directories,
+- From repository root, navigate to verifiers directory (`cd verifiers`) and create your new pallet with the command `cargo new foo --lib`.  This will perform a scaffolding of default files and directories.
 - Open the file `verifiers/foo/Cargo.toml` and adapt sections `package`, `dependencies` and `feature` so that it looks similar to the snippet below:
 
   ```
@@ -72,10 +72,10 @@ The steps to follow are:
   Make sure to modify all the references to `foo` (especially the one related to your verifier library, `foo_verifier` in this example) as per your needs.
 
 :::tip[**Don't get confused with terminology!**]
-Make sure not to make confusion between the library crate (`foo-verifier` here) you already have and the pallet crate you are building in this tutorial (`pallet-foo-verifier` here). Throughout the tutorial it is important to keep in mind this distinction when referring to library and pallet.
+Take care to not confuse the library crate (`foo-verifier` here) you already have and the pallet crate you are building in this tutorial (`pallet-foo-verifier` here). Throughout the tutorial it is important to keep in mind this distinction when referring to library and pallet.
 :::
 
-- Create inside `verifiers/foo/src` directory a file named `weight.rs` and copy-paste into the following code:
+- Inside `verifiers/foo/src` directory create a file named `weight.rs` and copy-paste the following code into it:
 
   ```rust
   #![cfg_attr(rustfmt, rustfmt_skip)]
@@ -112,12 +112,12 @@ Make sure not to make confusion between the library crate (`foo-verifier` here) 
   }
   ```
 
-  It contains just dummy weights for allowing the project to build, later benchmarks will be run for generating proper values.
-- Create inside `verifiers/foo/src` directory two empty files named `benchmarking.rs` and `verifier_should.rs`, respectively for running the benchmarks and for running the tests; you will fill in those files later.
+  It contains just dummy weights for allowing the project to build.  Later benchmarks will be run for generating proper values.
+- Inside the `verifiers/foo/src` directory create two empty files named `benchmarking.rs` and `verifier_should.rs`, for running the benchmarks and for running the tests.  You will fill in those files later.
 
 ### Initializing the Pallet (NATIVE)
 
-In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptations:
+In the case of a NATIVE integration, follow all the steps in the previous paragraph with the following adaptations:
 
 - The file `verifiers/foo/Cargo.toml` should look similar to the snippet below:
 
@@ -187,20 +187,20 @@ Here the difference is that your verifier library is not included as a dependenc
 
 ### Implementing the Base Pallet (WASM)
 
-Here you are actually embedding your verifier library into the associated pallet. Before starting to touch the code, let's list down what you need to do from a high level perspective:
+Here you are actually embedding your verifier library into the associated pallet. Before starting, let's list what you need to do from a high level perspective:
 
-- Optionally provide a configuration trait for your verifier (if it supports configuration),
-- Define the data types for verification key, proof and public inputs accordingly to those required by your library,
-- Define your verifier structure: this means defining a `struct` (eventually parameterized) that actually represents your pallet,
-- Implement the `Verifier` trait: this means providing an implementation for all the members of the trait still undefined and possibly override those proposing a generic default,
-- Define your weight structure: this means defining a `struct` that actually represents the weight info for your pallet,
-- Implement the `WeightInfo` trait: this means providing a mapping between the weight used by the runtime and the weights provided by your pallet (as benchmark outputs).
+- Optionally provide a configuration trait for your verifier (if it supports configuration).
+- Define the data types for verification key, proof and public inputs accordingly to those required by your library.
+- Define your verifier structure - this means defining a `struct` (eventually parameterized) that actually represents your pallet.
+- Implement the `Verifier` trait - this means providing an implementation for all the members of the trait still undefined and possibly override those proposing a generic default.
+- Define your weight structure - this means defining a `struct` that actually represents the weight info for your pallet.
+- Implement the `WeightInfo` trait - this means providing a mapping between the weight used by the runtime and the weights provided by your pallet (as benchmark outputs).
 
 The steps to follow are:
 
-- Erase the content of the `verifiers/foo/lib.rs` file.
+- Erase the contents of the `verifiers/foo/lib.rs` file.
 
-- Add these lines on top of it:
+- Add these lines to the top of it:
 
   ```rust
   #![cfg_attr(not(feature = "std"), no_std)]
@@ -230,7 +230,7 @@ The steps to follow are:
   ```
 
   This is required if you want to externally configure (from the runtime) some parameters that are internally used by your pallet.
-- The definition of the data types for verification key, proof and public inputs is straightforward; just use the same types required by your library, assigning them accordingly to those required by your library. In the example below they are implemented respectively as `sp_core::H256`, `[u8; 512]` and `[u8; 32]`.
+- The definition of the data types for verification key, proof and public inputs are straightforward - just use the same types required by your library, assigning them accordingly to those required by your library. In the example below they are implemented as `sp_core::H256`, `[u8; 512]` and `[u8; 32]`.
 
   ```rust
   pub type Vk = H256;
@@ -245,7 +245,7 @@ The steps to follow are:
   pub struct Foo<T>;
   ```
 
-  Note here the `struct` is templatized for supporting the configuration mentioned above; in case your pallet is not going to support configuration, simply write `pub struct Foo;`.
+  Note here the `struct` is templatized for supporting the configuration mentioned above.  In the case that your pallet is not going to support configuration, simply write `pub struct Foo;`.
 - It's now time for the most significant part, the implementation of the `Verifier` trait. It is mandatory to provide code for the following members:
 
   - `Vk`,
@@ -298,7 +298,7 @@ The steps to follow are:
   }
   ```
 
-  In the code above the `verify_proof` function is trivial, you should replace it with proper logic using the verify function of your library.
+  In the code above the `verify_proof` function is trivial.  You should replace it with proper logic using the verify function of your library.
 
 - For defining your weight structure you can use this code, still in the `verifiers/foo/lib.rs` file:
 
@@ -330,13 +330,13 @@ The steps to follow are:
   }
   ```
 
-  In this way you are providing an implementation for the three trait members `submit_proof`, `submit_proof_with_vk_hash` and `register_vk`, mapping them 1-on-1 onto the associated functions contained in `verifiers/foo/src/weight.rs`.
+  In this way you are providing an implementation for the three trait members `submit_proof`, `submit_proof_with_vk_hash` and `register_vk`, mapping them 1-to-1 to the associated functions contained in `verifiers/foo/src/weight.rs`.
 
-At this point you should be able to build the project without errors; double check this by submitting command `cargo build` in a terminal. In case you encounter any error, fix it before proceeding to the next paragraph.
+At this point you should be able to build the project without errors; double check this by submitting command `cargo build` in a terminal. If you encounter an error, fix it before proceeding to the next paragraph.
 
 ### Implementing the Base Pallet (NATIVE)
 
-In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptations:
+In the case of a NATIVE integration, follow all the steps in the previous paragraph with the following adaptations:
 
 - Provide a wrapper around your verifier library by modifying the existing file `native/lib.rs` so that a new module is defined:
 
@@ -376,7 +376,7 @@ In the case of a NATIVE integration, consider all the steps in the previous para
   }
   ```
 
-- Modify the file `verifiers/foo/src/lib.rs` so that inside function `verify_proof` the native implementation is used; replace:
+- Modify the file `verifiers/foo/src/lib.rs` so that inside function `verify_proof` the native implementation is used. Replace:
 
   ```rust
   foo_verifier::verify((*vk).into(), *proof, *pubs)
@@ -392,14 +392,14 @@ In the case of a NATIVE integration, consider all the steps in the previous para
 
 ### Writing Tests
 
-This paragraph is dedicated to writing tests so to ensure your code behaves properly. Before starting to touch the code, let's list down what you need to do from a high level perspective:
+This paragraph is dedicated to writing tests to ensure your code behaves properly. Before starting, let's list what you need to do from a high level perspective:
 
-- Provide some test data for the tests,
+- Provide some test data for the tests.
 - Write the tests trying to cover all the possible cases.
 
-The steps to follow are:
+Follow the steps below:
 
-- In the first place you have to provide some test data to feed your tests. The minimum required would be a triplet verification key, proof, public inputs returning success when submitted to function `verify_proof`; then you can provide additional successful triplets and also failing triplets to test negative results. To do this, create a new file at `verifiers/foo/src/resources.rs` and copy-paste the subsequent code:
+- First, you have to provide some test data to feed your tests. The minimum required would be a triplet verification key, proof, public inputs returning success when submitted to function `verify_proof`.  Then you can provide additional successful triplets and also failing triplets to test negative results. To do this, create a new file at `verifiers/foo/src/resources.rs` and copy-paste the following code:
 
   ```rust
   pub static VALID_VK: sp_core::H256 = sp_core::H256(hex_literal::hex!("0000000000000000000000000000000000000000000000000000000000000001"));
@@ -409,7 +409,7 @@ The steps to follow are:
   pub static VALID_PUBS: [u8; 32] = hex_literal::hex!("0000000000000000000000000000000000000000000000000000000000000003");
   ```
   
-  Clearly you have to replace the dummy values above with values suitable for your verifier.
+  You have to replace the dummy values above with values suitable for your verifier.
 
 - The actual tests can be written in the file `verifiers/foo/src/verifier_should.rs`:
 
@@ -453,15 +453,13 @@ The steps to follow are:
   }
   ```
 
-  In the example above some valid public inputs have been invalidated by polluting the last byte; as mentioned above you can explicitly provide test data for failure if you prefer. If possible expand the `reject` module in order to cover in the best way all the possible cases of failure.
+  In the example above, some valid public inputs have been invalidated by polluting the last byte.  As mentioned above, you can explicitly provide test data for failure if you prefer. If possible expand the `reject` module in order to cover in the best way all the possible cases of failure.
 
-At this point you should be able to run the tests specific for your pallet; double check this by submitting command `cargo test --package pallet-foo-verifier` in a terminal. In case you encounter any error, fix it before proceeding to the next paragraph.
+At this point you should be able to run the tests for your pallet.  Double check this by submitting the command `cargo test --package pallet-foo-verifier` in a terminal. In case you encounter an error, fix it before proceeding to the next paragraph.
 
 ### Writing Benchmarks
 
-This paragraph is dedicated to writing benchmarks, so that correct weights can be assigned to functions executed within the runtime. It's important to understand that here you are providing code for the benchmarks, but you are not actually running them; in order to have a meaningful effect on the actually running chain, they need to be run on a specific reference hardware (and generally just before a relase cut), all this operations are in charge of the zkVerify team.
-
-The step to follow is:
+This paragraph is dedicated to writing benchmarks, so that correct weights can be assigned to functions executed within the runtime. It's important to understand that here you are providing code for the benchmarks, but you are not actually running them.  In order to have a meaningful effect on the blockchain, they need to be run on specific reference hardware (and generally just before a relase is cut).  Please reach out via Discord for assistance here.
 
 - Open the empty file `verifiers/foo/src/benchmarking.rs` and copy-paste this code:
 
@@ -579,4 +577,4 @@ The step to follow is:
   }
   ```
 
-At this point you should be theoretically able to run the benchmarks (but as mentioned above, it's pointless to do this on your local machine), but instead of actually running them you should just make sure they build without errors; double check this by submitting command `cargo build --features=runtime-benchmarks` in a terminal. In case you encounter any error, fix it before proceeding to the next paragraph.
+At this point you should be theoretically able to run the benchmarks (but as mentioned above, you should not do this on your local machine). Instead of actually running them you should just make sure they build without errors.  Double check this by submitting command `cargo build --features=runtime-benchmarks` in a terminal. In case you encounter an error, fix it before proceeding to the next paragraph.
