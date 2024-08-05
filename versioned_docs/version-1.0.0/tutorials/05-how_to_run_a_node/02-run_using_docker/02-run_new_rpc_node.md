@@ -169,4 +169,4 @@ Selecting your account as the source and typing in the address of the destinatio
 
 ![alt_text](./img/polkadotjs_send_tokens_s1.png)
 
-In a few seconds, you should receive feedback in a pop-up message on the top-right corner confirming that the extrinsic has been successfully submitted and the funds have been transferred.
+In a few seconds, you should receive feedback in a green pop-up message on the top-right corner confirming that the extrinsic has been successfully submitted and the funds have been transferred.

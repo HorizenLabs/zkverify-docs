@@ -137,7 +137,7 @@ Insert your account password and confirm by clicking on button `Sign and Submit`
 
 ![alt_text](./img/polkadotjs_setkeys_s1.png)
 
-In few seconds you should receive a pop-up message on the top-right corner confirming the extrinsic has been succesfully submitted.
+In few seconds you should receive a green pop-up message on the top-right corner confirming the extrinsic has been succesfully submitted.
 
 Now that the blockchain knows those public session keys are associated with your validator account, you can proceed by staking some of the tokens you own in order to have a chance to be elected as a validator for the next sessions. To achieve this you have to submit another type of extrinsic.
 
@@ -200,7 +200,7 @@ To submit the staking extrinsic, navigate back to the section `Developer` then t
 
 ![alt_text](./img/polkadotjs_staking_bond.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Waiting` tab and verify that your validator is within the list:
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for a green pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Waiting` tab and verify that your validator is within the list:
 
 ![alt_text](./img/polkadotjs_staking.png)
 
@@ -210,7 +210,7 @@ Now that the blockchain knows you have staked your tokens it's time for the last
 
 ![alt_text](./img/polkadotjs_staking_validate.png)
 
-Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Active` tab and verify that your validator is within the list.
+Insert your account password and confirm by clicking on button `Sign and Submit`. Wait for a green pop-up message confirming successful submission. As an additional double check you can navigate to the section `Network` then to the subsection `Staking`, click on `Active` tab and verify that your validator is within the list.
 
 ## Conclusion
 
