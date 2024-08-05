@@ -27,7 +27,7 @@ It's now time to run the local chain, here you can leverage the Docker compose f
 docker compose -f docker/dockerfiles/zkv-docker-compose.yaml up
 ```
 
-The command above starts a local chain from scratch (genesis block) with two validators and one RPC node; check from the logs in the terminal everything is fine (i.e. the three nodes are connected with each other, blocks are authored).
+The command above starts a local chain from scratch (genesis block) with two validators and one RPC node; check from the logs in the terminal everything is fine (i.e. the three nodes are connected with each other, blocks are authored and so on).
 
 Finally you need to check your pallet and its functionality are available. To do this, open your favorite browser targeting [PolkadotJS](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer), then:
 

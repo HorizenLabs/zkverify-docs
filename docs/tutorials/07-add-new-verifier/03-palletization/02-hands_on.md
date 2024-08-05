@@ -72,7 +72,7 @@ The steps to follow are:
   Make sure to modify all the references to `foo` (especially the one related to your verifier library, `foo_verifier` in this example) as per your needs.
 
 :::tip[**Don't get confused with terminology!**]
-Make sure not to make confusion between the library crate (`foo-verifier` here) you already have and the pallet crate your are building in this tutorial (`pallet-foo-verifier` here). Throughout the tutorial it is important to keep in mind this distinction when referring to library and pallet.
+Make sure not to make confusion between the library crate (`foo-verifier` here) you already have and the pallet crate you are building in this tutorial (`pallet-foo-verifier` here). Throughout the tutorial it is important to keep in mind this distinction when referring to library and pallet.
 :::
 
 - Create inside `verifiers/foo/src` directory a file named `weight.rs` and copy-paste into the following code:
@@ -117,7 +117,7 @@ Make sure not to make confusion between the library crate (`foo-verifier` here) 
 
 ### Initializing the Pallet (NATIVE)
 
-In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptation:
+In the case of a NATIVE integration, consider all the steps in the previous paragraph with the following adaptations:
 
 - The file `verifiers/foo/Cargo.toml` should look similar to the snippet below:
 

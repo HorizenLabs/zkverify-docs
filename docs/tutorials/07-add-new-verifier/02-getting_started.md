@@ -21,7 +21,7 @@ Due to the easier upgrade on the live chain, it is highly recommended to go for 
 
 ## Integrating the Library
 
-In Substrate, all the business logic of the chain resides in a library called [runtime](https://docs.substrate.io/learn/architecture/#runtime); the building blocks of the runtime are in turn other smaller libraries, the so called [pallets](https://docs.substrate.io/tutorials/build-application-logic/add-a-pallet/).
+In Substrate, all the business logic of the chain resides in a library called [runtime](https://docs.substrate.io/learn/architecture/#runtime); the building blocks of the runtime are in turn other smaller libraries, so called [pallets](https://docs.substrate.io/tutorials/build-application-logic/add-a-pallet/).
 
 The integration of your verifier library can be split in two main parts:
 
