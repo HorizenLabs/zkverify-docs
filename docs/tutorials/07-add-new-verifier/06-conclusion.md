@@ -44,7 +44,7 @@ In few seconds you should receive a green pop-up message on the top-right corner
 When you have completed testing your pallet, you can clean up your environment by tearing down the containers with `docker compose -f docker/dockerfiles/zkv-docker-compose.yaml up` and possibly removing the Docker image with `docker image rm`.
 
 :::tip[**Testing with binaries**]
-The test described above can also be performed by directly using binaries built from source (i.e. without Docker).  Make sure to launch two validator and one RPC node, each one with the proper command-line arguments.
+The test described above can also be performed by directly using binaries built from source (i.e. without Docker).  Make sure to launch two validators and one RPC node, each one with the proper command-line arguments.
 :::
 
 And if you were able to get to this point it means you did a great job! It's now time to open your PR on the zkVerify repository, thanks for contributing!
