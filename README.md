@@ -8,27 +8,6 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 $ yarn
 ```
 
-## Updating Documentation
-
-### Versioning Overview
-The documentation site supports versions - copying content from `docs` to `versioned_docs`.
-
-### Editing Live Documentation
-To edit the current live documentation, make changes under `versioned_docs`. Ensure that changes are also made in `docs` to keep future versions updated.
-
-### Steps to Update Documentation
-
-1. **Edit Live Docs**:
-    - Make changes in the corresponding files under `versioned_docs`.
-
-2. **Edit WIP Docs**:
-    - Make the same changes in the corresponding files under `docs`.
-
-3. **Push Changes**:
-    - Once updates are made in both places, push the changes to the repository.
-
-Following these steps ensures that both current and future versions of the documentation remain consistent and up-to-date.
-
 ## Local Development
 
 1. Copy the example .env file:
