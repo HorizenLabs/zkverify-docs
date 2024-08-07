@@ -201,6 +201,7 @@ Register a verification key that can be used later in submit proof calls and emi
 - [settlementRisc0Pallet](#settlementrisc0pallet-types)
 - [settlementFFlonkPallet](#settlementfflonkpallet-types)
 - [settlementZksyncPallet](#settlementzksyncpallet-types)
+- [settlementUltraplonkPallet](#settlementultraplonkpallet-types)
 
 ##### settlementGroth16Pallet Types
 
@@ -262,16 +263,24 @@ pub struct Vk {
     x2: G2,
     c0: G1, 
 }
-pub type Proof = [768; u8]
-pub type Pubs = [32; u8]
+pub type Proof = [u8; 768]
+pub type Pubs = [u8; 32]
 ```
 
 ##### settlementzksyncPallet Types
 
 ```rust
 pub type Vk = (); // zksync verifier doesn't have any verification key
-pub type Proof = [1408; u8]
-pub type Pubs = [32; u8]
+pub type Proof = [u8; 1408]
+pub type Pubs = [u8; 32]
+```
+
+#### settlementUltraplonkPallet Types
+
+```rust
+pub type Vk = [u8; 1719];
+pub type Proof = Vec<u8>;
+pub type Pubs = [u8; 32];
 ```
 
 ## [Events](#events)
