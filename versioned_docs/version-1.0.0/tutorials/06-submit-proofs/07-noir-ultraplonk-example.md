@@ -87,3 +87,8 @@ noir-cli verify --key ./target/vk.bin --proof ./target/proof.bin --pubs ./target
 
 These commands will generate the necessary files for submitting the Ultraplonk proof.
 
+### Submitting the Proof
+
+Submit the proof by using `polkadot.js.org` frontend like on the image below:
+
+![Submit Proof](./img/ultraplonk-proof.png)
