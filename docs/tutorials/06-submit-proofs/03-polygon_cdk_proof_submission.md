@@ -48,7 +48,7 @@ Convert it into a hexadecimal format (take care to pad left the result with zero
 ## Step 3
 
 Send the proof to zkVerify chain.
-In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics).
+In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/extrinsics).
 
 - Select your account (you must have some ACME)
 - Choose the `settlementFFlonkPallet` and the call `submitProof`

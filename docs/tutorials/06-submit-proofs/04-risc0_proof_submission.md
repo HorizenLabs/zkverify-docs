@@ -12,7 +12,7 @@ In this tutorial we'll go through the process of submitting and verifying a Risc
 ## Step 1
 
 Send the proof to zkVerify chain.
-In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fnh-rpc.horizenlabs.io#/extrinsics).
+In order to do this you can use [PolkadotJs](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ftestnet-rpc.zkverify.io#/extrinsics).
 
 - Select your account (you must have some ACME).
 - Choose the `settlementRisc0Pallet` and the call `submitProof`.
