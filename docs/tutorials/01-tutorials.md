@@ -179,3 +179,28 @@ Gobi (EON Testnet)
       *   Modifications to [cdk-validium-node](https://github.com/HorizenLabs/cdk-validium-node/blob/main-hl/aggregator/aggregator.go) to send proofs to zkVerify (instead of Ethereum), parse the Merkle Path, waiting for attestation to be published on Ethereum, invoking the smart contract for verification via zkVerify smart contract.
 
       *   [Test showing the interaction](https://github.com/HorizenLabs/cdk-validium-contracts/blob/main/test/contracts/newHorizenSupernets2.test.js)
+
+**Troubleshooting**
+--------------------------------
+
+*   I can’t find my transaction on your block explorer. 
+    
+    *   We recently changed the SS58Prefix for our chain.  
+        
+    *   This means that your wallet address needs to be transformed. 
+        
+    *   Enter your address (which would start with 5xxx) into this site: 
+        
+        *   [https://ss58.org/](https://ss58.org/). 
+            
+        *   Turn on the “Custom Prefix” and set the value to 251. 
+            
+    *   Here’s an example:
+        
+        *   **SS58 Address**: 5Ey6TCDTYLKu1BwUWdZPDpC8RPhkCwRLdUDah7Da1wyKWhSU
+            
+        *   Turn on the “**Custom Prefix**” and set the value to 251. 
+            
+        *   Hit “Convert.” 
+            
+        *   The **output** is: xpi72tyvr2adaKPnMdsm5v4UcKZnimzJTQ6kPvgEabf2qcwFA
