@@ -10,8 +10,14 @@ In this tutorial, we will walk through the process of submitting a Ultraplonk pr
 
 Before starting, ensure you have the following tools installed:
 
-- `noirup` and `noir-cli`: Follow the installation instructions [here](https://noir-lang.org/docs/getting_started/installation/).
+- `noirup`: Follow the installation instructions [here](https://noir-lang.org/docs/getting_started/installation/).
 - [`noir-cli`](https://github.com/HorizenLabs/ultraplonk_verifier/tree/v0.1.0?tab=readme-ov-file#bins) tool.
+  - git clone https://github.com/HorizenLabs/ultraplonk_verifier
+  - git checkout fix/noir-cli-key
+  - cargo install --features bins --path .   (Note: This may take 20-25 mins when running for the first time)
+  - noir-cli key --input ./resources/proves/verifier.sol --output ./target/vk.bin
+  - noir-cli proof-data --input-json ./resources/proves/proof.json --output-proof ./target/proof.bin --output-pubs ./target/pubs.bin
+  - noir-cli verify --key ./target/vk.bin --proof ./target/proof.bin --pubs ./target/pubs.bin
 - `nargo` version 0.30.0.
 
 ## Setting the Nargo Version
