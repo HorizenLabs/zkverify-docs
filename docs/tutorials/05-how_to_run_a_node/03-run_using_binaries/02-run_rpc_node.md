@@ -17,7 +17,7 @@ To run a new RPC node (refer to [this page](../01-getting_started.md#node-types.
 You can then start with:
 
 ```bash
-target/production/nh-node --name MyZkVerifyRpcNode --base-path /home/your_user/rpc_node_data --chain test --port 30555 --rpc-port 9944 --rpc-external --rpc-cors all --rpc-methods safe --pruning archive
+target/production/zkv-node --name MyZkVerifyRpcNode --base-path /home/your_user/rpc_node_data --chain test --port 30555 --rpc-port 9944 --rpc-external --rpc-cors all --rpc-methods safe --pruning archive
 ```
 
 :::note

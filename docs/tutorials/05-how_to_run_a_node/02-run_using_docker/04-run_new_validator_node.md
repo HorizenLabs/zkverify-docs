@@ -84,7 +84,7 @@ From here, you can choose any extrinsic you submit with PolkadotJS to use your v
 Next, you need to define the session public keys your validator node will use for participation in the consensus (i.e. authoring new blocks and selecting the best chain). This can be achieved by concatenating the three Babe, Grandpa and ImOnline public keys you can derive from your secret phrase. Inside a terminal type this command:
 
 ```bash
-docker run --rm -ti --entrypoint nh-node horizenlabs/zkverify:latest key inspect --scheme sr25519
+docker run --rm -ti --entrypoint zkv-node horizenlabs/zkverify:latest key inspect --scheme sr25519
 ```
 
 and provide your validator secret phrase when prompted for (`URI:`), then hit enter.  You should get the following response:
@@ -104,7 +104,7 @@ Where the `Public key (hex)` represents the Babe key and the ImOnline key.
 Repeat the command but change the last parameter:
 
 ```bash
-docker run --rm -ti --entrypoint nh-node horizenlabs/zkverify:latest key inspect --scheme ed25519
+docker run --rm -ti --entrypoint zkv-node horizenlabs/zkverify:latest key inspect --scheme ed25519
 ```
 
 and provide same secret phrase when prompted for (`URI:`), then hit enter.  You should get the following response:

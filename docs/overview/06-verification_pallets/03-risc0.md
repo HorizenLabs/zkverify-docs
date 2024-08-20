@@ -2,7 +2,7 @@
 title: risc0 Verifier
 ---
 
-## [`settlementRisc0Pallet`](https://github.com/HorizenLabs/NH-core/tree/main/verifiers/risc0)
+## [`settlementRisc0Pallet`](https://github.com/HorizenLabs/zkVerify/tree/main/verifiers/risc0)
 
 ### Statement hash components
 
@@ -36,7 +36,7 @@ the proof and public inputs and then verify them against the given verification 
 
 #### Note
 
-In this pallet it doesn't make sense to register any verification key, because the verification key hash function 
+In this pallet it doesn't make sense to register any verification key, because the verification key hash function
 `vk_hash()` is the identity.
 
 ### Result

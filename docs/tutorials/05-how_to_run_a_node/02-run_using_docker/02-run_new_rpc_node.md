@@ -81,8 +81,8 @@ and you should get something like:
 
 Some notes on the output:
 
-- `Launching nh-node with args --rpc-external --name MyZkVerifyRpcNode --base-path /data/node --rpc-port 9944 --chain test --port 30555 --rpc-methods safe --pruning archive --rpc-cors all`: shows how the configurations in the `.env` file have been parsed and resulted in successful node launch.
-- `Node name: MyZkVerifyRpcNode`: the configurations (`NH_CONF_NAME`) have been actually passed to the Substrate node.
+- `Launching zkv-node with args --rpc-external --name MyZkVerifyRpcNode --base-path /data/node --rpc-port 9944 --chain test --port 30555 --rpc-methods safe --pruning archive --rpc-cors all`: shows how the configurations in the `.env` file have been parsed and resulted in successful node launch.
+- `Node name: MyZkVerifyRpcNode`: the configurations (`ZKV_CONF_NAME`) have been actually passed to the Substrate node.
 - `Local node identity is: 12D3KooWPy5kBKVxRwwz8hjyTKVA4WouoLipBSQVnUSBEVtq8G4X`: the unique identifier for your node, automatically generated at startup.
 - `Highest known block at #0`: since this is the first time the node is running, it doesn't contain any blockchain data, and the copy of the blockchain is just the genesis block (height 0).
 
@@ -110,14 +110,14 @@ Once your node has completed the initial download of blockchain data (batched to
 It's not required for all of the blocks to be downloaded each time a node is shut down and then started up again, thanks to Docker.  Try the following commands:
 
 ```bash
-docker compose -f nh-node-docker-compose.yaml down
-docker compose -f nh-node-docker-compose.yaml up -d
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml down
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml up -d
 ```
 
 then inspect recent logs with:
 
 ```bash
-docker logs nh-node-simple_node --tail 100
+docker logs rpc-node --tail 100
 ```
 
 and you'll see there isn't the long sequence of logs reporting the initial download of blockchain data (`Starting new tree with id: XXX`).
@@ -125,8 +125,8 @@ and you'll see there isn't the long sequence of logs reporting the initial downl
 If for any reason you need to fully erase blockchain data you can do this by stopping the container and deleting the Docker volume:
 
 ```bash
-docker compose -f nh-node-docker-compose.yaml down
-docker volume rm zkverify-rpc_node-data
+docker compose -f /home/your_user/compose-zkverify-simplified/deployments/rpc-node/testnet/docker-compose.yml down
+docker volume rm zkverify-rpc-testnet_node-data
 ```
 
 ## Interacting with the node
@@ -136,7 +136,7 @@ It's now time to interact with your node, and the best tool for doing that is Po
 ![alt_text](./img/polkadotjs_check_network.png)
 
 :::note
-In case you are unable to connect, check manually that inside `.env` file the value for configuration `NH_CONF_RPC_EXTERNAL` is set to `true` and that the value for configuration `NODE_NET_RPC_WS_PORT` matches the one you eventually typed in the `custom endpoint` textbox.
+In case you are unable to connect, check manually that inside `.env` file the value for configuration `ZKV_CONF_RPC_EXTERNAL` is set to `true` and that the value for configuration `NODE_NET_RPC_WS_PORT` matches the one you eventually typed in the `custom endpoint` textbox.
 :::
 
 First, you can try submitting some RPC commands for querying the blockchain state. An example could be asking for the block hash at a specific height and then using the result to ask for the full block body.

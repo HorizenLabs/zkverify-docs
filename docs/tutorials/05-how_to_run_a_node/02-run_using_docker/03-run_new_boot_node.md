@@ -75,16 +75,16 @@ Lastly, you should notify other node operators about the existence of your bootn
 
 - The IP address (or the DNS).
 - The open ports.
-- The public part of your node key (peer id).  This is printed at the startup of your node with the log `Local node identity is: ...` or is retrievable with command `docker run -v`*`path_to_your_file`*`/node_key.dat:/data/node_key.dat --rm --entrypoint nh-node horizenlabs/zkverify:latest key inspect-node-key --file /data/node_key.dat`.
+- The public part of your node key (peer id).  This is printed at the startup of your node with the log `Local node identity is: ...` or is retrievable with command `docker run -v`*`path_to_your_file`*`/node_key.dat:/data/node_key.dat --rm --entrypoint zkv-node horizenlabs/zkverify:latest key inspect-node-key --file /data/node_key.dat`.
 
 In this way others will be able to leverage your boot node to join the network by inserting these configurations into the `.env` file of their node.
 
 For the IP address case:
 
-- `NH_CONF_BOOTNODES="/ip4/`*`IP_ADDRESS`*`/tcp/`*`${NH_NODE_NET_P2P_PORT}`*`/p2p/`*`PEER_ID`*`,
-- `NH_CONF_BOOTNODES="/ip4/`*`IP_ADDRESS`*`/tcp/`*`${NH_NODE_NET_P2P_PORT_WS}`*`/ws/p2p/`*`PEER_ID`*`,
+- `ZKV_CONF_BOOTNODES="/ip4/`*`IP_ADDRESS`*`/tcp/`*`${ZKV_NODE_NET_P2P_PORT}`*`/p2p/`*`PEER_ID`*`,
+- `ZKV_CONF_BOOTNODES="/ip4/`*`IP_ADDRESS`*`/tcp/`*`${ZKV_NODE_NET_P2P_PORT_WS}`*`/ws/p2p/`*`PEER_ID`*`,
 
 or or the DNS case:
 
-- `NH_CONF_BOOTNODES="/dns/`*`DNS_NAME`*`/tcp/`*`${NH_NODE_NET_P2P_PORT}`*`/p2p/`*`PEER_ID`*`,
-- `NH_CONF_BOOTNODES="/dns/`*`DNS_NAME`*`/tcp/`*`${NH_NODE_NET_P2P_PORT_WS}`*`/ws/p2p/`*`PEER_ID`*`.
+- `ZKV_CONF_BOOTNODES="/dns/`*`DNS_NAME`*`/tcp/`*`${ZKV_NODE_NET_P2P_PORT}`*`/p2p/`*`PEER_ID`*`,
+- `ZKV_CONF_BOOTNODES="/dns/`*`DNS_NAME`*`/tcp/`*`${ZKV_NODE_NET_P2P_PORT_WS}`*`/ws/p2p/`*`PEER_ID`*`.
