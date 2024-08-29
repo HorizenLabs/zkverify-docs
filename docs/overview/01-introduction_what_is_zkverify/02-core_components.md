@@ -17,7 +17,7 @@ This is the interface (i.e. transactions and RPC calls) used by clients (zk roll
 The protocol that publishes on-chain an attestation that a given set of proofs have been verified by the Mainchain. In particular, this is a Merkle root of a Merkle Tree of proofs, published onto the zkVerify smart contract once a given publication policy is met. Currently the contract is deployed on the following chains:
 
 - Sepolia (Ethereum testnet).
-- Jenkins (ApeChain testnet).
+- Curtis (ApeChain testnet).
 - Gobi (EON testnet).
 
 ## zkVerify Smart Contract
