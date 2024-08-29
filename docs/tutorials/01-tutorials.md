@@ -138,7 +138,7 @@ Please take a look at our [documentation](https://docs.zkverify.io/overview/smar
 
 Sepolia (Ethereum Testnet)
 
-[0x627efD0F38f67Edb9Dc69fa3B7e19208Fd41Eac7](https://sepolia.etherscan.io/address/0x627efD0F38f67Edb9Dc69fa3B7e19208Fd41Eac7)
+[0x209f82A06172a8d96CF2c95aD8c42316E80695c1](https://sepolia.etherscan.io/address/0x209f82A06172a8d96CF2c95aD8c42316E80695c1)
 
 Curtis (Apechain Testnet)
 
