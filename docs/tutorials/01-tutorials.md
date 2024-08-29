@@ -140,9 +140,9 @@ Sepolia (Ethereum Testnet)
 
 [0x627efD0F38f67Edb9Dc69fa3B7e19208Fd41Eac7](https://sepolia.etherscan.io/address/0x627efD0F38f67Edb9Dc69fa3B7e19208Fd41Eac7)
 
-Jenkins (Apechain Testnet)
+Curtis (Apechain Testnet)
 
-[0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5](https://jenkins.explorer.caldera.xyz/address/0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5)
+[0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5](https://curtis.explorer.caldera.xyz/address/0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5)
 
 Gobi (EON Testnet)
 
