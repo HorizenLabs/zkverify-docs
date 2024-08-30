@@ -1,6 +1,9 @@
 ---
-title: TypeScript Example
+title: "TypeScript Example: zkVerifyJS"
 ---
+
+
+https://www.npmjs.com/package/zkverifyjs
 
 ## How to Submit a Proof
 
