@@ -68,6 +68,12 @@ const config: Config = {
           label: 'Tutorials',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'incentivizedTestnetSidebar',
+          position: 'left',
+          label: 'Incentivized Testnet',
+        },
+        {
           type: 'doc',
           position: 'left',
           to: 'docs/roadmap.md',
