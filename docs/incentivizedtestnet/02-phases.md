@@ -5,7 +5,7 @@ title: Phases
 ## Phase 1 - Build-to-Earn
 Welcome to zkVerify's Incentivized Testnet - Phase 1. In this Phase, we have two exciting challenges designed to enhance blockchain privacy and scalability:
 
-- <b>Build a verification pallet:</b> dive into the core of zkVerify by creating a crucial component for our Substrate-based chain. This task involves developing a pallet that efficiently handles the verification of zero-knowledge proofs. zkVerify can accept proofs directly, they don't need to be wrapped in a bn254 compatible zk-proof. We want verifiers for all types of proofs, including STARK's and the new Elliptic Curve. 
+- <b>Build a verification pallet:</b> dive into the core of zkVerify by creating a crucial component for our Substrate-based chain. This task involves developing a pallet that efficiently handles the verification of zero-knowledge proofs. 
 
 - <b>Build a demo dApp:</b> showcase the practical applications of zkVerify by developing a demo dApp from scratch. This challenge encourages you to integrate zkVerify as a proof verification and settlement layer, bringing real-world use cases to life on our platform. One way to do this is take an existing dApp on GitHub, modify it to use zkVerify for its verification, and deploy it. Another way is to upgrade the dApp to use a newer type of zk-proof that can be generated on a mobile device rapidly, and create a mobile dApp.
 
