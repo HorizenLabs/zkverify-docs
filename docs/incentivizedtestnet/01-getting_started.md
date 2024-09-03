@@ -5,7 +5,7 @@ title: Getting started
 Welcome, intrepid explorer, to the frontier of blockchain innovation! The zkVerify Incentivized Testnet offers you a once-in-a-lifetime opportunity to shape the future of privacy and scalability.
 
 ### Why zkVerify?
-zkVerify provides rapid and inexpensive proof verification for any type of zero-knowledge proof. This enables dApp developers to implement the latest zk proving system to generate their proofs, and zkVerify to verify them, leading to rapid and inexpensive zk-proof verification. Proofs are verified in seconds, enabling developers to create and deploy games, voting, identity, and interoperability systems that are either usable and economically viable.
+zkVerify provides rapid and inexpensive proof verification for any type of zero-knowledge proof. This enables dApp developers to implement the latest zk proving systems to generate their proofs, and zkVerify to verify them, leading to rapid and inexpensive zk-proof verification. Proofs are verified in seconds, enabling developers to create and deploy games, voting, identity, and interoperability systems that are either usable and economically viable.
 
 ### What is zkVerify?
 zkVerify is a dedicated modular proof verification layer that empowers blockchain applications with the power of zero-knowledge proofs. By offloading the complex proof verification process to a dedicated chain, we're paving the way for a new era of scalable, secure, and privacy-preserving digital world.
