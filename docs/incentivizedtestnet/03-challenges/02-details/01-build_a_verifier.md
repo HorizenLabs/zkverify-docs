@@ -68,7 +68,7 @@ From higher to lower priority:
 * Implementations with “no-std” (thus compilable in WASM and directly includible in the runtime) are preferred over “native” ones.
 
 
-* Code must compile and CI must pass. Take a look at the [instructions](https://testnet-explorer.zkverify.io/) on how to run the CI locally for more information. If you require the CI to install some dependencies, feel free to modify it. Otherwise reach the team for further support.
+* Code must compile and CI must pass. Take a look at the [instructions](https://github.com/HorizenLabs/zkVerify?tab=readme-ov-file#running-github-workflows-on-local-environment) on how to run the CI locally for more information. If you require the CI to install some dependencies, feel free to modify it. Otherwise reach the team for further support.
 
 
 * Try to make sure that compilation time is not “highly impacted” by the inclusion of your verifier (e.g. if you are including heavy dependencies). The zkVerify team, upon review, might decide to reject your implementation.
