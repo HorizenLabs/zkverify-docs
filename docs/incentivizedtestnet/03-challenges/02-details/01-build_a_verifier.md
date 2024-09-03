@@ -11,7 +11,7 @@ Also, make sure to take a look at the verifiers we’ve already [integrated](htt
 From higher to lower priority:
 
 * Halo 2 - KZG & IPA
-    * Over bn256 (for Ethereum support) (mandatory) and pasta/bls12381/secp256k1 elliptic curves
+    * Over bn254 (for Ethereum support) (mandatory) and pasta/bls12381/secp256k1 elliptic curves
     * Objective: verify proofs coming from zkEVMs using Halo 2 as proving system (such as Scroll zkEVM) or zkApps leveraging Halo2
 * Plonky2
 * Starky
