@@ -9,8 +9,8 @@ We start with a centralized approach where the attestation will be posted on [di
 - Connects to an Ethereum-compatible client.
 - Connects to a zkVerify validator node.
 - Queries the zkVerify Contract to check the latest published `eth_last_attestation_id`.
-- Queries the zkVerify validator node to retrieve the latest `nh_last_attestation_id`
-- If `nh_last_attestation_id > eth_last_attestation_id`,  then the last `nh_last_attestation_id - eth_last_attestation_id` are posted by invoking either the `submitAttestation` or `submitAttestationsBatch` smart contract method. This provides some degree of robustness against disconnections of the relayer and reverted transactions.
+- Queries the zkVerify validator node to retrieve the latest `zkv_last_attestation_id`
+- If `zkv_last_attestation_id > eth_last_attestation_id`,  then the last `zkv_last_attestation_id - eth_last_attestation_id` are posted by invoking either the `submitAttestation` or `submitAttestationsBatch` smart contract method. This provides some degree of robustness against disconnections of the relayer and reverted transactions.
 
 ## Attestation Submission Frequency
 

@@ -42,7 +42,7 @@ cargo build
 
 For a debug build.
 
-The build process downloads all the dependencies and can take several minutes on the first run.  When finished, you can find the build output in directory `target/production` (or `target/debug`).  The node executable is `nh-node`.
+The build process downloads all the dependencies and can take several minutes on the first run.  When finished, you can find the build output in directory `target/production` (or `target/debug`).  The node executable is `zkv-node`.
 
 In case you need to clean your workspace removing the previous build output, run:
 
@@ -52,22 +52,22 @@ cargo clean
 
 ## Node Command-Line Utilities
 
-Apart from the execution of the node itself, `nh-node` provides some command-based utility features. Important features to note are:
+Apart from the execution of the node itself, `zkv-node` provides some command-based utility features. Important features to note are:
 
 - Command `key`:
   - Subcommands `generate`, `inspect`, `insert` allow you to handle generation, parsing and insertion of account keys (those used for example by Babe and Grandpa algorithm).  These are important if you choose to run a validator node.
   - subcommands `generate-node-key`, `inspect-node-key` allow you to handle generation and parsing of node keys (those used for signing peer-to-peer messages and for uniquely identifying the node within the network).  These are important if you decide to run a boot node.
-  - Use `target/production/nh-node key --help` for additional details,
+  - Use `target/production/zkv-node key --help` for additional details,
 - Command `build-spec`:
   - Allows you to create chain-spec file.
-  - Use `target/production/nh-node build-spec --help` for additional details.
+  - Use `target/production/zkv-node build-spec --help` for additional details.
 
 ## Node Common Configuration
 
-In the next pages you'll find instructions on how to run `nh-node` in different modes and how to set the proper command-line arguments. Keep in mind that **zkVerify** nodes are based on the [Substrate node template](https://docs.substrate.io/reference/command-line-tools/node-template/).  Therefore they support the same set of command-line arguments as the template. To get detailed descriptions for each of the commands, run:
+In the next pages you'll find instructions on how to run `zkv-node` in different modes and how to set the proper command-line arguments. Keep in mind that **zkVerify** nodes are based on the [Substrate node template](https://docs.substrate.io/reference/command-line-tools/node-template/).  Therefore they support the same set of command-line arguments as the template. To get a detailed description for each command, run:
 
 ```bash
-target/production/nh-node --help
+target/production/zkv-node --help
 ```
 
 The common command-line arguments you want to set regardless of the node type you pick are:

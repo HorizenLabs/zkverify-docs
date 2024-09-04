@@ -2,7 +2,7 @@
 title: Groth16 Verifier
 ---
 
-## [`settlementGroth16Pallet`](https://github.com/HorizenLabs/NH-core/tree/main/verifiers/groth16)
+## [`settlementGroth16Pallet`](https://github.com/HorizenLabs/zkVerify/tree/main/verifiers/groth16)
 
 ### Statement hash components
 
@@ -64,8 +64,6 @@ If your proofs and verification keys are generated with other tools, the [encodi
   ```
 
 - `validate_vk` check the fields value and curve points
-
-
 
 ## [Encodings](#encodings)
 
