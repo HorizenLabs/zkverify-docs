@@ -13,7 +13,6 @@ Before starting, ensure you have the following tools installed:
 - `noirup`: Follow the installation instructions [here](https://noir-lang.org/docs/getting_started/installation/).
 - [`noir-cli`](https://github.com/HorizenLabs/ultraplonk_verifier/tree/v0.1.0?tab=readme-ov-file#bins) tool.
   - git clone https://github.com/HorizenLabs/ultraplonk_verifier
-  - git checkout fix/noir-cli-key
   - cargo install --features bins --path .   (Note: This may take 20-25 mins when running for the first time)
   - noir-cli key --input ./resources/proves/verifier.sol --output ./target/vk.bin
   - noir-cli proof-data --input-json ./resources/proves/proof.json --output-proof ./target/proof.bin --output-pubs ./target/pubs.bin
