@@ -36,10 +36,7 @@ Follow the instructions below to set up your wallet with these variables and sta
 2. Select Network & Tokens.
 3. Choose Manage Networks.
 4. Find and click on Polkadot.
-5. Click on Add Network.
-6. Insert the RPC URL provided above.
-7. Add the zkVerify Testnet Block Explorer link from above.
-8. Click on Add Network.
+5. Search for "zkVerify Testnet" and activate using the toggle.
 
 ![](./img/talisman-add-network.png)
 
