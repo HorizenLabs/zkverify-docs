@@ -109,6 +109,9 @@ const config: Config = {
       indexName: process.env.ALGOLIA_INDEX_NAME,
     }
   } satisfies Preset.ThemeConfig,
+  customFields: {
+    githubToken: process.env.GITHUB_TOKEN
+  },
 };
 
 export default config;
