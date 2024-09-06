@@ -11,20 +11,20 @@ In this tutorial, we will walk through the process of submitting a Ultraplonk pr
 Before starting, ensure you have the following tools installed:
 
 - `noirup`: Follow the installation instructions [here](https://noir-lang.org/docs/getting_started/installation/).
+- `bb`: Follow in the installation instructions [here](https://noir-lang.org/docs/getting_started/backend/)
 - [`noir-cli`](https://github.com/HorizenLabs/ultraplonk_verifier/tree/v0.1.0?tab=readme-ov-file#bins) tool.
-  - git clone https://github.com/HorizenLabs/ultraplonk_verifier
-  - cargo install --features bins --path .   (Note: This may take 20-25 mins when running for the first time)
-  - noir-cli key --input ./resources/proves/verifier.sol --output ./target/vk.bin
-  - noir-cli proof-data --input-json ./resources/proves/proof.json --output-proof ./target/proof.bin --output-pubs ./target/pubs.bin
-  - noir-cli verify --key ./target/vk.bin --proof ./target/proof.bin --pubs ./target/pubs.bin
-- `nargo` version 0.30.0.
+  ```shell
+    git clone https://github.com/HorizenLabs/ultraplonk_verifier
+    cargo install --features bins --path .
+  ```
+  (Note: This may take 20-25 mins when running for the first time)
 
 ## Setting the Nargo Version
 
 To set the correct version of `nargo`, run:
 
 ```shell
-noirup -v 0.30.0
+noirup -v <version>
 ```
 
 Verify the version with:
@@ -33,11 +33,14 @@ Verify the version with:
 nargo --version
 ```
 
-## Create a New Noir Project
+Make sure to select a `bb` version compatible with the selected `nargo` one.
 
-Refer to the [Noir documentation](https://noir-lang.org/docs/v0.30.0/getting_started/hello_noir/) for instructions on creating a new project and generating proving artifacts. Be sure to use version 0.30.0 of the documentation.
+## Noir v0.30.0
+### Create a New Noir Project
 
-## Generating the Solidity Verifier Contract
+Refer to the [Noir documentation](https://noir-lang.org/docs/v0.30.0/getting_started/hello_noir/) for instructions on creating a new project and generating proving artifacts.
+
+### Generating the Solidity Verifier Contract
 
 Generate the Solidity verifier contract by running:
 
@@ -62,7 +65,7 @@ $ tree
     └── main.nr
 ```
 
-## Creating the Proof Data JSON File
+### Creating the Proof Data JSON File
 
 Create a new file named `proof.json` in your project’s root directory with the following content:
 
@@ -83,6 +86,11 @@ To generate the proving artifacts, execute the following commands:
 noir-cli key --input ./contract/hello_world/plonk_vk.sol --output ./target/vk.bin
 noir-cli proof-data --input-json ./proof.json --output-proof ./target/proof.bin --output-pubs ./target/pubs.bin
 ```
+To get also the `vk` in hexadecimal format, run:
+
+```bash
+noir-cli key-to-hex --input <input_vk_path> --output <output_vk_hex_path>
+```
 
 To make sure the proving artifacts are generated correctly, run:
 
@@ -92,7 +100,32 @@ noir-cli verify --key ./target/vk.bin --proof ./target/proof.bin --pubs ./target
 
 These commands will generate the necessary files for submitting the Ultraplonk proof.
 
-### Submitting the Proof
+## Noir v0.31.0
+
+Starting from `Noir 0.31.0` the `nargo` toolchain has been slightly modified and the `Barretenberg` backend has been exposed as a separate CLI (`bb`) and used for the process of proof creation and verification; moreover, `bb` also allows to explicitly export the verification key. This makes the process of getting the proving artifacts less contrived with respect to the previous version.
+
+Refer to the [Noir documentation](https://noir-lang.org/docs/getting_started/hello_noir/) for instructions on creating a new project and generating proving artifacts.
+
+Once you get the `proof` and `vk` files from `nargo` and `bb`, execute the following commands:
+
+```bash
+noir-cli proof-datav2 -n <num_public_inputs> --input-proof <proof_path> --output-proof <out_proof_path> --output-pubs <out_pubs_path>
+```
+This command will provide the `proof` and `public_input` files in binary format. The same files in hexadecimal format are also generated, for ease of submission to `zkVerify`.
+
+To get also the `vk` in hexadecimal format, run:
+
+```bash
+noir-cli key-to-hex --input <input_vk_path> --output <output_vk_hex_path>
+```
+
+To make sure that everything works correctly, run:
+
+```bash
+noir-cli verify --key <vk_bin_path> --proof <proof_bin_path> --pubs <pubs_bin_path>
+```
+
+## Submitting the Proof
 
 Submit the proof by using `polkadot.js.org` frontend like on the image below:
 
