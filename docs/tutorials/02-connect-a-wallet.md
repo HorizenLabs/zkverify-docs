@@ -14,7 +14,7 @@ https://www.talisman.xyz/
 
 ### SubWallet
 
-A comprehensive Polkadot, Substrate and Ethereum wallet. 
+A comprehensive Polkadot, Substrate and Ethereum wallet.
 SubWallet is a versatile option for managing assets across over 150 networks. With support for hardware wallets, light clients and MetaMask compatibility, it caters to a wide range of user preferences and needs.
 
 https://www.subwallet.app/
@@ -55,10 +55,10 @@ Follow the instructions below to set up your wallet with these variables and sta
 
 Head on over to our [Manual Test Token Faucet Request form](https://cztdlssdwco.typeform.com/to/GD6xdx2I?typeform-source=www.google.com), submit your email address and Wallet Address and you will receive $ACME within 24 hours.
 
-After you receive your $ACME zkVerify testnet token, we have a few different user activities you can try out! 
+After you receive your $ACME zkVerify testnet token, we have a few different user activities you can try out!
 
-* [Submit and verify a Polygon CDK proof to the zkVerify testnet](./04-submit-proofs/03-polygon_cdk_proof_submission.md)
-* [Deploy a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./07-run-a-zkrollup/04-polygon_cdk_installation.md)
-* [Deploy a full zkSync Era zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./07-run-a-zkrollup/02-zksync_installation.md)
+* [Submit and verify a Polygon CDK proof to the zkVerify testnet](./05-submit-proofs/03-polygon_cdk_proof_submission.md)
+* [Deploy a full CDK zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./08-run-a-zkrollup/04-polygon_cdk_installation.md)
+* [Deploy a full zkSync Era zkRollup, EVM-compatible network on Sepolia that uses zkVerify testnet as the Proof Verification layer](./08-run-a-zkrollup/02-zksync_installation.md)
 
 Thank you for testing! If you have any questions or require support from the team, feel free to reach out to us on [Discord](https://discord.gg/zkverify).
