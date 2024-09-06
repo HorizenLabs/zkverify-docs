@@ -1,10 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import siteConfig from '@generated/docusaurus.config';
+import { unified } from 'unified';
+import parse from 'remark-parse';
+import stringify from 'remark-stringify';
+import {visit} from 'unist-util-visit';
 
-const RemoteGithubReadme = ({ repoOwner, repoName, components }) => {
+const RemoteGithubReadme = ({ repoOwner, repoName, components={}, headingsToRemove=[] }) => {
   const [content, setContent] = useState('');
-  const { githubToken } = siteConfig.customFields;
+
+  const removeSectionByHeading = (markdown, headingToRemove, depth) => {
+    const tree = unified()
+      .use(parse)
+      .parse(markdown);
+    
+    let remove = false;
+  
+    visit(tree, 'heading', (node, index, parent) => {
+        if (node.depth === depth && node.children[0].value === headingToRemove) {
+            remove = true
+          // Remove the section under the heading
+          let nextNodeIndex = index + 1;
+          while (nextNodeIndex < parent.children.length && parent.children[nextNodeIndex].type !== 'heading' && parent.children[nextNodeIndex].type !== 'root') {
+            parent.children.splice(nextNodeIndex, 1);
+          } 
+          if (parent) {
+            parent.children.splice(index, 1);
+          }
+        }
+      });
+  
+    return unified()
+      .use(stringify)
+      .stringify(tree);
+  };
 
   useEffect(() => {
     const fetchReadme = async () => {
@@ -14,7 +42,6 @@ const RemoteGithubReadme = ({ repoOwner, repoName, components }) => {
           {
             headers: {
               'Accept': 'application/vnd.github.v3.raw',
-              'Authorization': `token ${githubToken}`,
             },
           }
         );
@@ -23,7 +50,14 @@ const RemoteGithubReadme = ({ repoOwner, repoName, components }) => {
           throw new Error(`Error fetching README: ${response.statusText}`);
         }
 
-        const text = await response.text();
+        let text = await response.text();
+        console.log(response)
+        headingsToRemove.forEach((heading => {
+            text = removeSectionByHeading(text, heading.heading, heading.depth)
+        }))
+
+        console.log(text)
+        
         setContent(text);
       } catch (err) {
         console.log(err.message);
@@ -33,7 +67,7 @@ const RemoteGithubReadme = ({ repoOwner, repoName, components }) => {
     fetchReadme();
   }, [repoOwner, repoName]);
 
-  return <ReactMarkdown>{content}</ReactMarkdown>;
+  return <ReactMarkdown components={components}>{content}</ReactMarkdown>;
 };
 
 export default RemoteGithubReadme;
