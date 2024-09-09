@@ -1,6 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
-const path = '/Users/yurikoinaba/horizen-labs/zkverify-docs/docs/tutorials/04-submit-proofs/01-typescript-example.mdx';
+const path = `${__dirname}/docs/tutorials/04-submit-proofs/01-typescript-example.mdx`;
 const remotePath = 'https://api.github.com/repos/HorizenLabs/zkverifyjs/contents/README.md'
 
 const main = async () => {
