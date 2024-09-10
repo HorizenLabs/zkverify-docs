@@ -10,7 +10,7 @@ const remoteReadmes = [
     }
 ]
 
-const main = async (githubPath, callback) => {
+const fetchMarkdown = async (githubPath, callback) => {
     try {        
         // Fetch markdown
         const remotePath = `https://api.github.com/repos/${githubPath}/contents/README.md`
@@ -25,7 +25,7 @@ const main = async (githubPath, callback) => {
 
         let text = response.data;
 
-        // const response = fs.readFileSync(path.join(__dirname, '..', `/src/output/${githubPath}-og.md`), 'utf-8');
+        // const response = fs.readFileSync(path.join(__dirname, '..', `/static/output/${githubPath}-og.md`), 'utf-8');
         // let text = response;
 
         if (callback) {
@@ -33,7 +33,7 @@ const main = async (githubPath, callback) => {
         }
 
         // Define the path to the new file
-        const filePath = path.join(__dirname, '..', `/src/output/${githubPath}.md`);
+        const filePath = path.join(__dirname, '..', `/static/output/${githubPath}.md`);
 
         // Write data to the new file
         fs.writeFile(filePath, text, 'utf8', (err) => {
@@ -50,5 +50,5 @@ const main = async (githubPath, callback) => {
 }
 
 for (const readme of remoteReadmes) {
-  main(readme.githubPath, readme.callback)
+  fetchMarkdown(readme.githubPath, readme.callback)
 }

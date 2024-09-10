@@ -10,7 +10,7 @@
 # Generated files
 .docusaurus
 .cache-loader
-/src/output/*
+/static/output/*
 
 # Misc
 .idea
