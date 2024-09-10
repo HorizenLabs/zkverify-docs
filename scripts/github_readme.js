@@ -38,6 +38,7 @@ const fetchMarkdown = async (githubPath, callback) => {
 
         // Ensure the static directory exists
         if (!fs.existsSync(staticDir)) {
+          console.log('folder doesnt exist')
           fs.mkdirSync(staticDir, { recursive: true });
         }
 
