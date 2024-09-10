@@ -2,7 +2,7 @@
 title: "TypeScript Example: zkverifyjs"
 ---
 
-import ZkverifyjsReadme from '@site/static/output/HorizenLabs/zkverifyjs.md';
+import ZkverifyjsReadme from '@site/static/markdown/zkverifyjs.md';
 
 Follow the instructions below to submit a proof using the [zkverifyjs](https://www.npmjs.com/package/zkverifyjs) npm package.
 
