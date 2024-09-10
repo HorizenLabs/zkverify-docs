@@ -32,8 +32,17 @@ const fetchMarkdown = async (githubPath, callback) => {
           text = await callback(text);
         }
 
+        
+        // Define the path to the static folder
+        const staticDir = path.join(__dirname, '../static');
+
+        // Ensure the static directory exists
+        if (!fs.existsSync(staticDir)) {
+          fs.mkdirSync(staticDir, { recursive: true });
+        }
+
         // Define the path to the new file
-        const filePath = path.join(__dirname, `../static/output/${githubPath}.md`);
+        const filePath = path.join(staticDir, `/output/${githubPath}.md`);
 
         // Write data to the new file
         fs.writeFile(filePath, text, 'utf8', (err) => {
