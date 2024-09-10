@@ -13,20 +13,20 @@ const remoteReadmes = [
 const fetchMarkdown = async (githubPath, callback) => {
     try {        
         // Fetch markdown
-        // const remotePath = `https://api.github.com/repos/${githubPath}/contents/README.md`
-        // const response = await axios.get(
-        //     remotePath,
-        //     {
-        //         headers: {
-        //             'Accept': 'application/vnd.github.v3.raw',
-        //         },
-        //     }
-        // );
+        const remotePath = `https://api.github.com/repos/${githubPath}/contents/README.md`
+        const response = await axios.get(
+            remotePath,
+            {
+                headers: {
+                    'Accept': 'application/vnd.github.v3.raw',
+                },
+            }
+        );
 
-        // let text = response.data;
+        let text = response.data;
 
-        const response = fs.readFileSync(path.join(__dirname, `../static/output/${githubPath}-og.md`), 'utf-8');
-        let text = response;
+        // const response = fs.readFileSync(path.join(__dirname, `../static/output/${githubPath}-og.md`), 'utf-8');
+        // let text = response;
 
         if (callback) {
           text = await callback(text);
