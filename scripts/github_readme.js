@@ -34,7 +34,7 @@ const fetchMarkdown = async (githubPath, callback) => {
 
         
         // Define the path to the static folder
-        const staticDir = path.join(__dirname, '../static');
+        const staticDir = path.resolve(__dirname, '../static');
         console.log('hi')
 
         // Ensure the static directory exists
