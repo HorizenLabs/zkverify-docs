@@ -44,10 +44,8 @@ Follow the instructions below to set up your wallet with these variables and sta
 
 1. Go to Settings (top left icon).
 2. Choose Manage Networks.
-3. Click the “+” in the top right corner.
-4. Insert the RPC URL provided above.
-5. Add the zkVerify Testnet Block Explorer link from above.
-6. Hit Save.
+3. Search for "zkVerify Testnet" in the list.
+4. Click on the corresponding button to enable it.
 
 ![](./img/subwallet-add-network.png)
 
