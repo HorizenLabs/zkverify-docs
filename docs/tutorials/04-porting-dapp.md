@@ -69,7 +69,11 @@ There are different ways through which your client can interact with our chain:
 
   `leaf_digest = keccak256(keccak256(verifier_ctx), hash(vk), keccak256(public_inputs_bytes))`
 
-  Every verifier defines its _verifier\_ctx_ (a unique byte sequence), how to hash the verification key and how to extract a byte sequence from public inputs. Then, to produce the _leaf\_digest_, the previous formula has to be applied. Please [refer](https://docs.zkverify.io/overview/verification_pallets/abstract) to the zkVerify docs to see how each verification pallet defines such parameters (unders sections _Statement hash components_). The _leaf\_digest_ must be computed separately also by your application and the resulting value used to check, on-chain, that your proof has been verified by the zkVerify blockchain.
+  Every verifier defines its _verifier\_ctx_ (a unique byte sequence), how to hash the verification key and how to extract a byte sequence from public inputs. Then, to produce the _leaf\_digest_, the previous formula has to be applied. Please [refer](https://docs.zkverify.io/overview/verification_pallets/abstract) to the zkVerify docs to see how each verification pallet defines such parameters (unders sections _Statement hash components_).
+  
+  In particular, `hash(vk)` is the same value contained in the `VkRegistered` event which is emitted when a verification key is registered using the `registerVk` extrinsic.
+  
+  The _leaf\_digest_ must be computed separately also by your application and the resulting value used to check, on-chain, that your proof has been verified by the zkVerify blockchain.
 
 - You can retrieve the Merkle Path of your proof within the aforementioned Merkle Tree via the [_proofPath_](https://docs.zkverify.io/overview/mainchain/mainchain_api#poe_proofpath) RPC command of the [_PoE_](https://docs.zkverify.io/overview/mainchain/mainchain_api#poe) pallet, supplying the attestation id and the digest of the proof. Make sure to save the Merkle Path.
 
@@ -115,15 +119,13 @@ Gobi (EON Testnet)
 
 - E2E tests in zkVerify [repository](https://github.com/HorizenLabs/zkVerify):
 
-- [Submit proof, wait for attestation, get the Merkle Path](https://github.com/HorizenLabs/zkVerify/blob/main/e2e-tests/js_scripts/0005-proofPath_rpc.js)
+- [Submit proof, wait for attestation, get the Merkle Path](https://github.com/HorizenLabs/zkVerify/blob/main/zombienet-tests/js_scripts/0005-proofPath_rpc.js)
 
-- [Register vk, submit proof, wait for successful verification](https://github.com/HorizenLabs/zkVerify/blob/main/e2e-tests/js_scripts/0007-proof_with_vk.js)
+- [Register vk, submit proof, wait for successful verification](https://github.com/HorizenLabs/zkVerify/blob/main/zombienet-tests/js_scripts/0007-proof_with_vk.js)
 
 - TypeScript template [repository](https://github.com/HorizenLabs/zkverify-example-typescript):
 
 - [Tutorial](https://docs.zkverify.io/tutorials/submit-proofs/typescript-example)
-
-- [Main logic](https://github.com/HorizenLabs/zkverify-example-typescript/blob/main/src/index.ts)
 
 - Checkout the [Tutorials-Submit Proofs](https://docs.zkverify.io/tutorials/submit-proofs/typescript-example) section of the zkVerify [docs](https://docs.zkverify.io/) for several examples on how to submit proof in Typescript, NextJS, PolkadotJS, PolkadotJS Frontend, etc.
 
