@@ -127,8 +127,6 @@ Gobi (EON Testnet)
 
 - [Tutorial](https://docs.zkverify.io/tutorials/submit-proofs/typescript-example)
 
-- [Main logic](https://github.com/HorizenLabs/zkverify-example-typescript/blob/main/src/index.ts)
-
 - Checkout the [Tutorials-Submit Proofs](https://docs.zkverify.io/tutorials/submit-proofs/typescript-example) section of the zkVerify [docs](https://docs.zkverify.io/) for several examples on how to submit proof in Typescript, NextJS, PolkadotJS, PolkadotJS Frontend, etc.
 
 - For some examples related to the L1 logic, involving client configuration and smart contract modifications, you can refer, for instance, to our tutorials on zkRollups integration, for instance:
