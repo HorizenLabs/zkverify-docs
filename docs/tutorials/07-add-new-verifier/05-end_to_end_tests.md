@@ -10,7 +10,7 @@ The end-to-end (E2E) tests suite is a tool that the zkVerify CI/CD pipeline leve
 
 Proceed by following the steps below:
 
-- Create a new file `e2e-tests/js_scripts/foo_data.js` and inside it, define the test data in a similar way to what you did for `verifiers/foo/src/resources.rs`:
+- Create a new file `zombienet-tests/js_scripts/foo_data.js` and inside it, define the test data in a similar way to what you did for `verifiers/foo/src/resources.rs`:
 
   ```javascript
   const PROOF = "0x00...02"
@@ -22,13 +22,13 @@ Proceed by following the steps below:
   exports.VK = VKEY
   ```
 
-- Adapt the file `e2e-tests/js_scripts/0005-proofPath_rpc.js` adding this line after the analogous ones for the other verifiers:
+- Adapt the file `zombienet-tests/js_scripts/0005-proofPath_rpc.js` adding this line after the analogous ones for the other verifiers:
 
   ```javascript
   const { PROOF: FOO_PROOF, PUBS: FOO_PUBS, VK: FOO_VK } = require('./foo_data.js');
   ```
 
-  And finally adapt the file `e2e-tests/js_scripts/0005-proofPath_rpc.js` by adding the code below:
+  And finally adapt the file `zombienet-tests/js_scripts/0005-proofPath_rpc.js` by adding the code below:
 
   ```javascript
   ,
@@ -39,4 +39,4 @@ Proceed by following the steps below:
   }
   ```
 
-At this point you should be able to run end-to-end tests locally following the instructions provided in the file `e2e-tests/README.md`.
+At this point you should be able to run end-to-end tests locally following the instructions provided in the file `zombienet-tests/README.md`.
