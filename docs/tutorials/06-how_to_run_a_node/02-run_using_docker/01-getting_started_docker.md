@@ -2,6 +2,8 @@
 title: Getting Started - Docker
 ---
 
+Pre-built docker images of the zkVerify node are available on [DockerHub](https://hub.docker.com/r/horizenlabs/zkverify/tags). These images are built for the `amd64` architecture. If you want to run a node on a different architecture (e.g. Apple Silicon chips), then please refer to the [Run Using Binaries](../03-run_using_binaries/01-getting_started_binaries.md) section.
+
 ## Prerequisites
 
 Before you begin running your **zkVerify** node, ensure that you have the following installed on your machine:
