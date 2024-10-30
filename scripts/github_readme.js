@@ -1,20 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
-const zkVerifyJS = require('./zkverifyjs');
 
 const remoteReadmes = [
   {
     githubOrg: 'HorizenLabs',
     githubRepo: 'zkverifyjs',
-    modify: zkVerifyJS
+    githubBranch: 'main',
+    markdownFile: 'DOCS.md'
   }
 ]
 
-const fetchMarkdown = async (githubOrg, githubRepo, modify) => {
+const fetchMarkdown = async (githubOrg, githubRepo, githubBranch = 'main', markdownFile = 'README.md') => {
   try {        
       // Fetch markdown
-      const remotePath = `https://api.github.com/repos/${githubOrg}/${githubRepo}/contents/README.md`
+      const remotePath = `https://raw.githubusercontent.com/${githubOrg}/${githubRepo}/${githubBranch}/${markdownFile}`
       const response = await axios.get(
           remotePath,
           {
@@ -24,12 +24,7 @@ const fetchMarkdown = async (githubOrg, githubRepo, modify) => {
           }
       );
 
-      let text = response.data;
-
-      if (modify) {
-        text = await modify(text);
-      }
-
+      const text = response.data;
       
       // Define the path to the static/markdown folder
       const staticMarkdownDir = path.resolve(__dirname, '../static/markdown');
@@ -57,5 +52,5 @@ const fetchMarkdown = async (githubOrg, githubRepo, modify) => {
 }
 
 for (const readme of remoteReadmes) {
-  fetchMarkdown(readme.githubOrg, readme.githubRepo, readme.modify)
+  fetchMarkdown(readme.githubOrg, readme.githubRepo, readme.githubBranch, readme.markdownFile);
 }
