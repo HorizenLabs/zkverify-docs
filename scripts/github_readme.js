@@ -15,14 +15,7 @@ const fetchMarkdown = async (githubOrg, githubRepo, githubBranch = 'main', markd
   try {        
       // Fetch markdown
       const remotePath = `https://raw.githubusercontent.com/${githubOrg}/${githubRepo}/${githubBranch}/${markdownFile}`
-      const response = await axios.get(
-          remotePath,
-          {
-              headers: {
-                  'Accept': 'application/vnd.github.v3.raw',
-              },
-          }
-      );
+      const response = await axios.get(remotePath);
 
       const text = response.data;
       
