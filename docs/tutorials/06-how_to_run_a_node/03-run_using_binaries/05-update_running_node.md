@@ -8,6 +8,7 @@ To update an already running node (wheter it is an RPC node, boot node or valida
 
 ```bash
 cd zkVerify
+git fetch
 git checkout 0.6.0-0.7.0
 ```
 
