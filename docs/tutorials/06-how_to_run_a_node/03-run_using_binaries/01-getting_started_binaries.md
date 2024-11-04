@@ -31,13 +31,13 @@ This repository contains the implementation of a **zkVerify** node. It is based 
 To build the source code, open a terminal at `root` and type:
 
 ```bash
-cargo build --profile production
+cargo build -p mainchain --profile production
 ```
 
 or:
 
 ```bash
-cargo build
+cargo build -p mainchain
 ```
 
 For a debug build.
