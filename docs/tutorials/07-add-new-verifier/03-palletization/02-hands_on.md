@@ -332,7 +332,7 @@ The steps to follow are:
 
   In this way you are providing an implementation for the three trait members `submit_proof`, `submit_proof_with_vk_hash` and `register_vk`, mapping them 1-to-1 to the associated functions contained in `verifiers/foo/src/weight.rs`.
 
-At this point you should be able to build the project without errors; double check this by submitting command `cargo build` in a terminal. If you encounter an error, fix it before proceeding to the next paragraph.
+At this point you should be able to build the project without errors; double check this by submitting command `cargo build -p mainchain` in a terminal. If you encounter an error, fix it before proceeding to the next paragraph.
 
 ### Implementing the Base Pallet (NATIVE)
 
