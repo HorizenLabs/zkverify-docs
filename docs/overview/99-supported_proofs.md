@@ -1,4 +1,4 @@
-# zkVerify Supported Proofs
+# Supported Proofs
 
 | Proof Type           | Supported Versions / Curves | Limits                                              |
 |----------------------|-----------------------------|-----------------------------------------------------|
