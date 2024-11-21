@@ -115,6 +115,10 @@ Gobi (EON Testnet)
 
 [0x6A51D573Bf6fcFdb5D4E394645647304bb9FAb5B](https://gobi-explorer.horizenlabs.io/address/0x6A51D573Bf6fcFdb5D4E394645647304bb9FAb5B)
 
+Arbitrum Sepolia Testnet
+
+[0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5](https://sepolia.arbiscan.io/address/0x82941a739E74eBFaC72D0d0f8E81B1Dac2f586D5)
+
 ## Code Examples and References
 
 - E2E tests in zkVerify [repository](https://github.com/HorizenLabs/zkVerify):
