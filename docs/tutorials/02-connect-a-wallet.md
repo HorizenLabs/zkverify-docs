@@ -51,7 +51,7 @@ Follow the instructions below to set up your wallet with these variables and sta
 
 ## Get $ACME zkVerify Testnet Tokens
 
-Head on over to our [Manual Test Token Faucet Request form](https://cztdlssdwco.typeform.com/to/GD6xdx2I?typeform-source=www.google.com), submit your email address and Wallet Address and you will receive $ACME within 24 hours.
+Head on over to our [Testnet Faucet](https://zkverify-faucet.zeeve.net/), submit your email address and Wallet Address and you will receive $ACME within 24 hours.
 
 After you receive your $ACME zkVerify testnet token, we have a few different user activities you can try out!
 
