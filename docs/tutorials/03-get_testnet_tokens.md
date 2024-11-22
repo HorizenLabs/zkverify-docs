@@ -3,7 +3,7 @@ title: Get Testnet ($ACME) Tokens
 ---
 
 ## Faucet
-Head over to our [Discord Server to get testnet tokens](https://discord.gg/zkverify).
+Head over to our [Testnet Faucet to get testnet tokens](https://zkverify-faucet.zeeve.net/).
 
 ## Next Steps
 After you receive your $ACME zkVerify testnet token, we have a few different user activities you can try out!  You can explore our tutorials including:
