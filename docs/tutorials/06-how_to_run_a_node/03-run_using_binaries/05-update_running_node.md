@@ -13,7 +13,7 @@ git checkout 0.6.0-0.7.0
 ```
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended to use the latest tag in order to run the latest, most updated software. Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.6.0-0.7.0` is used).
+It is recommended to use the latest tag in order to run the latest, most updated software. Check the [releases page](https://github.com/zkVerify/compose-zkverify-simplified/releases) to find the latest tag and if needed, update accordingly the command provided above (here tag `0.6.0-0.7.0` is used).
 :::
 
 After checking out the new source code version, build it with:
