@@ -55,16 +55,16 @@ If the command results in an error, you can install `gnu-sed` with:
 brew install gsed
 ```
 
-Finally, clone the repository [compose-zkverify-simplified](https://github.com/HorizenLabs/compose-zkverify-simplified) with the command:
+Finally, clone the repository [compose-zkverify-simplified](https://github.com/zkVerify/compose-zkverify-simplified) with the command:
 
 ```bash
-git clone --branch 0.6.0 https://github.com/HorizenLabs/compose-zkverify-simplified.git
+git clone --branch 0.6.0 https://github.com/zkVerify/compose-zkverify-simplified.git
 ```
 
-Or directly download the [archive](https://github.com/HorizenLabs/compose-zkverify-simplified/archive/refs/tags/0.6.0.zip) and unzip it.
+Or directly download the [archive](https://github.com/zkVerify/compose-zkverify-simplified/archive/refs/tags/0.6.0.zip) and unzip it.
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/HorizenLabs/compose-zkverify-simplified/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (here tag `0.6.0` is used).
+It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/zkVerify/compose-zkverify-simplified/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (here tag `0.6.0` is used).
 :::
 
 This repository contains several resources to help you in the preparation of the environment for running your node.
