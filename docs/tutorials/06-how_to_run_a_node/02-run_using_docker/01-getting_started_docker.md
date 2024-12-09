@@ -64,7 +64,7 @@ git clone --branch latest_tag https://github.com/zkVerify/compose-zkverify-simpl
 Or directly download the [archive](https://github.com/zkVerify/compose-zkverify-simplified/releases) and unzip it.
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/zkVerify/compose-zkverify-simplified/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (e.g `latest_tag` -> `0.0.0`).
+It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/zkVerify/compose-zkverify-simplified/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (e.g `latest_tag` -> `x.x.x`).
 :::
 
 This repository contains several resources to help you in the preparation of the environment for running your node.

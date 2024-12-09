@@ -22,7 +22,7 @@ git clone --branch latest_tag https://github.com/HorizenLabs/zkVerify.git
 ```
 
 :::tip[**Recommendation: use the latest tag**]
-It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/HorizenLabs/zkVerify/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (e.g `latest_tag` -> `0.0.0`). You can also target directly `main` branch using `git clone https://github.com/HorizenLabs/zkVerify.git` but ensure that you fully understand the implications of doing so.
+It is recommended that you use the latest tag in order to run the latest and most updated software. Check the [releases page](https://github.com/HorizenLabs/zkVerify/releases) to find the latest tag and if needed update it accordingly via the command or link provided above (e.g `latest_tag` -> `x.x.x`). You can also target directly `main` branch using `git clone https://github.com/HorizenLabs/zkVerify.git` but ensure that you fully understand the implications of doing so.
 :::
 
 This repository contains the implementation of a **zkVerify** node. It is based on the [Substrate](https://substrate.io/) framework.
