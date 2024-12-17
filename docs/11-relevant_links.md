@@ -10,8 +10,8 @@ title: zkVerify Hub
 | Product | Link |
 | --- | --- |
 | Github | https://github.com/HorizenLabs/zkVerify |
-| zkVerify Block Explorer | https://zkverify-explorer.zeeve.net/ |
-| zkVerify Testnet Faucet | https://zkverify-faucet.zeeve.net/ |
+| zkVerify Block Explorer | https://zkverify-explorer.zkverify.io/ |
+| zkVerify Testnet Faucet | https://zkverify-faucet.zkverify.io/ |
 | Monitoring | https://testnet-telemetry.zkverify.io |
 | Documentation | https://docs.zkverify.io |
 | RPC Gateway | https://testnet-rpc.zkverify.io, wss://testnet-rpc.zkverify.io |
