@@ -20,7 +20,7 @@ It is recommended to use the latest tag in order to run the latest, most updated
 After checking out the new source code version, build it with:
 
 ```bash
-cargo build --profile production
+cargo build -p mainchain --profile production
 ```
 
 After the building process has finished, stop your currently running node by pressing `ctrl+c` in the associated terminal and restart it with `target/production/zkv-node` using the same command-line arguments you previously used to start your node.
