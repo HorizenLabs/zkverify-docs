@@ -29,6 +29,13 @@ This repository contains the implementation of a **zkVerify** node. It is based 
 
 ## Building the Binaries from Source Code
 
+:::warning
+Compilation of one of the dependencies requires you to fulfill the following [requirements](https://github.com/AztecProtocol/aztec-packages/tree/master/barretenberg#development).
+Please take extra care, especially if you are a Mac user, where we know issues come up quite frequently.
+Feel free to reach us out on Discord if you need help in troubleshooting.
+We are working towards removing this dependency in the upcoming future.
+:::
+
 To build the source code, open a terminal at `root` and type:
 
 ```bash
@@ -90,9 +97,9 @@ target/production/zkv-node --help
 
 The common command-line arguments you want to set regardless of the node type you pick are:
 
-| Name            | Description                                                                                                                                                                                                 | Value                                                                     |
-| -------------   | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| --name          | The human-readable name for this node.<br/> It's used as network node name.                                                                                                                                 | Whatever you want.                                                        |
-| --base-path     | Specify custom base path.                                                                                                                                                                                   | Absolute or relative path.                                                |
-| --chain         | Specify the chain specification.<br/> It can be one of the predefined ones (dev, local, or staging) or it can be a path to a file with the chainspec (such as one exported by the `build-spec` subcommand). | `test` for joining **zkVerify** testnet.                                  |
-| --port          | Specify p2p protocol TCP port                                                                                                                                                                               | Any number, but make sure the port is not already in use on your machine. |
+| Name        | Description                                                                                                                                                                                                 | Value                                                                     |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| --name      | The human-readable name for this node.<br/> It's used as network node name.                                                                                                                                 | Whatever you want.                                                        |
+| --base-path | Specify custom base path.                                                                                                                                                                                   | Absolute or relative path.                                                |
+| --chain     | Specify the chain specification.<br/> It can be one of the predefined ones (dev, local, or staging) or it can be a path to a file with the chainspec (such as one exported by the `build-spec` subcommand). | `test` for joining **zkVerify** testnet.                                  |
+| --port      | Specify p2p protocol TCP port                                                                                                                                                                               | Any number, but make sure the port is not already in use on your machine. |
