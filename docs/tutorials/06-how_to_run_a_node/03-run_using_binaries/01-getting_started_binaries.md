@@ -39,21 +39,6 @@ We are working towards removing this dependency in the upcoming future.
 To build the source code, open a terminal at `root` and type:
 
 ```bash
-cargo build --profile production
-```
-
-or:
-
-```bash
-cargo build
-```
-
-For a debug build.
-
-:::warning
-If you are compiling from the `main` branch, use instead:
-
-```bash
 cargo build -p mainchain --profile production
 ```
 
@@ -64,8 +49,6 @@ cargo build -p mainchain
 ```
 
 For a debug build.
-
-:::
 
 The build process downloads all the dependencies and can take several minutes on the first run.  When finished, you can find the build output in directory `target/production` (or `target/debug`).  The node executable is `zkv-node`.
 
